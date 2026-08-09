@@ -5,5 +5,9 @@ langchain-core==0.2.9
 langchain-groq
 llama-index==0.10.43
 llama-index-llms-groq
+llama-index-embeddings-huggingface
+llama-index-readers-file
+PyMuPDF
+reportlab
 pydantic==2.7.4
 python-dotenv==1.0.1

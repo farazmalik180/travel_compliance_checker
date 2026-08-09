@@ -15,9 +15,10 @@ st.markdown("Ensure your documents are complete before heading to the airport.")
 with st.sidebar:
     st.header("Traveler Profile")
     nationality = st.text_input("Nationality", value="Pakistani")
-    destination = st.text_input("Destination Country", value="UAE")
+    destination = st.text_input("Destination Country", value="Cambodia")
     visa_category = st.selectbox("Visa Category", ["WORK", "VISIT", "GOVERNMENT_SERVANT"])
     purpose = st.text_input("Purpose of Travel", value="Tourism")
+    passport_history = st.radio("Passport History", ["Experienced", "Fresh"], help="Fresh passports trigger an automated Enhanced Scrutiny workflow branch.")
     
 st.header("Document Upload")
 uploaded_files = st.file_uploader("Upload Passport, Visa, and Supporting Documents", accept_multiple_files=True, type=['pdf', 'png', 'jpg', 'jpeg'])
@@ -32,6 +33,7 @@ if st.button("Check Compliance", type="primary"):
             "destination": destination,
             "visa_category": visa_category,
             "purpose": purpose,
+            "passport_history": passport_history,
             "documents": doc_names
         }
         

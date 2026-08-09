@@ -3,9 +3,16 @@ from backend.agents.state import AgentState
 from backend.agents.nodes import (
     extract_document_info,
     retrieve_rules,
+    enhanced_scrutiny_check,
     verify_compliance,
     audit_feedback
 )
+
+def should_scrutinize(state: AgentState):
+    history = state.get("passport_history", "Experienced")
+    if history == "Fresh":
+        return "enhanced_scrutiny"
+    return "verify"
 
 def create_compliance_graph():
     # Initialize the state graph
@@ -14,13 +21,25 @@ def create_compliance_graph():
     # Add nodes
     workflow.add_node("extract", extract_document_info)
     workflow.add_node("retrieve", retrieve_rules)
+    workflow.add_node("enhanced_scrutiny", enhanced_scrutiny_check)
     workflow.add_node("verify", verify_compliance)
     workflow.add_node("audit", audit_feedback)
     
-    # Define edges (straight linear workflow)
+    # Define edges 
     workflow.set_entry_point("extract")
     workflow.add_edge("extract", "retrieve")
-    workflow.add_edge("retrieve", "verify")
+    
+    # Conditional edge
+    workflow.add_conditional_edges(
+        "retrieve",
+        should_scrutinize,
+        {
+            "enhanced_scrutiny": "enhanced_scrutiny",
+            "verify": "verify"
+        }
+    )
+    
+    workflow.add_edge("enhanced_scrutiny", "verify")
     workflow.add_edge("verify", "audit")
     workflow.add_edge("audit", END)
     

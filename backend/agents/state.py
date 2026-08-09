@@ -9,11 +9,13 @@ class AgentState(TypedDict):
     destination: str
     visa_category: str
     purpose: str
+    passport_history: str # e.g. "Fresh", "Experienced"
     documents: List[str] # could be paths or base64 text for prototype
     
     # Internal state passed between agents
     extracted_data: Optional[Dict[str, Any]]
     retrieved_rules: Optional[str]
+    enhanced_scrutiny_flags: Optional[List[str]]
     compliance_evaluation: Optional[Dict[str, Any]]
     
     # Final outputs

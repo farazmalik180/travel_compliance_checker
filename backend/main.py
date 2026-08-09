@@ -14,6 +14,7 @@ class CheckComplianceRequest(BaseModel):
     destination: str
     visa_category: str
     purpose: str
+    passport_history: str
     documents: List[str]
 
 class CheckComplianceResponse(BaseModel):
@@ -31,6 +32,7 @@ async def check_compliance(req: CheckComplianceRequest):
         "destination": req.destination,
         "visa_category": req.visa_category,
         "purpose": req.purpose,
+        "passport_history": req.passport_history,
         "documents": req.documents
     }
     
