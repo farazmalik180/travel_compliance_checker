@@ -15,7 +15,7 @@ class CheckComplianceRequest(BaseModel):
     visa_category: str
     purpose: str
     passport_history: str
-    documents: List[str]
+    documents: List[dict]
 
 class CheckComplianceResponse(BaseModel):
     status: str

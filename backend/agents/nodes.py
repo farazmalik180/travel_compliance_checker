@@ -1,5 +1,6 @@
 import json
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_groq import ChatGroq
 from backend.agents.state import AgentState
 from backend.core.config import settings
@@ -22,17 +23,63 @@ Return a structured JSON response containing:
 """
 
 def extract_document_info(state: AgentState) -> AgentState:
-    print("---EXTRACTING DOCUMENT INFO---")
-    extracted = {
-        "passport_validity": "> 6 months",
-        "visa_status": "Valid",
-        "passport_history": state.get("passport_history", "Experienced"),
-        "has_protector_stamp": True if state.get("visa_category") == "WORK" else False,
-        "has_return_ticket": True if state.get("visa_category") == "VISIT" else False,
-        "has_hotel_booking": True if state.get("visa_category") == "VISIT" else False,
-        "financial_proof": "Moderate", 
-        "watchlist_flag": "Clear"
-    }
+    print("---EXTRACTING DOCUMENT INFO (VISION OCR)---")
+    
+    documents = state.get("documents", [])
+    
+    # Fallback to mock if no documents are provided or no API key is present
+    if not documents or not settings.GROQ_API_KEY:
+        print("No documents provided or missing API key, using mock extraction.")
+        extracted = {
+            "passport_validity": "> 6 months",
+            "visa_status": "Valid",
+            "passport_history": state.get("passport_history", "Experienced"),
+            "has_protector_stamp": True if state.get("visa_category") == "WORK" else False,
+            "has_return_ticket": True if state.get("visa_category") == "VISIT" else False,
+            "has_hotel_booking": True if state.get("visa_category") == "VISIT" else False,
+            "financial_proof": "Moderate", 
+            "watchlist_flag": "Clear"
+        }
+        return {"extracted_data": extracted}
+
+    print("Running Groq Vision OCR...")
+    
+    # Initialize the Vision Model
+    llm = ChatGroq(model="llama-3.2-90b-vision-preview", temperature=0, model_kwargs={"response_format": {"type": "json_object"}})
+    
+    content_list = [
+        {"type": "text", "text": "You are an expert OCR parser for travel documents. Analyze the provided document images. Return a JSON object containing: 'passport_validity' (e.g. '> 6 months'), 'visa_status' (e.g. 'Valid'), 'has_protector_stamp' (boolean), 'has_return_ticket' (boolean), 'has_hotel_booking' (boolean), 'financial_proof' (string), 'watchlist_flag' (string). If a document is missing or unreadable, make your best guess based on a standard traveler or mark as 'Unknown/False'."}
+    ]
+    
+    # Append all images to the prompt
+    for doc in documents:
+        # Simplistic mapping, assumes image uploads. PDFs need PyMuPDF rasterization for vision models, 
+        # but for prototype we'll pass it and let Groq try or fail gracefully.
+        mime_type = doc.get("content_type", "image/jpeg")
+        base64_str = doc.get("content")
+        content_list.append({
+            "type": "image_url", 
+            "image_url": {"url": f"data:{mime_type};base64,{base64_str}"}
+        })
+        
+    try:
+        message = HumanMessage(content=content_list)
+        response = llm.invoke([message])
+        extracted = json.loads(response.content)
+        extracted["passport_history"] = state.get("passport_history", "Experienced") # Persist history
+    except Exception as e:
+        print(f"Vision OCR Error: {e}")
+        extracted = {
+            "passport_validity": "Unknown",
+            "visa_status": "Unknown",
+            "passport_history": state.get("passport_history", "Experienced"),
+            "has_protector_stamp": False,
+            "has_return_ticket": False,
+            "has_hotel_booking": False,
+            "financial_proof": "Unknown", 
+            "watchlist_flag": "Clear"
+        }
+
     return {"extracted_data": extracted}
 
 def retrieve_rules(state: AgentState) -> AgentState:

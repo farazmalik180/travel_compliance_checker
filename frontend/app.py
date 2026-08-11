@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 import json
+import base64
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -25,16 +26,27 @@ uploaded_files = st.file_uploader("Upload Passport, Visa, and Supporting Documen
 
 if st.button("Check Compliance", type="primary"):
     with st.spinner("Analyzing documents and profiling passenger..."):
-        # For the prototype, we simply pass dummy file names if any are uploaded.
-        doc_names = [f.name for f in uploaded_files] if uploaded_files else ["dummy_document.pdf"]
-        
+        docs_payload = []
+        if uploaded_files:
+            for f in uploaded_files:
+                file_bytes = f.read()
+                base64_str = base64.b64encode(file_bytes).decode('utf-8')
+                docs_payload.append({
+                    "filename": f.name,
+                    "content_type": f.type,
+                    "content": base64_str
+                })
+        else:
+            # Fallback for testing without uploads
+            docs_payload = []
+            
         payload = {
             "nationality": nationality,
             "destination": destination,
             "visa_category": visa_category,
             "purpose": purpose,
             "passport_history": passport_history,
-            "documents": doc_names
+            "documents": docs_payload
         }
         
         try:

@@ -10,7 +10,7 @@ class AgentState(TypedDict):
     visa_category: str
     purpose: str
     passport_history: str # e.g. "Fresh", "Experienced"
-    documents: List[str] # could be paths or base64 text for prototype
+    documents: List[dict] # payload containing base64 images
     
     # Internal state passed between agents
     extracted_data: Optional[Dict[str, Any]]
