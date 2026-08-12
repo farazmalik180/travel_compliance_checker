@@ -45,7 +45,7 @@ def extract_document_info(state: AgentState) -> AgentState:
     print("Running Groq Vision OCR...")
     
     # Initialize the Vision Model
-    llm = ChatGroq(model="llama-3.2-90b-vision-preview", temperature=0, model_kwargs={"response_format": {"type": "json_object"}})
+    llm = ChatGroq(model="llama-3.2-90b-vision-preview", api_key=settings.GROQ_API_KEY, temperature=0, model_kwargs={"response_format": {"type": "json_object"}})
     
     content_list = [
         {"type": "text", "text": "You are an expert OCR parser for travel documents. Analyze the provided document images. Return a JSON object containing: 'passport_validity' (e.g. '> 6 months'), 'visa_status' (e.g. 'Valid'), 'has_protector_stamp' (boolean), 'has_return_ticket' (boolean), 'has_hotel_booking' (boolean), 'financial_proof' (string), 'watchlist_flag' (string). If a document is missing or unreadable, make your best guess based on a standard traveler or mark as 'Unknown/False'."}
@@ -114,8 +114,7 @@ def verify_compliance(state: AgentState) -> AgentState:
             "missing_or_incomplete_requirements": ["Provide API key for full check"],
             "fia_rule_reference": "N/A"
         }}
-        
-    llm = ChatGroq(model="llama-3.1-70b-versatile", temperature=0, model_kwargs={"response_format": {"type": "json_object"}})
+    llm = ChatGroq(model="llama-3.3-70b-versatile", api_key=settings.GROQ_API_KEY, temperature=0, model_kwargs={"response_format": {"type": "json_object"}})
     
     prompt = ChatPromptTemplate.from_messages([
         ("system", FIA_COMPLIANCE_AGENT_SYSTEM_PROMPT),
