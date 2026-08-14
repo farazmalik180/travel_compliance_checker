@@ -12,6 +12,10 @@ class AgentState(TypedDict):
     passport_history: str # e.g. "Fresh", "Experienced"
     profession: str
     bank_funds: str
+    has_return_ticket: bool
+    has_hotel_booking: bool
+    has_financial_proof: bool
+    has_protector_stamp: bool
     documents: List[dict] # payload containing base64 images
     
     # Internal state passed between agents

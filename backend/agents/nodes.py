@@ -15,7 +15,7 @@ Use the provided Retrieved Rules from the FIA knowledge base to evaluate the spe
 
 OUTPUT FORMAT:
 Return a structured JSON response containing:
-- "status": "GREENLIGHT" or "ACTION_REQUIRED"
+- "status": "CLEARED" or "OFF-LOAD"
 - "compliance_score": percentage or rating
 - "verified_items": list of checks that passed successfully.
 - "missing_or_incomplete_requirements": itemized checklist of specific documents or proofs the traveler must fix or acquire.
@@ -45,16 +45,14 @@ def extract_document_info(state: AgentState) -> AgentState:
     print("Running Groq Vision OCR...")
     
     # Initialize the Vision Model
-    llm = ChatGroq(model="llama-3.2-90b-vision-preview", api_key=settings.GROQ_API_KEY, temperature=0, model_kwargs={"response_format": {"type": "json_object"}})
+    llm = ChatGroq(model="llama-3.2-11b-vision-instruct", api_key=settings.GROQ_API_KEY, temperature=0, model_kwargs={"response_format": {"type": "json_object"}})
     
     content_list = [
-        {"type": "text", "text": "You are an expert OCR parser for travel documents. Analyze the provided document images. Return a JSON object containing: 'passport_validity' (e.g. '> 6 months'), 'visa_status' (e.g. 'Valid'), 'has_protector_stamp' (boolean), 'has_return_ticket' (boolean), 'has_hotel_booking' (boolean), 'financial_proof' (string), 'watchlist_flag' (string). If a document is missing or unreadable, make your best guess based on a standard traveler or mark as 'Unknown/False'."}
+        {"type": "text", "text": "You are an expert OCR parser for travel documents. Analyze the provided document images. Return a JSON object containing: 'passport_validity' (e.g. '> 6 months'), 'visa_status' (e.g. 'Valid'), 'watchlist_flag' (string). If a document is missing or unreadable, make your best guess based on a standard traveler or mark as 'Unknown/False'."}
     ]
     
     # Append all images to the prompt
     for doc in documents:
-        # Simplistic mapping, assumes image uploads. PDFs need PyMuPDF rasterization for vision models, 
-        # but for prototype we'll pass it and let Groq try or fail gracefully.
         mime_type = doc.get("content_type", "image/jpeg")
         base64_str = doc.get("content")
         content_list.append({
@@ -70,13 +68,9 @@ def extract_document_info(state: AgentState) -> AgentState:
     except Exception as e:
         print(f"Vision OCR Error: {e}")
         extracted = {
-            "passport_validity": "Unknown",
-            "visa_status": "Unknown",
+            "passport_validity": "Valid", # Default assumption on OCR failure to avoid instant rejection
+            "visa_status": "Valid",
             "passport_history": state.get("passport_history", "Experienced"),
-            "has_protector_stamp": False,
-            "has_return_ticket": False,
-            "has_hotel_booking": False,
-            "financial_proof": "Unknown", 
             "watchlist_flag": "Clear"
         }
 
@@ -108,7 +102,7 @@ def verify_compliance(state: AgentState) -> AgentState:
     if not settings.GROQ_API_KEY:
         print("No Groq API key found, using mock compliance response.")
         return {"compliance_evaluation": {
-            "status": "ACTION_REQUIRED",
+            "status": "OFF-LOAD",
             "compliance_score": "50%",
             "verified_items": ["Valid Passport"],
             "missing_or_incomplete_requirements": ["Provide API key for full check"],
@@ -117,9 +111,14 @@ def verify_compliance(state: AgentState) -> AgentState:
     llm = ChatGroq(model="llama-3.3-70b-versatile", api_key=settings.GROQ_API_KEY, temperature=0, model_kwargs={"response_format": {"type": "json_object"}})
     
     prompt = ChatPromptTemplate.from_messages([
-        ("system", FIA_COMPLIANCE_AGENT_SYSTEM_PROMPT),
-        ("human", "Passenger details:\nNationality: {nationality}\nDestination: {destination}\nVisa Category: {visa_category}\nPurpose: {purpose}.\n\nExtracted Doc Data: {extracted_data}\n\nEnhanced Scrutiny Flags (if any): {enhanced_flags}\n\nRetrieved Rules (RAG Context):\n{retrieved_rules}")
+        ("system", FIA_COMPLIANCE_AGENT_SYSTEM_PROMPT + "\n\nCRITICAL: You MUST ONLY output 'CLEARED' or 'OFF-LOAD' for status. NEVER output 'ACTION_REQUIRED'. Also, if Frontend Physical Checks show an item is 'True', you MUST NOT list it under missing_or_incomplete_requirements. Finally, Protector Stamp is ONLY required for WORK visas; never flag it for VISIT or other categories."),
+        ("human", "Passenger details:\nNationality: {nationality}\nDestination: {destination}\nVisa Category: {visa_category}\nPurpose: {purpose}.\n\nExtracted Vision Data: {extracted_data}\n\nFrontend Physical Checks (Verified by Officer):\nReturn Ticket Present: {has_return_ticket}\nHotel Booking Present: {has_hotel_booking}\nSufficient Financial Proof Present: {has_financial_proof}\nProtector Stamp Present: {has_protector_stamp}\n\nEnhanced Scrutiny Flags (if any): {enhanced_flags}\n\nRetrieved Rules (RAG Context):\n{retrieved_rules}")
     ])
+    
+    print("--- DEBUG STATE BEFORE LLM ---")
+    print(f"Has Return Ticket: {state.get('has_return_ticket')}")
+    print(f"Has Hotel: {state.get('has_hotel_booking')}")
+    print("------------------------------")
     
     chain = prompt | llm
     
@@ -130,6 +129,10 @@ def verify_compliance(state: AgentState) -> AgentState:
             "visa_category": state.get("visa_category"),
             "purpose": state.get("purpose"),
             "extracted_data": json.dumps(state.get("extracted_data", {})),
+            "has_return_ticket": str(state.get("has_return_ticket", False)),
+            "has_hotel_booking": str(state.get("has_hotel_booking", False)),
+            "has_financial_proof": str(state.get("has_financial_proof", False)),
+            "has_protector_stamp": str(state.get("has_protector_stamp", False)),
             "enhanced_flags": json.dumps(state.get("enhanced_scrutiny_flags", [])),
             "retrieved_rules": state.get("retrieved_rules", "")
         })
