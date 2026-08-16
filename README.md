@@ -1,6 +1,6 @@
 # Travel Document Compliance Checker Prototype
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/farazmalik180/travel_compliance_checker/master/frontend/app.py)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://pimpak.streamlit.app/)
 
 An automated AI-driven prototype for evaluating passenger documents against FIA (Federal Investigation Agency) departure rules. 
 The system uses **FastAPI** for the backend, **LangGraph** for multi-agent workflow orchestration, and **Streamlit** for a minimal UI.
