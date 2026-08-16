@@ -120,13 +120,18 @@ with tab1:
                 st.session_state.profile["destination"] = dest
                 st.session_state.messages.append({"role": "user", "content": dest})
                 
-                # Blacklist check for Fresh Passports
+                # Blacklist check
                 blacklisted_destinations = ["cambodia", "uae", "myanmar", "laos", "thailand", "malaysia", "iraq"]
                 is_fresh = st.session_state.profile.get("passport_history") == "Fresh"
+                dest_lower = dest.lower().strip()
                 
-                if is_fresh and dest.lower().strip() in blacklisted_destinations:
-                    st.session_state.messages.append({"role": "assistant", "content": f"❌ **OFF-LOADING WARNING**: Fresh Passport holders are strictly restricted from traveling to high-risk destinations like {dest.title()} under current FIA directives. You cannot proceed."})
-                    st.session_state.step = "offload_warning"
+                if dest_lower in blacklisted_destinations:
+                    if is_fresh:
+                        st.session_state.messages.append({"role": "assistant", "content": f"❌ **OFF-LOADING WARNING**: Fresh Passport holders are strictly restricted from traveling to high-risk destinations like {dest.title()} under current FIA directives. You cannot proceed."})
+                        st.session_state.step = "offload_warning"
+                    else:
+                        st.session_state.messages.append({"role": "assistant", "content": f"⚠️ You are traveling to a high-risk destination ({dest.title()}). Please provide your current bank balance (PKR)."})
+                        st.session_state.step = "experienced_bank_check"
                 else:
                     st.session_state.messages.append({"role": "assistant", "content": "Please upload a scan of your Passport and Visa (Images or PDFs)."})
                     st.session_state.step = "upload"
@@ -134,6 +139,22 @@ with tab1:
                 st.rerun()
             else:
                 st.warning("Please enter a destination.")
+                
+    # Step 4.5: Experienced Bank Check
+    elif st.session_state.step == "experienced_bank_check":
+        balance = st.number_input("Current Bank Balance (PKR)", min_value=0, step=100000)
+        if st.button("Verify Balance"):
+            st.session_state.profile["bank_funds"] = f"{balance} PKR"
+            st.session_state.messages.append({"role": "user", "content": f"Bank Balance: {balance:,.0f} PKR"})
+            
+            if balance > 1000000:
+                st.session_state.messages.append({"role": "assistant", "content": "✅ Balance verified. Please upload a scan of your Passport and Visa (Images or PDFs)."})
+                st.session_state.step = "upload"
+            else:
+                st.session_state.messages.append({"role": "assistant", "content": "❌ **OFF-LOADING WARNING**: For high-risk destinations, a minimum bank balance of > 1,000,000 PKR is required. You cannot proceed."})
+                st.session_state.step = "offload_warning"
+                
+            st.rerun()
     
     # Step 5: Upload Document & Trigger Stream
     elif st.session_state.step == "upload":
@@ -152,7 +173,6 @@ with tab1:
                     })
             st.session_state.profile["documents"] = docs_payload
             st.session_state.profile["nationality"] = "Pakistani" # hardcoded default
-            st.session_state.profile["purpose"] = "Tourism" # hardcoded default
             st.session_state.step = "processing"
             st.rerun()
     
