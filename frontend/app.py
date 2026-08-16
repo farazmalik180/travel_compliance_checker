@@ -3,9 +3,38 @@ import streamlit as st
 import requests
 import json
 import base64
+import os
+import sys
+import subprocess
+import socket
+import time
 from dotenv import load_dotenv
 
 load_dotenv()
+
+def start_backend_if_needed():
+    try:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            if s.connect_ex(('127.0.0.1', 8000)) == 0:
+                return
+    except Exception:
+        pass
+        
+    try:
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        backend_dir = os.path.abspath(os.path.join(current_dir, "..", "backend"))
+        if os.path.exists(backend_dir):
+            subprocess.Popen(
+                [sys.executable, "-m", "uvicorn", "main:app", "--host", "127.0.0.1", "--port", "8000"],
+                cwd=backend_dir,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL
+            )
+            time.sleep(3)
+    except Exception as e:
+        st.sidebar.warning(f"Could not automatically start backend: {e}")
+
+start_backend_if_needed()
 
 BACKEND_URL_STREAM = "http://127.0.0.1:8000/api/check-compliance-stream"
 BACKEND_URL_CHAT = "http://127.0.0.1:8000/api/chat"

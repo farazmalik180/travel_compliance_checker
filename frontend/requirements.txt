@@ -1,3 +1,12 @@
 streamlit
 requests
 python-dotenv
+fastapi
+uvicorn[standard]
+langgraph
+langchain-core
+langchain-groq
+reportlab
+pydantic
+pydantic-settings
+
