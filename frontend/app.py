@@ -34,6 +34,14 @@ def start_backend_if_needed():
             else:
                 env["PYTHONPATH"] = repo_root
                 
+            # Copy Streamlit secrets into the subprocess environment to ensure they are available
+            try:
+                for key, val in st.secrets.items():
+                    if isinstance(val, str):
+                        env[key] = val
+            except Exception:
+                pass
+                
             with open(log_file, "a", encoding="utf-8") as log:
                 log.write(f"\n--- Backend Startup Attempt at {time.strftime('%Y-%m-%d %H:%M:%S')} ---\n")
                 subprocess.Popen(
