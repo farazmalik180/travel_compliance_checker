@@ -46,7 +46,7 @@ class CheckComplianceResponse(BaseModel):
 
 @app.get("/health")
 def health_check():
-    return {"status": "ok"}
+    return {"status": "ok", "version": "1.0.3"}
 
 @app.post("/api/chat")
 async def chat_stream(req: ChatRequest):

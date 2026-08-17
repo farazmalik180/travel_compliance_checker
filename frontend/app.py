@@ -12,13 +12,46 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def start_backend_if_needed():
+APP_VERSION = "1.0.3"
+
+def kill_backend_on_port(port=8000):
     try:
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-            if s.connect_ex(('127.0.0.1', 8000)) == 0:
-                return
+        if sys.platform == "win32":
+            out = subprocess.check_output(f"netstat -ano | findstr :{port}", shell=True).decode()
+            for line in out.strip().split("\n"):
+                parts = line.strip().split()
+                if len(parts) >= 5 and parts[1].endswith(f":{port}"):
+                    pid = parts[-1]
+                    subprocess.run(f"taskkill /F /PID {pid}", shell=True)
+        else:
+            subprocess.run(f"fuser -k {port}/tcp", shell=True)
     except Exception:
         pass
+
+def start_backend_if_needed():
+    need_start = False
+    try:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            port_open = s.connect_ex(('127.0.0.1', 8000)) == 0
+            
+        if port_open:
+            try:
+                res = requests.get("http://127.0.0.1:8000/health", timeout=2)
+                if res.status_code == 200 and res.json().get("version") == APP_VERSION:
+                    return # Up-to-date and running
+                else:
+                    kill_backend_on_port(8000)
+                    need_start = True
+            except Exception:
+                kill_backend_on_port(8000)
+                need_start = True
+        else:
+            need_start = True
+    except Exception:
+        need_start = True
+        
+    if not need_start:
+        return
         
     try:
         current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -83,6 +116,13 @@ with st.sidebar:
     if st.button("🔄 Start Over", use_container_width=True):
         for key in list(st.session_state.keys()):
             del st.session_state[key]
+        st.rerun()
+    if st.button("🔌 Restart Backend Server", use_container_width=True):
+        kill_backend_on_port(8000)
+        # Give it a moment to release port
+        time.sleep(1)
+        start_backend_if_needed()
+        st.toast("Backend server restarted!", icon="🔌")
         st.rerun()
 
 tab1, tab2 = st.tabs(["📋 Compliance Wizard", "💬 Direct AI Chat"])
