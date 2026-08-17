@@ -22,14 +22,24 @@ def start_backend_if_needed():
         
     try:
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        backend_dir = os.path.abspath(os.path.join(current_dir, "..", "backend"))
+        repo_root = os.path.abspath(os.path.join(current_dir, ".."))
+        backend_dir = os.path.join(repo_root, "backend")
         if os.path.exists(backend_dir):
             log_file = os.path.join(current_dir, "backend_server.log")
+            
+            env = os.environ.copy()
+            # Add repo_root to PYTHONPATH so python can resolve 'backend' imports
+            if "PYTHONPATH" in env:
+                env["PYTHONPATH"] = f"{repo_root}{os.pathsep}{env['PYTHONPATH']}"
+            else:
+                env["PYTHONPATH"] = repo_root
+                
             with open(log_file, "a", encoding="utf-8") as log:
                 log.write(f"\n--- Backend Startup Attempt at {time.strftime('%Y-%m-%d %H:%M:%S')} ---\n")
                 subprocess.Popen(
-                    [sys.executable, "-m", "uvicorn", "main:app", "--host", "127.0.0.1", "--port", "8000"],
-                    cwd=backend_dir,
+                    [sys.executable, "-m", "uvicorn", "backend.main:app", "--host", "127.0.0.1", "--port", "8000"],
+                    cwd=repo_root,
+                    env=env,
                     stdout=log,
                     stderr=log
                 )
