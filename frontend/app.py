@@ -105,12 +105,23 @@ with tab1:
     # Step 3: Mandatory Pre-flight Checks
     elif st.session_state.step == "mandatory_checks":
         st.write("**Mandatory Prerequisites for Departure**")
-        t1 = st.checkbox("Do you have a confirmed return ticket with the same PNR?")
         
+        is_student = st.session_state.profile.get("purpose") == "Student"
         is_fresh = st.session_state.profile.get("passport_history") == "Fresh"
+        
+        # Student visa holders do not require a return ticket
+        if is_student:
+            t1 = True
+        else:
+            t1 = st.checkbox("Do you have a confirmed return ticket with the same PNR?")
+            
         t2, t3 = True, True
         if is_fresh:
-            t2 = st.checkbox("Do you have a confirmed hotel booking for your entire staying period?")
+            # Student visa holders do not require a hotel booking
+            if is_student:
+                t2 = True
+            else:
+                t2 = st.checkbox("Do you have a confirmed hotel booking for your entire staying period?")
             t3 = st.checkbox("Do you have at least 1000 USD 'show money' (or equivalent)?")
         
         # Dynamically add Protector Stamp check if Work
@@ -119,11 +130,17 @@ with tab1:
             t4 = st.checkbox("Do you have a Protector Stamp on your passport?")
         
         if st.button("Submit Checks"):
-            summary = f"Return Ticket: {'Yes' if t1 else 'No'}"
+            summary_parts = []
+            if not is_student:
+                summary_parts.append(f"Return Ticket: {'Yes' if t1 else 'No'}")
             if is_fresh:
-                summary += f"\nHotel: {'Yes' if t2 else 'No'}\nShow Money: {'Yes' if t3 else 'No'}"
+                if not is_student:
+                    summary_parts.append(f"Hotel: {'Yes' if t2 else 'No'}")
+                summary_parts.append(f"Show Money: {'Yes' if t3 else 'No'}")
             if st.session_state.profile.get("purpose") == "Work":
-                summary += f"\nProtector Stamp: {'Yes' if t4 else 'No'}"
+                summary_parts.append(f"Protector Stamp: {'Yes' if t4 else 'No'}")
+            
+            summary = "\n".join(summary_parts) if summary_parts else "No additional checks needed."
                 
             st.session_state.messages.append({"role": "user", "content": summary})
             
