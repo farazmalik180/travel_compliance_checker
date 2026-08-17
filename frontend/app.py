@@ -24,12 +24,15 @@ def start_backend_if_needed():
         current_dir = os.path.dirname(os.path.abspath(__file__))
         backend_dir = os.path.abspath(os.path.join(current_dir, "..", "backend"))
         if os.path.exists(backend_dir):
-            subprocess.Popen(
-                [sys.executable, "-m", "uvicorn", "main:app", "--host", "127.0.0.1", "--port", "8000"],
-                cwd=backend_dir,
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL
-            )
+            log_file = os.path.join(current_dir, "backend_server.log")
+            with open(log_file, "a", encoding="utf-8") as log:
+                log.write(f"\n--- Backend Startup Attempt at {time.strftime('%Y-%m-%d %H:%M:%S')} ---\n")
+                subprocess.Popen(
+                    [sys.executable, "-m", "uvicorn", "main:app", "--host", "127.0.0.1", "--port", "8000"],
+                    cwd=backend_dir,
+                    stdout=log,
+                    stderr=log
+                )
             time.sleep(3)
     except Exception as e:
         st.sidebar.warning(f"Could not automatically start backend: {e}")
@@ -274,6 +277,15 @@ with tab1:
                                 
             except Exception as e:
                 status_container.error(f"Connection failed: {e}")
+                try:
+                    current_dir = os.path.dirname(os.path.abspath(__file__))
+                    log_file = os.path.join(current_dir, "backend_server.log")
+                    if os.path.exists(log_file):
+                        with open(log_file, "r", encoding="utf-8") as f:
+                            logs = f.readlines()
+                            st.error(f"**Backend Server Logs (Last 15 lines):**\n```\n{''.join(logs[-15:])}\n```")
+                except Exception:
+                    pass
     
     elif st.session_state.step in ["done", "offload_warning"]:
         if st.button("Start Over"):
