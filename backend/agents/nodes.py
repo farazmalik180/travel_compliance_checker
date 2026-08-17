@@ -112,7 +112,7 @@ def verify_compliance(state: AgentState) -> AgentState:
             "missing_or_incomplete_requirements": [],
             "fia_rule_reference": "Verified under simulated agent flow (Mock Mode: configure GROQ_API_KEY for live AI agent verification)"
         }}
-    llm = ChatGroq(model="llama-3.3-70b-versatile", api_key=settings.GROQ_API_KEY, temperature=0, model_kwargs={"response_format": {"type": "json_object"}})
+    llm = ChatGroq(model=settings.GROQ_MODEL, api_key=settings.GROQ_API_KEY, temperature=0, model_kwargs={"response_format": {"type": "json_object"}})
     
     prompt = ChatPromptTemplate.from_messages([
         ("system", FIA_COMPLIANCE_AGENT_SYSTEM_PROMPT + "\n\nCRITICAL: You MUST ONLY output 'CLEARED' or 'OFF-LOAD' for status. NEVER output 'ACTION_REQUIRED'. Also, if Frontend Physical Checks show an item is 'True', you MUST NOT list it under missing_or_incomplete_requirements. Finally, Protector Stamp is ONLY required for WORK visas; never flag it for VISIT or other categories."),

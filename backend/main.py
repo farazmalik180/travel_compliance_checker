@@ -46,7 +46,7 @@ class CheckComplianceResponse(BaseModel):
 
 @app.get("/health")
 def health_check():
-    return {"status": "ok", "version": "1.0.3"}
+    return {"status": "ok", "version": "1.0.4"}
 
 @app.post("/api/chat")
 async def chat_stream(req: ChatRequest):
@@ -55,7 +55,7 @@ async def chat_stream(req: ChatRequest):
             yield "data: {\"error\": \"Missing Groq API Key\"}\n\n"
             return
             
-        llm = ChatGroq(model="llama-3.3-70b-versatile", api_key=settings.GROQ_API_KEY, temperature=0.5, streaming=True)
+        llm = ChatGroq(model=settings.GROQ_MODEL, api_key=settings.GROQ_API_KEY, temperature=0.5, streaming=True)
         
         # Build history
         history = []

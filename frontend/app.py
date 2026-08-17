@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-APP_VERSION = "1.0.3"
+APP_VERSION = "1.0.4"
 
 def kill_backend_on_port(port=8000):
     try:

@@ -22,7 +22,7 @@ def setup_rag():
     print("Setting up RAG and Vector DB...")
     try:
         # Initialize the LLM and Embedding models
-        llm = Groq(model="llama-3.3-70b-versatile", api_key=settings.GROQ_API_KEY)
+        llm = Groq(model=settings.GROQ_MODEL, api_key=settings.GROQ_API_KEY)
         embed_model = HuggingFaceEmbedding(model_name="all-MiniLM-L6-v2")
         
         Settings.llm = llm
