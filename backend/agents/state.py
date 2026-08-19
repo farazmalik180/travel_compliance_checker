@@ -23,6 +23,8 @@ class AgentState(TypedDict):
     retrieved_rules: Optional[str]
     enhanced_scrutiny_flags: Optional[List[str]]
     compliance_evaluation: Optional[Dict[str, Any]]
+    advocate_notes: Optional[str]
+    debate_consensus: Optional[bool]
     
     # Final outputs
     status: Optional[str]
