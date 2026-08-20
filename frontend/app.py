@@ -306,6 +306,8 @@ with tab1:
                                     status_container.write("🔎 **Scrutiny Agent** is triggering enhanced checks for Fresh passports...")
                                 elif node == "verify":
                                     status_container.write("🛡️ **Verification Agent** is validating rules...")
+                                elif node == "advocate_critic":
+                                    status_container.write("⚖️ **Advocate/Critic Agent** is searching for mitigating factors...")
                                 elif node == "audit":
                                     status_container.write("✅ **Auditor Agent** is synthesizing the final report...")
                             

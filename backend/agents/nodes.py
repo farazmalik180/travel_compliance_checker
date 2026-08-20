@@ -153,14 +153,56 @@ def verify_compliance(state: AgentState) -> AgentState:
         
     return {"compliance_evaluation": evaluation}
 
+def advocate_critic_node(state: AgentState) -> AgentState:
+    print("---ADVOCATE/CRITIC AGENT (THESIS LOOP)---")
+    eval_data = state.get("compliance_evaluation", {})
+    
+    # Only advocate if there's a risk flag or off-load decision
+    if eval_data.get("status") == "CLEARED":
+        return {"advocate_notes": "No advocacy needed; traveler already cleared.", "debate_consensus": True}
+        
+    llm = ChatGroq(model="llama-3.3-70b-versatile", api_key=settings.GROQ_API_KEY, temperature=0.7, model_kwargs={"response_format": {"type": "json_object"}})
+    
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", "You are the Traveler Advocate and Critic Agent. Your role is to actively search for mitigating socio-economic factors, local business roots, employment stability, or previous travel compliance that counteracts any strict risk flags raised by the automated model.\n\nOUTPUT FORMAT: JSON with:\n- \"mitigating_factors\": detailed string of your argument.\n- \"strong_case\": boolean (true if the socio-economic ties are strong enough to warrant an override of the off-load decision)."),
+        ("human", "Passenger Profile:\nHistory: {history}\nProfession: {profession}\nBank Funds: {funds}\nReturn Ticket: {return_ticket}\n\nStrict Model Assessment:\nStatus: {status}\nMissing Items: {missing}\n\nGenerate your advocacy report.")
+    ])
+    
+    chain = prompt | llm
+    try:
+        response = chain.invoke({
+            "history": state.get("passport_history"),
+            "profession": state.get("profession"),
+            "funds": state.get("bank_funds"),
+            "return_ticket": state.get("has_return_ticket"),
+            "status": eval_data.get("status"),
+            "missing": json.dumps(eval_data.get("missing_or_incomplete_requirements", []))
+        })
+        result = json.loads(response.content)
+        
+        # If the advocate makes a strong case, they override the strict model
+        consensus = result.get("strong_case", False)
+        notes = result.get("mitigating_factors", "No strong mitigating factors found.")
+        
+        # Override the compliance evaluation if the advocate wins the debate
+        if consensus:
+            eval_data["status"] = "CLEARED"
+            eval_data["missing_or_incomplete_requirements"].append("(OVERRIDDEN BY ADVOCATE) " + notes)
+            
+        return {"advocate_notes": notes, "debate_consensus": consensus, "compliance_evaluation": eval_data}
+    except Exception as e:
+        print(f"Advocate LLM Error: {e}")
+        return {"advocate_notes": "Advocate failed to evaluate.", "debate_consensus": False}
+
 def audit_feedback(state: AgentState) -> AgentState:
     print("---AUDIT FEEDBACK---")
     eval_data = state.get("compliance_evaluation", {})
+    advocate_notes = state.get("advocate_notes", "")
     
     return {
         "status": eval_data.get("status", "UNKNOWN"),
         "compliance_score": eval_data.get("compliance_score", "N/A"),
         "verified_items": eval_data.get("verified_items", []),
         "missing_or_incomplete_requirements": eval_data.get("missing_or_incomplete_requirements", []),
-        "fia_rule_reference": eval_data.get("fia_rule_reference", "No reference available.")
+        "fia_rule_reference": eval_data.get("fia_rule_reference", "No reference available.") + f"\n\nAdvocate Notes: {advocate_notes}"
     }

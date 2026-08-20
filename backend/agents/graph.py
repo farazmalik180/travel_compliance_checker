@@ -5,6 +5,7 @@ from backend.agents.nodes import (
     retrieve_rules,
     enhanced_scrutiny_check,
     verify_compliance,
+    advocate_critic_node,
     audit_feedback
 )
 
@@ -23,6 +24,7 @@ def create_compliance_graph():
     workflow.add_node("retrieve", retrieve_rules)
     workflow.add_node("enhanced_scrutiny", enhanced_scrutiny_check)
     workflow.add_node("verify", verify_compliance)
+    workflow.add_node("advocate_critic", advocate_critic_node)
     workflow.add_node("audit", audit_feedback)
     
     # Define edges 
@@ -40,7 +42,8 @@ def create_compliance_graph():
     )
     
     workflow.add_edge("enhanced_scrutiny", "verify")
-    workflow.add_edge("verify", "audit")
+    workflow.add_edge("verify", "advocate_critic")
+    workflow.add_edge("advocate_critic", "audit")
     workflow.add_edge("audit", END)
     
     # Compile the graph
