@@ -1,6 +1,5 @@
 streamlit
 requests
-python-dotenv
 fastapi
 uvicorn[standard]
 langgraph
@@ -9,4 +8,4 @@ langchain-groq
 reportlab
 pydantic
 pydantic-settings
-
+python-dotenv

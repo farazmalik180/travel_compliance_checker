@@ -1,6 +1,11 @@
 # PIM - Pakistan Immigration Manager Frontend
 import streamlit as st
-import requests
+from backend.agents.graph import create_compliance_graph
+from backend.services.rag_service import query_knowledge_base
+from langchain_groq import ChatGroq
+from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
+from backend.core.config import settings
+
 import json
 import base64
 import os
@@ -14,84 +19,6 @@ load_dotenv()
 
 APP_VERSION = "1.0.4"
 
-def kill_backend_on_port(port=8000):
-    try:
-        if sys.platform == "win32":
-            out = subprocess.check_output(f"netstat -ano | findstr :{port}", shell=True).decode()
-            for line in out.strip().split("\n"):
-                parts = line.strip().split()
-                if len(parts) >= 5 and parts[1].endswith(f":{port}"):
-                    pid = parts[-1]
-                    subprocess.run(f"taskkill /F /PID {pid}", shell=True)
-        else:
-            subprocess.run(f"fuser -k {port}/tcp", shell=True)
-    except Exception:
-        pass
-
-def start_backend_if_needed():
-    need_start = False
-    try:
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-            port_open = s.connect_ex(('127.0.0.1', 8000)) == 0
-            
-        if port_open:
-            try:
-                res = requests.get("http://127.0.0.1:8000/health", timeout=2)
-                if res.status_code == 200 and res.json().get("version") == APP_VERSION:
-                    return # Up-to-date and running
-                else:
-                    kill_backend_on_port(8000)
-                    need_start = True
-            except Exception:
-                kill_backend_on_port(8000)
-                need_start = True
-        else:
-            need_start = True
-    except Exception:
-        need_start = True
-        
-    if not need_start:
-        return
-        
-    try:
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        repo_root = os.path.abspath(os.path.join(current_dir, ".."))
-        backend_dir = os.path.join(repo_root, "backend")
-        if os.path.exists(backend_dir):
-            log_file = os.path.join(current_dir, "backend_server.log")
-            
-            env = os.environ.copy()
-            # Add repo_root to PYTHONPATH so python can resolve 'backend' imports
-            if "PYTHONPATH" in env:
-                env["PYTHONPATH"] = f"{repo_root}{os.pathsep}{env['PYTHONPATH']}"
-            else:
-                env["PYTHONPATH"] = repo_root
-                
-            # Copy Streamlit secrets into the subprocess environment to ensure they are available
-            try:
-                for key, val in st.secrets.items():
-                    if isinstance(val, str):
-                        env[key] = val
-            except Exception:
-                pass
-                
-            with open(log_file, "a", encoding="utf-8") as log:
-                log.write(f"\n--- Backend Startup Attempt at {time.strftime('%Y-%m-%d %H:%M:%S')} ---\n")
-                subprocess.Popen(
-                    [sys.executable, "-m", "uvicorn", "backend.main:app", "--host", "127.0.0.1", "--port", "8000"],
-                    cwd=repo_root,
-                    env=env,
-                    stdout=log,
-                    stderr=log
-                )
-            time.sleep(3)
-    except Exception as e:
-        st.sidebar.warning(f"Could not automatically start backend: {e}")
-
-start_backend_if_needed()
-
-BACKEND_URL_STREAM = "http://127.0.0.1:8000/api/check-compliance-stream"
-BACKEND_URL_CHAT = "http://127.0.0.1:8000/api/chat"
 
 st.set_page_config(page_title="PIM (Pakistan Immigration Manager)", page_icon="🛂", layout="centered")
 
@@ -116,13 +43,6 @@ with st.sidebar:
     if st.button("🔄 Start Over", use_container_width=True):
         for key in list(st.session_state.keys()):
             del st.session_state[key]
-        st.rerun()
-    if st.button("🔌 Restart Backend Server", use_container_width=True):
-        kill_backend_on_port(8000)
-        # Give it a moment to release port
-        time.sleep(1)
-        start_backend_if_needed()
-        st.toast("Backend server restarted!", icon="🔌")
         st.rerun()
 
 tab1, tab2 = st.tabs(["📋 Compliance Wizard", "💬 Direct AI Chat"])
@@ -288,64 +208,48 @@ with tab1:
             status_container = st.status("Initializing Agents...", expanded=True)
             
             try:
-                response = requests.post(BACKEND_URL_STREAM, json=st.session_state.profile, stream=True)
-                
-                for line in response.iter_lines():
-                    if line:
-                        decoded_line = line.decode('utf-8')
-                        if decoded_line.startswith("data: "):
-                            data = json.loads(decoded_line.removeprefix("data: "))
+                compliance_graph = create_compliance_graph()
+                for output in compliance_graph.stream(st.session_state.profile):
+                    for node_name, node_state in output.items():
+                        data = {"node": node_name}
+                        
+                        if node_name == "extract":
+                            status_container.write("⚙️ **Vision Agent** is extracting OCR from your documents...")
+                        elif node_name == "retrieve":
+                            status_container.write("📚 **RAG Agent** is querying FIA rule databases...")
+                        elif node_name == "enhanced_scrutiny":
+                            status_container.write("🔎 **Scrutiny Agent** is triggering enhanced checks for Fresh passports...")
+                        elif node_name == "verify":
+                            status_container.write("🛡️ **Verification Agent** is validating rules...")
+                        elif node_name == "advocate_critic":
+                            status_container.write("⚖️ **Advocate/Critic Agent** is searching for mitigating factors...")
+                        elif node_name == "audit":
+                            status_container.write("✅ **Auditor Agent** is synthesizing the final report...")
+                            data["final"] = node_state
+                        
+                        if "final" in data:
+                            final_result = data["final"]
+                            status_container.update(label="Workflow Complete!", state="complete", expanded=False)
                             
-                            if "node" in data:
-                                node = data["node"]
-                                if node == "extract":
-                                    status_container.write("⚙️ **Vision Agent** is extracting OCR from your documents...")
-                                elif node == "retrieve":
-                                    status_container.write("📚 **RAG Agent** is querying FIA rule databases...")
-                                elif node == "enhanced_scrutiny":
-                                    status_container.write("🔎 **Scrutiny Agent** is triggering enhanced checks for Fresh passports...")
-                                elif node == "verify":
-                                    status_container.write("🛡️ **Verification Agent** is validating rules...")
-                                elif node == "advocate_critic":
-                                    status_container.write("⚖️ **Advocate/Critic Agent** is searching for mitigating factors...")
-                                elif node == "audit":
-                                    status_container.write("✅ **Auditor Agent** is synthesizing the final report...")
+                            status = final_result.get("status")
+                            score = final_result.get("compliance_score")
                             
-                            elif "final" in data:
-                                final_result = data["final"]
-                                status_container.update(label="Workflow Complete!", state="complete", expanded=False)
+                            output_md = f"### Final Decision: {status}\n**Compliance Score:** {score}\n\n"
+                            output_md += "**Verified:**\n"
+                            for i in final_result.get("verified_items", []):
+                                output_md += f"- ✅ {i}\n"
+                            output_md += "\n**Missing / Incomplete:**\n"
+                            for i in final_result.get("missing_or_incomplete_requirements", []):
+                                output_md += f"- ❌ {i}\n"
                                 
-                                status = final_result.get("status")
-                                score = final_result.get("compliance_score")
-                                
-                                output_md = f"### Final Decision: {status}\n**Compliance Score:** {score}\n\n"
-                                output_md += "**Verified:**\n"
-                                for i in final_result.get("verified_items", []):
-                                    output_md += f"- ✅ {i}\n"
-                                output_md += "\n**Missing / Incomplete:**\n"
-                                for i in final_result.get("missing_or_incomplete_requirements", []):
-                                    output_md += f"- ❌ {i}\n"
-                                    
-                                output_md += f"\n*FIA Reference:* {final_result.get('fia_rule_reference')}"
-                                
-                                st.markdown(output_md)
-                                st.session_state.messages.append({"role": "assistant", "content": output_md})
-                                st.session_state.step = "done"
-                                
-                            elif "error" in data:
-                                status_container.error(data["error"])
-                                
+                            output_md += f"\n*FIA Reference:* {final_result.get('fia_rule_reference')}"
+                            
+                            st.markdown(output_md)
+                            st.session_state.messages.append({"role": "assistant", "content": output_md})
+                            st.session_state.step = "done"
             except Exception as e:
-                status_container.error(f"Connection failed: {e}")
-                try:
-                    current_dir = os.path.dirname(os.path.abspath(__file__))
-                    log_file = os.path.join(current_dir, "backend_server.log")
-                    if os.path.exists(log_file):
-                        with open(log_file, "r", encoding="utf-8") as f:
-                            logs = f.readlines()
-                            st.error(f"**Backend Server Logs (Last 15 lines):**\n```\n{''.join(logs[-15:])}\n```")
-                except Exception:
-                    pass
+                status_container.error(f"Execution failed: {e}")
+
     
     elif st.session_state.step in ["done", "offload_warning"]:
         if st.button("Start Over"):
@@ -367,19 +271,26 @@ with tab2:
             message_placeholder = st.empty()
             full_response = ""
             try:
-                payload = {"messages": st.session_state.ai_messages}
-                response = requests.post(BACKEND_URL_CHAT, json=payload, stream=True)
-                for line in response.iter_lines():
-                    if line:
-                        decoded_line = line.decode('utf-8')
-                        if decoded_line.startswith("data: "):
-                            data_str = decoded_line.removeprefix("data: ")
-                            data = json.loads(data_str)
-                            if "content" in data:
-                                full_response += data["content"]
-                                message_placeholder.markdown(full_response + "▌")
-                            elif "error" in data:
-                                st.error(data["error"])
+                llm = ChatGroq(model=settings.GROQ_MODEL, api_key=settings.GROQ_API_KEY, temperature=0.5, streaming=True)
+                
+                history = []
+                user_latest = ""
+                for msg in st.session_state.ai_messages:
+                    if msg["role"] == "user":
+                        history.append(HumanMessage(content=msg["content"]))
+                        user_latest = msg["content"]
+                    elif msg["role"] == "assistant":
+                        history.append(AIMessage(content=msg["content"]))
+                        
+                rag_context = query_knowledge_base(user_latest)
+                sys_msg = SystemMessage(content=f"You are a helpful travel and immigration AI assistant for Pakistan's FIA. Use the following context from the FIA rulebook to answer questions if relevant. If it's a general travel question, you can answer it naturally.\n\nFIA RAG Context:\n{rag_context}")
+                
+                messages = [sys_msg] + history
+                
+                for chunk in llm.stream(messages):
+                    full_response += chunk.content
+                    message_placeholder.markdown(full_response + "▌")
+                    
                 message_placeholder.markdown(full_response)
                 st.session_state.ai_messages.append({"role": "assistant", "content": full_response})
             except Exception as e:

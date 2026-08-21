@@ -161,7 +161,7 @@ def advocate_critic_node(state: AgentState) -> AgentState:
     if eval_data.get("status") == "CLEARED":
         return {"advocate_notes": "No advocacy needed; traveler already cleared.", "debate_consensus": True}
         
-    llm = ChatGroq(model="llama-3.3-70b-versatile", api_key=settings.GROQ_API_KEY, temperature=0.7, model_kwargs={"response_format": {"type": "json_object"}})
+    llm = ChatGroq(model=settings.GROQ_MODEL, api_key=settings.GROQ_API_KEY, temperature=0.7, model_kwargs={"response_format": {"type": "json_object"}})
     
     prompt = ChatPromptTemplate.from_messages([
         ("system", "You are the Traveler Advocate and Critic Agent. Your role is to actively search for mitigating socio-economic factors, local business roots, employment stability, or previous travel compliance that counteracts any strict risk flags raised by the automated model.\n\nOUTPUT FORMAT: JSON with:\n- \"mitigating_factors\": detailed string of your argument.\n- \"strong_case\": boolean (true if the socio-economic ties are strong enough to warrant an override of the off-load decision)."),
