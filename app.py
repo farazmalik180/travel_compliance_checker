@@ -22,7 +22,11 @@ APP_VERSION = "1.0.4"
 
 st.set_page_config(page_title="PIM (Pakistan Immigration Manager)", page_icon="🛂", layout="centered")
 
-st.title("🛂 PIM - Pakistan Immigration Manager")
+col1, col2 = st.columns([1, 6])
+with col1:
+    st.image("assets/pim_logo.jpg", width=80)
+with col2:
+    st.title("PIM - Pakistan Immigration Manager")
 
 if "messages" not in st.session_state:
     st.session_state.messages = [
