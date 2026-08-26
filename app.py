@@ -2,6 +2,7 @@
 import streamlit as st
 from backend.agents.graph import create_compliance_graph
 from backend.services.rag_service import query_knowledge_base
+from backend.services.pdf_report_service import generate_compliance_report
 from langchain_groq import ChatGroq
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 from backend.core.config import settings
@@ -250,13 +251,31 @@ with tab1:
                             
                             st.markdown(output_md)
                             st.session_state.messages.append({"role": "assistant", "content": output_md})
+                            
+                            try:
+                                pdf_bytes = generate_compliance_report(st.session_state.profile, final_result)
+                                st.session_state.pdf_report = pdf_bytes
+                            except Exception as e:
+                                st.error(f"Failed to generate PDF report: {e}")
+                                
                             st.session_state.step = "done"
             except Exception as e:
                 status_container.error(f"Execution failed: {e}")
 
     
     elif st.session_state.step in ["done", "offload_warning"]:
-        if st.button("Start Over"):
+        if "pdf_report" in st.session_state:
+            st.download_button(
+                label="📥 Download Compliance Report (PDF)",
+                data=st.session_state.pdf_report,
+                file_name="PIM_Compliance_Report.pdf",
+                mime="application/pdf",
+                type="primary",
+                use_container_width=True
+            )
+            st.markdown("<br>", unsafe_allow_html=True)
+            
+        if st.button("Start Over", use_container_width=True):
             for key in list(st.session_state.keys()):
                 del st.session_state[key]
             st.rerun()
