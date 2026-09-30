@@ -78,3 +78,6 @@ The Streamlit interface will open in your default browser at `http://localhost:8
 4. **Audit Feedback Agent**: Parses the results and delivers a definitive GREENLIGHT or ACTION_REQUIRED response with specific itemized checklists.
 5. **PDF Report Generator**: Generates and downloads an itemized passenger compliance report.
 
+---
+*Note: This project is a prototype designed for demonstration purposes.*
+
