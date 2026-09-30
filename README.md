@@ -12,7 +12,7 @@ The system uses **FastAPI** for the backend, **LangGraph** for multi-agent workf
 ## Project Structure
 
 - `backend/`: FastAPI application containing the LangGraph state machine.
-- `frontend/`: Streamlit web application.
+- `frontend/`: Streamlit web application. 
 
 ## Prerequisites
 
