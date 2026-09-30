@@ -2,7 +2,7 @@
   <img src="assets/pim_logo.jpg" width="150" alt="PIM Logo">
 </p>
 
-# Travel Document Compliance Checker Prototype
+#  Travel Document Compliance Checker Prototype
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://pimpak.streamlit.app/)
 
