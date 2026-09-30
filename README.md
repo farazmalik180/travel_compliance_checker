@@ -17,7 +17,7 @@ The system uses **FastAPI** for the backend, **LangGraph** for multi-agent workf
 ## Prerequisites
 
 - Python 3.9+
-- An Groq API Key (if you want the LLM agent to evaluate compliance dynamically)
+- A Groq API Key (if you want the LLM agent to evaluate compliance dynamically)
 
 ## Setup & Run Instructions
 
@@ -76,3 +76,5 @@ The Streamlit interface will open in your default browser at `http://localhost:8
 2. **Rule Retrieval Agent (RAG)**: (Mocked) Simulates fetching relevant local rules using LlamaIndex.
 3. **Compliance Verification Agent**: Uses OpenAI (via Langchain) configured with the strict FIA compliance system prompt to score the extracted features.
 4. **Audit Feedback Agent**: Parses the results and delivers a definitive GREENLIGHT or ACTION_REQUIRED response with specific itemized checklists.
+5. **PDF Report Generator**: Generates and downloads an itemized passenger compliance report.
+
