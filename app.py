@@ -21,7 +21,9 @@ load_dotenv()
 APP_VERSION = "1.0.4"
 
 
-st.set_page_config(page_title="PIM (Pakistan Immigration Manager)", page_icon="🛂", layout="centered")
+from PIL import Image
+pim_icon = Image.open("assets/pim_logo.jpg")
+st.set_page_config(page_title="PIM (Pakistan Immigration Manager)", page_icon=pim_icon, layout="centered")
 
 col1, col2 = st.columns([1, 6])
 with col1:
