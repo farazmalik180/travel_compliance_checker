@@ -1,3 +1,8 @@
+"""PDF Compliance Report generation service for Pakistan Immigration Manager (PIM).
+
+Generates formatted PDF summaries of passenger profile verification,
+compliance status, scored checks, and applicable FIA departure rules.
+"""
 import io
 import os
 from reportlab.lib.pagesizes import letter
@@ -6,6 +11,15 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.colors import green, red, black
 
 def generate_compliance_report(profile: dict, final_result: dict) -> bytes:
+    """Generate an itemized PDF compliance report for a passenger.
+
+    Args:
+        profile: Dictionary containing passenger travel details and background.
+        final_result: Compliance evaluation dictionary with status, scores, and checklist.
+
+    Returns:
+        Raw PDF document bytes.
+    """
     buffer = io.BytesIO()
     doc = SimpleDocTemplate(buffer, pagesize=letter)
     styles = getSampleStyleSheet()
