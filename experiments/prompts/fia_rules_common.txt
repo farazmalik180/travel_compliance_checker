@@ -23,3 +23,7 @@ ILLUSTRATIVE DEPARTURE COMPLIANCE RULES (author-written; not an official FIA doc
 5. WATCHLIST & IBMS ALERTS:
 - Any traveler flagged with a Verified Watchlist Alert must be immediately offloaded for administrative investigation.
 - Potential name matches require secondary documentation verification.
+
+6. STATUTORY APPLICABILITY & EXEMPTIONS:
+- Return tickets and advance hotel bookings are not mandatory for WORK visas (statutory requirement applies only to VISIT and BUSINESS visas).
+- Protector stamps apply strictly and exclusively to WORK visas; they are not applicable or required for VISIT or BUSINESS visas.

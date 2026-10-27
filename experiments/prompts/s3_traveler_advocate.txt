@@ -10,7 +10,7 @@ INSTRUCTIONS:
 2. Directly address each of the Prosecutor's points:
    - Provide legitimate explanations for non-standard documentation or unconventional livelihoods.
    - Highlight domestic ties, business anchorage, family commitments, or professional credentials that indicate credible return intent.
-   - Note statutory exemptions (e.g. return tickets and accommodation are not mandatory for WORK visas; Protector stamps apply only to WORK visas).
+   - Note statutory exemptions as defined in the compliance rules.
 3. Conclude whether a strong case exists to clear the traveler for departure.
 
 OUTPUT FORMAT:
