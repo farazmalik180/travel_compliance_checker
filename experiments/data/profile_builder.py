@@ -79,11 +79,36 @@ def build_agent_profile(row: Dict[str, Any], include_demographics: bool = False)
 def serialize_profile_for_prompt(profile: Dict[str, Any]) -> str:
     """
     Serializes a sanitized profile into clean, human-readable text for LLM prompts.
+    Audits all fields so non-applicable requirements show clear N/A explanations
+    rather than misleading 'False' values.
     """
+    v_cat = profile.get("visa_category", "UNKNOWN")
+    
+    # Audit Protector Stamp
+    if v_cat == "WORK":
+        protector_str = "Verified Present (Protector Stamp from Bureau of Emigration)" if profile.get("has_protector_stamp") else "Missing / Not Stamped"
+    else:
+        protector_str = "Not applicable (Statutory requirement only for WORK visas)"
+        
+    # Audit Return Ticket
+    if v_cat in ["VISIT", "BUSINESS"]:
+        ticket_str = "Verified Present (Confirmed round-trip ticket)" if profile.get("has_return_ticket") else "Missing / Incomplete (Round-trip ticket required)"
+    else:
+        ticket_str = "Verified Present (Round-trip ticket)" if profile.get("has_return_ticket") else "Not mandatory (One-way ticket standard for long-term work/study)"
+        
+    # Audit Hotel Booking
+    if v_cat in ["VISIT", "BUSINESS"]:
+        hotel_str = "Verified Present (Confirmed booking / accommodation voucher)" if profile.get("has_hotel_booking") else "Missing / Incomplete"
+    else:
+        hotel_str = "Verified Present" if profile.get("has_hotel_booking") else "Not mandatory (Employer / Campus housing arrangement)"
+        
+    # Audit Financial Proof
+    fin_str = "Presented & Verified (Bank statement / international card)" if profile.get("has_financial_proof") else "Missing / Not Presented"
+
     lines = [
         f"Profile ID: {profile.get('profile_id', 'UNKNOWN')}",
         f"Destination: {profile.get('destination')}",
-        f"Visa Category: {profile.get('visa_category')}",
+        f"Visa Category: {v_cat}",
         f"Declared Purpose: {profile.get('purpose')}",
         f"Travel History: {profile.get('passport_history')} Passport",
         f"Employment: {profile.get('employment_type')} ({profile.get('profession')})",
@@ -91,10 +116,10 @@ def serialize_profile_for_prompt(profile: Dict[str, Any]) -> str:
         f"Bank Funds: {profile.get('bank_funds_category')} (~{profile.get('bank_funds_pkr'):,} PKR)",
         f"Local Ties Index (0-100): {profile.get('local_ties_score')}",
         f"Document Authenticity Score (0-100): {profile.get('document_authenticity_score')}",
-        f"Return Ticket Verified: {profile.get('has_return_ticket')}",
-        f"Hotel Booking Verified: {profile.get('has_hotel_booking')}",
-        f"Financial Proof Presented: {profile.get('has_financial_proof')}",
-        f"Protector Stamp Present: {profile.get('has_protector_stamp')}",
+        f"Return Ticket: {ticket_str}",
+        f"Accommodation: {hotel_str}",
+        f"Financial Proof: {fin_str}",
+        f"Protector Stamp: {protector_str}",
         f"Watchlist Screen Result: {profile.get('watchlist_flag')}"
     ]
     

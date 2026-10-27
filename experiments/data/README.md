@@ -60,19 +60,30 @@ All values below reflect author-specified modeling choices except where statutor
 | **`has_hotel_booking`** | $\text{logit}^{-1}(2.9 - 2.4 Z)$ (Visit) / $\text{logit}^{-1}(0.8 - 1.2 Z)$ (Work) | **Author-specified assumption** (smooth decay). |
 | **`has_financial_proof`** | $\text{logit}^{-1}(2.6 - 2.2 Z)$ | **Author-specified assumption** (smooth decay). |
 | **`has_protector_stamp`** | $\text{logit}^{-1}(2.4 - 4.2 Z)$ (Work visa only) | **Statutory Requirement:** Emigration Ordinance 1979 / Bureau of Emigration guidelines. Failure rate linked to $Z$ via **author assumption**. |
-| **`high_scrutiny_dests`** | Monitored list (Cambodia, UAE, Thailand, Iraq, etc.) | **Official Reference:** Federal Investigation Agency (FIA) Immigration Departure Advisory 2023–2024. |
+| **`high_scrutiny_dests`** | Monitored list (Cambodia, UAE, Thailand, Iraq, etc.) | **Author-specified assumption** (Heuristic compilation based on publicly reported high-scrutiny hubs). |
 | **`doc_authenticity`** | $\text{clip}(94.0 - 32.0 \cdot Z + \mathcal{N}(0, 8), 15, 99)$ | **Author-specified assumption** (forensic security feature score). |
 | **`watchlist_flag`** | $P(\text{Alert}) = \max(0, (Z - 0.70) \cdot 0.40)$; $P(\text{Match}) = 0.05 + 0.12 Z$ | **Author-specified assumption** (simulates IBMS hit and common-name noise). |
 
 ---
 
+## 4.1 Provenance of Repository FIA Rules
+The departure guidelines embedded in this repository (e.g. in `backend/scripts/generate_rules_pdf.py` and `backend/agents/nodes.py`) were created by the repository author as an experimental mock representation of Pakistani departure screening. 
+* **Statutory Elements:** The mandatory Protector Stamp for labor migrants departing on work visas directly reflects statutory provisions of Pakistan's *Emigration Ordinance 1979* and Bureau of Emigration regulations.
+* **Administrative Guidelines:** Requirements regarding hotel reservations, return tickets on visit visas, and specific scrutiny for transit destinations (e.g. show money for Cambodia) represent author-synthesized summaries of publicly circulated travel agency advisories and news reporting. 
+* **Institutional Clarification:** These rules do **not** originate from an official, live API or verified administrative database of Pakistan's Federal Investigation Agency (FIA).
+
+---
+
 ## 5. Machine Learning Ceiling Check
 
-To guarantee that observable features do not allow trivial separability (AUC > 0.95), standard supervised models were trained on `dataset_dev.csv` (N=1,000) and evaluated on `dataset_test.csv` (N=4,000):
-* **Logistic Regression:** Test ROC-AUC = **0.7534**, Accuracy = **81.97%**
-* **HistGradientBoosting:** Test ROC-AUC = **0.7712**, Accuracy = **81.87%**
+To guarantee that observable features do not allow trivial separability (AUC > 0.95), models were trained on `dataset_dev.csv` (N=1,000) and evaluated on `dataset_test.csv` (N=4,000):
+* **True Latent Bayes Oracle:** Theoretical ceiling ROC-AUC = **0.8857** (using true Beta priors over $Z$).
+* **Logistic Regression:** Test ROC-AUC = **0.8077**, Accuracy = **82.38%**
+* **HistGradientBoosting:** Test ROC-AUC = **0.7834**, Accuracy = **81.53%**
+* **Always-Clear Reference Baseline:** Accuracy = **80.00%**, Recall = **0.00%**, FPR = **0.00%**
+* **Always-Offload Reference Baseline:** Accuracy = **20.00%**, Recall = **100.00%**, FPR = **100.00%**
 
-These metrics confirm that the classification problem possesses realistic epistemic uncertainty (AUC in the 0.75–0.78 range), well below the 0.95 ceiling threshold.
+These metrics confirm that the classification problem possesses realistic epistemic uncertainty (empirical AUC in the 0.78–0.81 range), well below the 0.95 ceiling threshold.
 
 ---
 
