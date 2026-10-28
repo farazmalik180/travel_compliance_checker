@@ -2,7 +2,7 @@
 
 **Author:** MS AI Thesis Research  
 **Date of Preregistration:** October 2026  
-**Version:** v2.0 (Git Tag: `prereg-v2`)  
+**Version:** v3.0 (Git Tag: `prereg-v3`)  
 **Status:** Preregistered prior to execution of any LLM calls on test, fairness, or counterfactual splits.
 
 ---
@@ -64,7 +64,7 @@ To evaluate performance both across the general population and on ambiguous case
 
 ### B. Primary Metric & Threshold-Free Curve Evaluation
 * **ROC-AUC:** Computed over continuous `risk_score` $\in [0, 100]$ against binary ground truth $Y^* \in \{0, 1\}$.
-* **Pre-specified Tie Rule for Clumped Scores:** When computing empirical ROC curves and threshold operating points, tied `risk_score` values are resolved using **standard deterministic average rank (scikit-learn midpoint ranking)** without stochastic jitter, ensuring exact bitwise reproducibility across runs.
+* **Pre-specified Tie Rule for Clumped Scores:** When computing empirical ROC curves and threshold operating points, tied `risk_score` values are resolved via **linear interpolation along the ROC curve between tied-score vertices**, avoiding step-function artifacts and guaranteeing deterministic reproducibility.
 * **Operating Point Selection:** Evaluated at matched target recall points ($R = 0.50$ and $R = 0.70$) directly from the test ROC curve.
 
 ### C. Procedural vs. Discretionary Bias Decomposition
@@ -82,19 +82,25 @@ For each system, every offloaded genuine traveler ($Y^* = 0, \hat{Y} = 1$) is de
 * **Attribute Exposure:** Demographics (`gender`, `region`, `nationality_group`) are **explicitly visible** in the prompt (unblinded).
 * **Independent Attribute Flips:** Each attribute is perturbed independently while holding all other profile fields constant:
   1. **Gender:** Male $\leftrightarrow$ Female.
-  2. **Region:** Origin province perturbed across major geographic administrative units.
-  3. **Nationality Group:** Domestic Citizen $\leftrightarrow$ Dual / Naturalized Citizen.
-* **Sample Size:** $N = 500$ paired comparisons per sensitive attribute (1,500 pairs total = 3,000 profile evaluations per system).
-* **Metric:** Counterfactual Flip Rate:
-  $$\text{Flip Rate} = \frac{1}{N} \sum_{i=1}^N \mathbb{I}\left(\hat{Y}(P_i) \neq \hat{Y}(P_{i, \text{flip}})\right)$$
+  2. **Region:** Origin province perturbed across existing geographic administrative units.
+  3. **Nationality Group:** Flipped **strictly on non-WORK visa profiles** (using only existing categories: Domestic Citizen $\leftrightarrow$ Foreign / Dual National) to preserve statutory coherence (WORK visas legally mandate Protector Stamps applicable to domestic citizens).
+* **Null-Control Baseline & Net Flip Rate:**
+  * For every system, identical unperturbed profiles are evaluated twice as null controls.
+  * The reported metric is the **Net Flip Rate**:
+    $$\text{Flip Rate}_{\text{net}} = \max\left(0, \text{Flip Rate}_{\text{flipped}} - \text{Flip Rate}_{\text{null\_control}}\right)$$
+* **Sample Size:** $N = 500$ paired comparisons per sensitive attribute.
 
 ---
 
 ## 5. Statistical Inference & Multiple Testing Correction
 
-* **Holm-Bonferroni Correction:** Applied strictly across the 4 primary hypothesis tests ($H_{1a}, H_{1b}, H_{1c}, H_{1d}$) on the primary metric ($\text{FPR}_{R=0.70}$) at FWER $\alpha = 0.05$.
-* **Confidence Intervals:** 95% bootstrap confidence intervals computed over **1,000 bootstrap resamples** of test profiles.
-* **Paired Comparison Tests:** Paired binary decisions at matched operating points tested via **McNemar's test** with continuity correction.
+* **Primary Hypothesis Testing:**
+  * Primary tests use a **paired bootstrap over test profiles with $\ge 10,000$ resamples** of the difference in FPR at matched Recall = 0.70:
+    $$\Delta \text{FPR}_{R=0.70} = \text{FPR}_{R=0.70}(\text{System } A) - \text{FPR}_{R=0.70}(\text{System } B)$$
+  * One-sided empirical p-values are computed as the proportion of bootstrap resamples where the hypothesized reduction is not observed:
+    $$p = \frac{1}{B} \sum_{b=1}^B \mathbb{I}\left(\Delta \text{FPR}_{R=0.70}^{(b)} \ge 0\right)$$
+* **Holm-Bonferroni Correction:** Applied strictly across the 4 primary hypothesis tests ($H_{1a}, H_{1b}, H_{1c}, H_{1d}$) on the primary metric ($\text{FPR}_{R=0.70}$) at Family-Wise Error Rate $\alpha = 0.05$.
+* **Confidence Intervals:** 95% bootstrap confidence intervals for all reported metrics are estimated via **1,000 bootstrap resamples** over profiles.
 * **Permutation Noise Floors:**
   * Test Split ($N=4,000$): Noise floor for $\Delta \text{FPR}_{\text{NT}}$ is $\pm 1.84\%$ at $R=0.50$ and $\pm 2.75\%$ at $R=0.70$.
   * Disparities within this noise envelope cannot reject the null of demographic parity.
@@ -122,7 +128,7 @@ Every LLM call logs:
 9. `raw_response_text`
 
 ### Per-Phase Spend Caps
-* **Phase 1 (Dev Pilot, $N=200$):** Hard spend cap **$2.00**
+* **Phase 1 (Dev Pilot, $N=200$):** Hard spend cap **$2.00** (stops immediately at checkpoint on reaching cap)
 * **Phase 2 (Full Test Set, $N=4,000$):** Hard spend cap **$12.00** (re-calibrated after pilot)
 * **Phase 3 (Fairness Set, $N=1,500$):** Hard spend cap **$4.50**
 * **Phase 4 (Counterfactual Flips, 1,500 pairs):** Hard spend cap **$5.00**
@@ -153,4 +159,5 @@ Prompts are canonicalized to Unix LF line endings and frozen:
 
 ## 10. Deviations Log
 1. **2026-10-28:** Common rules header retitled to author-written illustrative rules. Statutory exemptions clause centralized in `fia_rules_common.txt` so all systems evaluate identical statutory scope. Prompt hashes updated.
-2. **2026-10-28:** Preregistration v2 committed. Pre-specified one primary metric per hypothesis ($\text{FPR}_{R=0.70}$, one-sided). Pre-specified deterministic average-rank tie-breaking rule for clumped risk scores. Added watchlist-excluded reporting cohort ($N=3,923$). Added discretionary FPR and hard-rule threat leakage metrics.
+2. **2026-10-28:** Preregistration v2 committed (tag `prereg-v2`). Pre-specified one primary metric per hypothesis ($\text{FPR}_{R=0.70}$, one-sided). Pre-specified deterministic average-rank tie-breaking rule. Added watchlist-excluded reporting cohort ($N=3,923$). Added discretionary FPR and hard-rule threat leakage metrics.
+3. **2026-10-28:** Preregistration v3 committed (tag `prereg-v3`). Primary tests pre-specified as paired bootstrap ($\ge 10,000$ resamples) on difference in FPR at recall 0.70 with one-sided empirical p-values and Holm correction across 4 primary hypotheses. Tie rule specified as linear interpolation along the ROC curve between tied-score vertices. Counterfactual flips restricted nationality flips strictly to non-WORK profiles, added null-control duplicates for baseline instability, and specified net flip reporting.
