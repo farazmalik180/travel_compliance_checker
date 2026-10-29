@@ -2,7 +2,7 @@
 
 **Author:** MS AI Thesis Research  
 **Date of Preregistration:** October 2026  
-**Version:** v3.0 (Git Tag: `prereg-v3`)  
+**Version:** v4.0 (Git Tag: `prereg-v4`)  
 **Status:** Preregistered prior to execution of any LLM calls on test, fairness, or counterfactual splits.
 
 ---
@@ -138,7 +138,10 @@ Every LLM call logs:
 ## 8. Error Handling Protocol
 
 1. **Retries:** Maximum of 2 retries (total 3 attempts) per call upon network interruption or invalid JSON output.
-2. **Exhaustion Fallback:** If still unparseable after 3 attempts, record `json_parse_error = True`, default decision to `"OFF-LOAD"` with `confidence = 0.0`, `risk_score = 100.0`, and log the trace in `results/deviations_log.md`.
+2. **Exhaustion Fallback:** If still unparseable after 3 attempts, record `json_parse_error = True` and record the profile evaluation as a missing value (`decision = None` / `"PARSE_FAILURE"`, `risk_score = None`). Report per-system failure rates. In all subsequent metric evaluations, report performance under two parallel accounting treatments:
+   * **(a) Complete-Case Analysis:** Exclude unparseable profile evaluations.
+   * **(b) Sensitivity Worst-Case Analysis:** Count all parse failures as `"OFF-LOAD"` with `risk_score = 100.0`.
+   All failure instances and raw generation texts are preserved in `experiments/deviations_log.md` and results artifacts.
 
 ---
 
@@ -161,3 +164,4 @@ Prompts are canonicalized to Unix LF line endings and frozen:
 1. **2026-10-28:** Common rules header retitled to author-written illustrative rules. Statutory exemptions clause centralized in `fia_rules_common.txt` so all systems evaluate identical statutory scope. Prompt hashes updated.
 2. **2026-10-28:** Preregistration v2 committed (tag `prereg-v2`). Pre-specified one primary metric per hypothesis ($\text{FPR}_{R=0.70}$, one-sided). Pre-specified deterministic average-rank tie-breaking rule. Added watchlist-excluded reporting cohort ($N=3,923$). Added discretionary FPR and hard-rule threat leakage metrics.
 3. **2026-10-28:** Preregistration v3 committed (tag `prereg-v3`). Primary tests pre-specified as paired bootstrap ($\ge 10,000$ resamples) on difference in FPR at recall 0.70 with one-sided empirical p-values and Holm correction across 4 primary hypotheses. Tie rule specified as linear interpolation along the ROC curve between tied-score vertices. Counterfactual flips restricted nationality flips strictly to non-WORK profiles, added null-control duplicates for baseline instability, and specified net flip reporting.
+4. **2026-10-29:** Preregistration v4 committed (tag `prereg-v4`). Dev pilot run 1 quarantined due to max_tokens 512 truncation. Amended max_tokens to 4096 and fixed reasoning_effort to "medium" across all systems. Amended unparseable failure protocol from mandatory OFF-LOAD to recording missing values, with dual reporting (complete-case vs failures as OFF-LOAD). Added concurrent execution harness under Groq paid-tier limits (1,000 RPM, 250k TPM).
