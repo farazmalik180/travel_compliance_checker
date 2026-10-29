@@ -16,3 +16,4 @@ This document records all methodological, configuration, and execution deviation
   2. Fixed `reasoning_effort = "medium"` across all systems.
   3. Modified error handling protocol: A call that still fails to parse after retries is recorded as a missing value (`decision = None` / `"PARSE_FAILURE"`, `risk_score = None`, `is_parse_failure = True`) instead of defaulting to `"OFF-LOAD"`. Metrics will be reported both with failed profiles excluded and with failures counted as `"OFF-LOAD"`.
   4. Added concurrency to the runner respecting Groq paid-tier limits (1,000 RPM, 250k TPM).
+

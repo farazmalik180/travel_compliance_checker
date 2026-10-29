@@ -1,0 +1,2064 @@
+{
+  "S1": [
+    {
+      "timestamp": "2026-10-29T10:08:40Z",
+      "system_id": "S1",
+      "profile_id": "PIM-SYNTH-03299",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199650, Requested 1516. Please try again in 8m23.712s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 2,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": ""
+    },
+    {
+      "timestamp": "2026-10-28T16:07:10Z",
+      "system_id": "S1",
+      "profile_id": "PIM-SYNTH-03856",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199459, Requested 1485. Please try again in 6m47.808s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 2,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": ""
+    },
+    {
+      "timestamp": "2026-10-28T16:47:50Z",
+      "system_id": "S1",
+      "profile_id": "PIM-SYNTH-03556",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199060, Requested 1507. Please try again in 4m4.944s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 2,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": ""
+    },
+    {
+      "timestamp": "2026-10-29T12:58:51Z",
+      "system_id": "S1",
+      "profile_id": "PIM-SYNTH-01296",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199370, Requested 1505. Please try again in 6m18s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 2,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": ""
+    },
+    {
+      "timestamp": "2026-10-29T11:37:19Z",
+      "system_id": "S1",
+      "profile_id": "PIM-SYNTH-03579",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199107, Requested 1345. Please try again in 3m15.263999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 2,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [
+        "Missing Hotel Booking (VISIT)",
+        "Missing Financial Proof (VISIT)"
+      ],
+      "has_statutory_violation": true,
+      "is_hard_rule_offload": true,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": ""
+    },
+    {
+      "timestamp": "2026-10-29T11:02:20Z",
+      "system_id": "S1",
+      "profile_id": "PIM-SYNTH-04631",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "OFF-LOAD",
+      "risk_score": 78.5,
+      "confidence": 0.94,
+      "rationale": "The passenger holds a VISIT visa for Thailand, a monitored high\u2011scrutiny destination. While the passport, visa, return ticket, and financial proof are satisfactory, the required advance accommodation proof is missing/incomplete. Under VISIT visa regulations, lack of confirmed accommodation mandates denial of departure. Consequently, the profile is non\u2011compliant and carries a high risk score.",
+      "parse_status": "SUCCESS",
+      "retries": 0,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 995,
+        "completion_tokens": 274,
+        "reasoning_tokens": 167,
+        "total_tokens": 1269
+      },
+      "cost_usd": 0.00035475000000000003,
+      "latency_ms": 1368.3183193206787,
+      "statutory_violations": [
+        "Missing Hotel Booking (VISIT)"
+      ],
+      "has_statutory_violation": true,
+      "is_hard_rule_offload": true,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": "{\"decision\":\"OFF-LOAD\",\"risk_score\":78.5,\"confidence\":0.94,\"rationale\":\"The passenger holds a VISIT visa for Thailand, a monitored high\u2011scrutiny destination. While the passport, visa, return ticket, and financial proof are satisfactory, the required advance accommodation proof is missing/incomplete. Under VISIT visa regulations, lack of confirmed accommodation mandates denial of departure. Consequently, the profile is non\u2011compliant and carries a high risk score.\"}"
+    },
+    {
+      "timestamp": "2026-10-28T19:57:24Z",
+      "system_id": "S1",
+      "profile_id": "PIM-SYNTH-00179",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198697, Requested 1510. Please try again in 1m29.424s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 2,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": ""
+    },
+    {
+      "timestamp": "2026-10-29T13:31:58Z",
+      "system_id": "S1",
+      "profile_id": "PIM-SYNTH-02679",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198908, Requested 1341. Please try again in 1m47.568s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 2,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": ""
+    },
+    {
+      "timestamp": "2026-10-29T13:43:55Z",
+      "system_id": "S1",
+      "profile_id": "PIM-SYNTH-02347",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "CLEARED",
+      "risk_score": 18.5,
+      "confidence": 0.96,
+      "rationale": "Passenger holds a valid visit visa for Cambodia with all statutory requirements satisfied: verified return ticket, confirmed accommodation, and verified financial proof. Protector stamp is not required for a visit visa. Watchlist screening is clear. Although Cambodia is a high\u2011scrutiny destination, the passenger\u2019s strong local ties (78.7), high income, and high document authenticity reduce migration risk, resulting in a low overall risk score.",
+      "parse_status": "SUCCESS",
+      "retries": 0,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 997,
+        "completion_tokens": 269,
+        "reasoning_tokens": 155,
+        "total_tokens": 1266
+      },
+      "cost_usd": 0.00035130000000000003,
+      "latency_ms": 52377.67028808594,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": "{\"decision\":\"CLEARED\",\"risk_score\":18.5,\"confidence\":0.96,\"rationale\":\"Passenger holds a valid visit visa for Cambodia with all statutory requirements satisfied: verified return ticket, confirmed accommodation, and verified financial proof. Protector stamp is not required for a visit visa. Watchlist screening is clear. Although Cambodia is a high\u2011scrutiny destination, the passenger\u2019s strong local ties (78.7), high income, and high document authenticity reduce migration risk, resulting in a low overall risk score.\"}"
+    },
+    {
+      "timestamp": "2026-10-28T17:29:55Z",
+      "system_id": "S1",
+      "profile_id": "PIM-SYNTH-00878",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 85.0,
+      "confidence": 0.97,
+      "rationale": "Passenger holds a WORK visa for UAE but lacks the mandatory Protector Stamp required for Pakistani citizens on employment visas. Absence of this stamp constitutes a statutory violation, triggering immediate off\u2011load despite other documents being present and watchlist clearance.",
+      "parse_status": "SUCCESS",
+      "retries": 0,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 987,
+        "completion_tokens": 178,
+        "reasoning_tokens": 99,
+        "total_tokens": 1165
+      },
+      "cost_usd": 0.00028155,
+      "latency_ms": 24897.550106048584,
+      "statutory_violations": [
+        "Missing Protector Stamp (WORK)"
+      ],
+      "has_statutory_violation": true,
+      "is_hard_rule_offload": true,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": "{\"decision\":\"OFF-LOAD\",\"risk_score\":85.0,\"confidence\":0.97,\"rationale\":\"Passenger holds a WORK visa for UAE but lacks the mandatory Protector Stamp required for Pakistani citizens on employment visas. Absence of this stamp constitutes a statutory violation, triggering immediate off\u2011load despite other documents being present and watchlist clearance.\"}"
+    }
+  ],
+  "S1b": [
+    {
+      "timestamp": "2026-10-29T10:08:53Z",
+      "system_id": "S1b",
+      "profile_id": "PIM-SYNTH-03299",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199622, Requested 1402. Please try again in 7m22.368s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 2,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": ""
+    },
+    {
+      "timestamp": "2026-10-28T16:07:22Z",
+      "system_id": "S1b",
+      "profile_id": "PIM-SYNTH-03856",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199430, Requested 1568. Please try again in 7m11.135999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 2,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": ""
+    },
+    {
+      "timestamp": "2026-10-28T16:48:03Z",
+      "system_id": "S1b",
+      "profile_id": "PIM-SYNTH-03556",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199030, Requested 1590. Please try again in 4m27.839999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 2,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": ""
+    },
+    {
+      "timestamp": "2026-10-29T12:59:04Z",
+      "system_id": "S1b",
+      "profile_id": "PIM-SYNTH-01296",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199342, Requested 1588. Please try again in 6m41.76s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 2,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": ""
+    },
+    {
+      "timestamp": "2026-10-29T11:37:31Z",
+      "system_id": "S1b",
+      "profile_id": "PIM-SYNTH-03579",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199079, Requested 1585. Please try again in 4m46.848s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 2,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [
+        "Missing Hotel Booking (VISIT)",
+        "Missing Financial Proof (VISIT)"
+      ],
+      "has_statutory_violation": true,
+      "is_hard_rule_offload": true,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": ""
+    },
+    {
+      "timestamp": "2026-10-29T11:02:33Z",
+      "system_id": "S1b",
+      "profile_id": "PIM-SYNTH-04631",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199886, Requested 1412. Please try again in 9m20.736s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 2,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [
+        "Missing Hotel Booking (VISIT)"
+      ],
+      "has_statutory_violation": true,
+      "is_hard_rule_offload": true,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": ""
+    },
+    {
+      "timestamp": "2026-10-28T19:57:36Z",
+      "system_id": "S1b",
+      "profile_id": "PIM-SYNTH-00179",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198667, Requested 1593. Please try again in 1m52.32s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 2,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": ""
+    },
+    {
+      "timestamp": "2026-10-29T13:32:10Z",
+      "system_id": "S1b",
+      "profile_id": "PIM-SYNTH-02679",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198878, Requested 1453. Please try again in 2m22.992s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 2,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": ""
+    },
+    {
+      "timestamp": "2026-10-29T13:44:07Z",
+      "system_id": "S1b",
+      "profile_id": "PIM-SYNTH-02347",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199739, Requested 1592. Please try again in 9m34.992s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 2,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": ""
+    },
+    {
+      "timestamp": "2026-10-28T17:30:07Z",
+      "system_id": "S1b",
+      "profile_id": "PIM-SYNTH-00878",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199649, Requested 1582. Please try again in 8m51.792s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 2,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [
+        "Missing Protector Stamp (WORK)"
+      ],
+      "has_statutory_violation": true,
+      "is_hard_rule_offload": true,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": ""
+    }
+  ],
+  "S2": [
+    {
+      "timestamp": "2026-10-29T10:09:30Z",
+      "system_id": "S2",
+      "profile_id": "PIM-SYNTH-03299",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199536, Requested 1730. Please try again in 9m6.911999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 6,
+      "calls_count": 3,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": {
+        "document_integrity": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199593, Requested 1452. Please try again in 7m31.439999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        },
+        "socio_economic": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199565, Requested 1268. Please try again in 5m59.856s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        }
+      },
+      "debate_transcript": null,
+      "raw_response": "{\"document_integrity\": \"\", \"socio_economic\": \"\", \"consensus_scorer\": \"\"}"
+    },
+    {
+      "timestamp": "2026-10-28T16:08:10Z",
+      "system_id": "S2",
+      "profile_id": "PIM-SYNTH-03856",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199321, Requested 1880. Please try again in 8m38.832s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 6,
+      "calls_count": 3,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": {
+        "document_integrity": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199403, Requested 1216. Please try again in 4m27.408s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        },
+        "socio_economic": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199369, Requested 1237. Please try again in 4m21.792s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        }
+      },
+      "debate_transcript": null,
+      "raw_response": "{\"document_integrity\": \"\", \"socio_economic\": \"\", \"consensus_scorer\": \"\"}"
+    },
+    {
+      "timestamp": "2026-10-28T16:48:42Z",
+      "system_id": "S2",
+      "profile_id": "PIM-SYNTH-03556",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198940, Requested 1872. Please try again in 5m50.784s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 6,
+      "calls_count": 3,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": {
+        "document_integrity": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199000, Requested 1443. Please try again in 3m11.376s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        },
+        "socio_economic": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198970, Requested 1382. Please try again in 2m32.064s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        }
+      },
+      "debate_transcript": null,
+      "raw_response": "{\"document_integrity\": \"\", \"socio_economic\": \"\", \"consensus_scorer\": \"\"}"
+    },
+    {
+      "timestamp": "2026-10-29T12:59:41Z",
+      "system_id": "S2",
+      "profile_id": "PIM-SYNTH-01296",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199255, Requested 1870. Please try again in 8m6s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 6,
+      "calls_count": 3,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": {
+        "document_integrity": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199313, Requested 1441. Please try again in 5m25.728s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        },
+        "socio_economic": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199283, Requested 1307. Please try again in 4m14.88s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        }
+      },
+      "debate_transcript": null,
+      "raw_response": "{\"document_integrity\": \"\", \"socio_economic\": \"\", \"consensus_scorer\": \"\"}"
+    },
+    {
+      "timestamp": "2026-10-29T11:38:08Z",
+      "system_id": "S2",
+      "profile_id": "PIM-SYNTH-03579",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198993, Requested 1869. Please try again in 6m12.383999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 6,
+      "calls_count": 3,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [
+        "Missing Hotel Booking (VISIT)",
+        "Missing Financial Proof (VISIT)"
+      ],
+      "has_statutory_violation": true,
+      "is_hard_rule_offload": true,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": {
+        "document_integrity": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199050, Requested 1438. Please try again in 3m30.816s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        },
+        "socio_economic": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199022, Requested 1451. Please try again in 3m24.335999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        }
+      },
+      "debate_transcript": null,
+      "raw_response": "{\"document_integrity\": \"\", \"socio_economic\": \"\", \"consensus_scorer\": \"\"}"
+    },
+    {
+      "timestamp": "2026-10-29T11:03:10Z",
+      "system_id": "S2",
+      "profile_id": "PIM-SYNTH-04631",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199800, Requested 1634. Please try again in 10m19.488s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 6,
+      "calls_count": 3,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [
+        "Missing Hotel Booking (VISIT)"
+      ],
+      "has_statutory_violation": true,
+      "is_hard_rule_offload": true,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": {
+        "document_integrity": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199858, Requested 1360. Please try again in 8m46.176s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        },
+        "socio_economic": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199830, Requested 1390. Please try again in 8m47.04s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        }
+      },
+      "debate_transcript": null,
+      "raw_response": "{\"document_integrity\": \"\", \"socio_economic\": \"\", \"consensus_scorer\": \"\"}"
+    },
+    {
+      "timestamp": "2026-10-28T19:58:46Z",
+      "system_id": "S2",
+      "profile_id": "PIM-SYNTH-00179",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199670, Requested 1505. Please try again in 8m27.6s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 4,
+      "calls_count": 3,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 934,
+        "completion_tokens": 230,
+        "reasoning_tokens": 120,
+        "total_tokens": 1164
+      },
+      "cost_usd": 0.0003126,
+      "latency_ms": 44677.00290679932,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": {
+        "document_integrity": {
+          "statutory_compliance_status": "COMPLIANT",
+          "document_deficiencies": [],
+          "verified_credentials": [
+            "Return Ticket Verified",
+            "Accommodation Verified",
+            "Financial Proof Verified",
+            "Business Purpose Document Verified",
+            "Document Authenticity Score Adequate",
+            "Watchlist Clear"
+          ],
+          "document_risk_summary": "All required documents for a BUSINESS visa are present and verified; authenticity score is high and no watchlist alerts."
+        },
+        "socio_economic": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199699, Requested 1177. Please try again in 6m18.432s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        }
+      },
+      "debate_transcript": null,
+      "raw_response": "{\"document_integrity\": \"{\\n  \\\"statutory_compliance_status\\\": \\\"COMPLIANT\\\",\\n  \\\"document_deficiencies\\\": [],\\n  \\\"verified_credentials\\\": [\\n    \\\"Return Ticket Verified\\\",\\n    \\\"Accommodation Verified\\\",\\n    \\\"Financial Proof Verified\\\",\\n    \\\"Business Purpose Document Verified\\\",\\n    \\\"Document Authenticity Score Adequate\\\",\\n    \\\"Watchlist Clear\\\"\\n  ],\\n  \\\"document_risk_summary\\\": \\\"All required documents for a BUSINESS visa are present and verified; authenticity score is high and no watchlist alerts.\\\"\\n}\", \"socio_economic\": \"\", \"consensus_scorer\": \"\"}"
+    },
+    {
+      "timestamp": "2026-10-29T13:32:48Z",
+      "system_id": "S2",
+      "profile_id": "PIM-SYNTH-02679",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198792, Requested 1643. Please try again in 3m7.92s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 6,
+      "calls_count": 3,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": {
+        "document_integrity": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198849, Requested 1336. Please try again in 1m19.92s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        },
+        "socio_economic": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198821, Requested 1458. Please try again in 2m0.527999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        }
+      },
+      "debate_transcript": null,
+      "raw_response": "{\"document_integrity\": \"\", \"socio_economic\": \"\", \"consensus_scorer\": \"\"}"
+    },
+    {
+      "timestamp": "2026-10-29T13:44:45Z",
+      "system_id": "S2",
+      "profile_id": "PIM-SYNTH-02347",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199652, Requested 1874. Please try again in 10m59.232s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 6,
+      "calls_count": 3,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": {
+        "document_integrity": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199710, Requested 1202. Please try again in 6m33.984s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        },
+        "socio_economic": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199680, Requested 1288. Please try again in 6m58.176s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        }
+      },
+      "debate_transcript": null,
+      "raw_response": "{\"document_integrity\": \"\", \"socio_economic\": \"\", \"consensus_scorer\": \"\"}"
+    },
+    {
+      "timestamp": "2026-10-28T17:30:46Z",
+      "system_id": "S2",
+      "profile_id": "PIM-SYNTH-00878",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199560, Requested 1864. Please try again in 10m15.168s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 6,
+      "calls_count": 3,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [
+        "Missing Protector Stamp (WORK)"
+      ],
+      "has_statutory_violation": true,
+      "is_hard_rule_offload": true,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": {
+        "document_integrity": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199619, Requested 1435. Please try again in 7m35.328s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        },
+        "socio_economic": {
+          "decision": "OFF-LOAD",
+          "risk_score": 100.0,
+          "confidence": 0.0,
+          "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199589, Requested 1114. Please try again in 5m3.696s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        }
+      },
+      "debate_transcript": null,
+      "raw_response": "{\"document_integrity\": \"\", \"socio_economic\": \"\", \"consensus_scorer\": \"\"}"
+    }
+  ],
+  "S3": [
+    {
+      "timestamp": "2026-10-28T15:35:05Z",
+      "system_id": "S3",
+      "profile_id": "PIM-SYNTH-04057",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "CLEARED",
+      "risk_score": 11.5,
+      "confidence": 0.97,
+      "rationale": "Both parties agree that the passenger meets all statutory requirements for a Pakistani work\u2011visa departure: a valid passport, a valid Australian work visa, the mandatory Protector Stamp, verified accommodation, sufficient financial proof, and a clear watchlist result. Under the illustrative departure compliance rules, a return ticket is not required for work visas. No breach or watchlist alert exists, and the passenger\u2019s stable employment, moderate local ties, and financial standing further reduce flight\u2011risk concerns. Consequently, the traveler is cleared for departure with a low risk score.",
+      "parse_status": "SUCCESS",
+      "retries": 0,
+      "calls_count": 3,
+      "rounds_completed": 1,
+      "tokens": {
+        "prompt_tokens": 3557,
+        "completion_tokens": 1034,
+        "reasoning_tokens": 500,
+        "total_tokens": 4591
+      },
+      "cost_usd": 0.00130905,
+      "latency_ms": 29260.11061668396,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": [
+        {
+          "round": 1,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "proposed_action": "CLEARED",
+            "proposed_risk_score": 12.4,
+            "confidence": 0.96,
+            "primary_allegations": [],
+            "prosecution_argument": "The passenger holds a valid work visa for Australia, a passport meeting the six\u2011month validity rule, and a verified Protector Stamp as required for Pakistani nationals departing on employment visas. Return ticket is not a statutory requirement for work visas, and the traveler has provided verified accommodation and sufficient financial proof (bank statement/international card) well within acceptable thresholds. No watchlist alerts or name\u2011match concerns are present. Consequently, all regulatory criteria are satisfied and the flight risk is minimal, warranting clearance for departure."
+          }
+        },
+        {
+          "round": 1,
+          "speaker": "ADVOCATE",
+          "content": {
+            "defense_plea": "CLEAR_PASSENGER",
+            "mitigating_arguments": [
+              "HR Manager position with stable corporate salary",
+              "Local ties index 61.1 indicating strong family and community connections",
+              "Moderate bank funds (\u2248643,809\u202fPKR) and verified international card",
+              "Verified accommodation for long\u2011term stay in Australia",
+              "Protector Stamp present as mandated for Pakistani work\u2011visa departures",
+              "Clear watchlist screening",
+              "Experienced passport and clean travel history"
+            ],
+            "counter_rebuttal": "All statutory requirements for a Pakistani work\u2011visa holder are fully satisfied. The passport exceeds the six\u2011month validity threshold, the work visa is valid, and the mandatory Protector Stamp is present. Under the illustrative departure compliance rules, a return ticket is not required for work visas, and the passenger has provided verified accommodation and sufficient financial proof, eliminating any risk of overstaying or illegal migration. No watchlist alerts or name\u2011match concerns exist. Consequently, there is no regulatory basis for offloading; the traveler demonstrates clear intent and capacity to fulfill the employment assignment in Australia and to return if required, warranting immediate clearance.",
+            "advocate_confidence": 0.96
+          }
+        }
+      ],
+      "raw_response": "{\"decision\": \"CLEARED\", \"risk_score\": 11.5, \"confidence\": 0.97, \"rationale\": \"Both parties agree that the passenger meets all statutory requirements for a Pakistani work\\u2011visa departure: a valid passport, a valid Australian work visa, the mandatory Protector Stamp, verified accommodation, sufficient financial proof, and a clear watchlist result. Under the illustrative departure compliance rules, a return ticket is not required for work visas. No breach or watchlist alert exists, and the passenger\\u2019s stable employment, moderate local ties, and financial standing further reduce flight\\u2011risk concerns. Consequently, the traveler is cleared for departure with a low risk score.\"}"
+    },
+    {
+      "timestamp": "2026-10-28T15:47:43Z",
+      "system_id": "S3",
+      "profile_id": "PIM-SYNTH-04029",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "CLEARED",
+      "risk_score": 5.0,
+      "confidence": 0.98,
+      "rationale": "Both parties agree that the passenger meets all statutory requirements for a Business visa: valid passport, valid visa, confirmed return ticket, verified accommodation, sufficient financial proof, and clear watchlist status. The Protector Stamp exemption is correctly applied, as it only pertains to Work visas. No high-scrutiny hub alerts are triggered for the United Kingdom. Consequently, there is no legal or risk-based basis for off-loading. The passenger is therefore cleared for departure with a low risk score.",
+      "parse_status": "EXHAUSTED",
+      "retries": 2,
+      "calls_count": 5,
+      "rounds_completed": 2,
+      "tokens": {
+        "prompt_tokens": 5867,
+        "completion_tokens": 1566,
+        "reasoning_tokens": 736,
+        "total_tokens": 7433
+      },
+      "cost_usd": 0.00205455,
+      "latency_ms": 51157.21392631531,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": [
+        {
+          "round": 1,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: BadRequestError: Error code: 400 - {'error': {'message': \"Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'json_validate_failed', 'failed_generation': 'max completion tokens reached before generating a valid document'}}"
+          }
+        },
+        {
+          "round": 1,
+          "speaker": "ADVOCATE",
+          "content": {
+            "defense_plea": "CLEAR_PASSENGER",
+            "mitigating_arguments": [
+              "High\u2011income salaried HR manager with stable corporate employment",
+              "Local Ties Index 91.1 indicating strong family and community connections",
+              "Verified round\u2011trip ticket to the UK",
+              "Confirmed conference registration and workshop invitation as proof of business purpose",
+              "Accommodation voucher confirming booked stay in the UK",
+              "Bank statement and international debit card showing PKR 1\u20113\u202fmillion liquidity",
+              "Protector stamp not required for business visas per statutory rules",
+              "Watchlist screening cleared \u2013 no alerts"
+            ],
+            "counter_rebuttal": "The passenger satisfies every statutory requirement for a Business visa: a valid passport, a confirmed return ticket, documented business purpose (conference invitation), sufficient financial backing, and verified accommodation. The Protector Stamp exemption applies exclusively to Work visas, so its absence is lawful. The high Local Ties Index, stable salaried employment, and substantial bank holdings demonstrate a compelling incentive to return to Pakistan. No watchlist or IBMS alerts are present. Consequently, the prosecutor\u2019s off\u2011load recommendation lacks factual or legal basis and should be rejected.",
+            "advocate_confidence": 0.97
+          }
+        },
+        {
+          "round": 2,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "proposed_action": "CLEARED",
+            "proposed_risk_score": 5.0,
+            "confidence": 0.95,
+            "primary_allegations": [],
+            "prosecution_argument": "After a thorough review of the passenger profile against the illustrative departure compliance rules, no statutory deficiencies are identified. The traveler holds a valid Business visa for the United Kingdom, presents a verified round\u2011trip ticket, documented conference invitation confirming business purpose, and a verified accommodation voucher. Financial proof exceeds the required threshold, and the watchlist screening returned clear. The Protector Stamp exemption is correctly applied, as it pertains only to Work visas. No high\u2011scrutiny hub alerts are triggered for the UK destination. Consequently, the passenger meets all mandatory criteria, and there is insufficient legal or risk\u2011based basis to off\u2011load. The case is therefore cleared for departure."
+          }
+        },
+        {
+          "round": 2,
+          "speaker": "ADVOCATE",
+          "content": {
+            "defense_plea": "CLEAR_PASSENGER",
+            "mitigating_arguments": [
+              "High Local Ties Index (91.1) indicating strong family and community connections in Pakistan",
+              "Stable salaried employment as HR Manager with documented income and long\u2011term contract",
+              "Substantial bank holdings (1\u20113\u202fM\u202fPKR) demonstrating financial solvency",
+              "Verified round\u2011trip airline ticket confirming intent to return",
+              "Confirmed conference invitation and accommodation voucher satisfying business purpose requirements",
+              "Clear watchlist screening and no high\u2011scrutiny hub alerts",
+              "Protector stamp not required for Business visa per statutory rules"
+            ],
+            "counter_rebuttal": "The prosecutor\u2019s assessment correctly identifies that the passenger fulfills every statutory requirement for a Business visa departure. The passport validity, visa, return ticket, accommodation, and financial proof are all verified. The Protector Stamp exemption is explicitly limited to Work visas, so its absence is lawful. Moreover, the passenger\u2019s high Local Ties Index, stable high\u2011income employment, and sizable bank balance provide compelling domestic anchorage, eliminating any reasonable suspicion of unauthorized migration. No watchlist or high\u2011scrutiny alerts are present for the United Kingdom. Consequently, there is no legal or risk\u2011based basis to recommend off\u2011loading; the traveler should be cleared for departure.",
+            "advocate_confidence": 0.97
+          }
+        }
+      ],
+      "raw_response": "{\"decision\": \"CLEARED\", \"risk_score\": 5.0, \"confidence\": 0.98, \"rationale\": \"Both parties agree that the passenger meets all statutory requirements for a Business visa: valid passport, valid visa, confirmed return ticket, verified accommodation, sufficient financial proof, and clear watchlist status. The Protector Stamp exemption is correctly applied, as it only pertains to Work visas. No high-scrutiny hub alerts are triggered for the United Kingdom. Consequently, there is no legal or risk-based basis for off-loading. The passenger is therefore cleared for departure with a low risk score.\"}"
+    },
+    {
+      "timestamp": "2026-10-28T15:33:35Z",
+      "system_id": "S3",
+      "profile_id": "PIM-SYNTH-04740",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "CLEARED",
+      "risk_score": 18.7,
+      "confidence": 0.96,
+      "rationale": "The passenger meets every statutory requirement for a VISIT visa: a valid passport, a confirmed return ticket, verified accommodation, and sufficient financial proof. No protector stamp is needed for a visit visa, and the watchlist screening is clear. Although Kyrgyzstan is a high\u2011scrutiny transit hub, the traveler demonstrates credible intent to return through a moderate Local Ties Index (59.4), substantial bank balance (\u22481.1\u202fM PKR), and ongoing artisan self\u2011employment. The prosecutor failed to present any substantive breach\u2014only repeated JSON generation errors\u2014so no statutory or evidentiary basis exists to off\u2011load the traveler. Consequently, the passenger is cleared to board with a low residual risk score reflecting the monitored destination but strong anchorage and financial capacity.",
+      "parse_status": "EXHAUSTED",
+      "retries": 8,
+      "calls_count": 7,
+      "rounds_completed": 3,
+      "tokens": {
+        "prompt_tokens": 5689,
+        "completion_tokens": 1823,
+        "reasoning_tokens": 807,
+        "total_tokens": 7512
+      },
+      "cost_usd": 0.0022206,
+      "latency_ms": 46717.4334526062,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": [
+        {
+          "round": 1,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: BadRequestError: Error code: 400 - {'error': {'message': \"Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'json_validate_failed', 'failed_generation': 'max completion tokens reached before generating a valid document'}}"
+          }
+        },
+        {
+          "round": 1,
+          "speaker": "ADVOCATE",
+          "content": {
+            "defense_plea": "CLEAR_PASSENGER",
+            "mitigating_arguments": [
+              "Verified round\u2011trip ticket to Kyrgyzstan",
+              "Confirmed accommodation voucher for entire stay",
+              "Bank statement showing 1,103,512\u202fPKR and international debit card",
+              "Purpose of visit is family reunification \u2013 relatives residing in Kyrgyzstan",
+              "Domestic anchorage: moderate Local Ties Index (59.4) with family, property and ongoing artisan business in Pakistan",
+              "Informal self\u2011employment provides steady moderate income and ties to local market",
+              "Protector stamp not required for VISIT visa per statutory rules",
+              "Watchlist clearance \u2013 no alerts"
+            ],
+            "counter_rebuttal": "The prosecution\u2019s recommendation to off\u2011load is unsupported by the factual record. Under the illustrative departure compliance rules, a VISIT visa mandates a valid passport, a confirmed return ticket, verified accommodation and sufficient financial proof \u2013 all of which the passenger has provided and been verified. The alleged risk score of 100 stems from a system error, not from any substantive immigration concern. The passenger\u2019s high bank balance, documented family ties in both Pakistan and Kyrgyzstan, and ongoing artisan business constitute strong domestic anchorage and a clear incentive to return. Moreover, the Protector Stamp requirement applies exclusively to WORK visas; its absence is legally irrelevant for a VISIT visa. No watchlist or IBMS alerts are present. Consequently, there is no statutory or evidentiary basis to deny departure, and the passenger should be cleared to board.",
+            "advocate_confidence": 0.93
+          }
+        },
+        {
+          "round": 2,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: BadRequestError: Error code: 400 - {'error': {'message': \"Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'json_validate_failed', 'failed_generation': 'max completion tokens reached before generating a valid document'}}"
+          }
+        },
+        {
+          "round": 2,
+          "speaker": "ADVOCATE",
+          "content": {
+            "defense_plea": "CLEAR_PASSENGER",
+            "mitigating_arguments": [
+              "Verified round\u2011trip ticket",
+              "Confirmed accommodation voucher for family visit",
+              "Bank statement showing 1,103,512\u202fPKR and international card",
+              "No watchlist alert",
+              "Protector stamp not required for visit visa",
+              "Domestic ties index 59.4 indicating moderate family/economic connections in Pakistan",
+              "Informal self\u2011employment as artisan with moderate income stability"
+            ],
+            "counter_rebuttal": "The prosecutor's off\u2011load recommendation is based solely on a system\u2011generated JSON parsing error, not on any substantive immigration violation. Under the illustrative departure compliance rules for VISIT visas, the passenger has satisfied every mandatory requirement: a valid passport, a valid visit visa, a confirmed return ticket, verified accommodation, and sufficient financial proof. The Protector Stamp exemption applies because it is only mandatory for WORK visas. No watchlist alert exists, and the passenger\u2019s moderate domestic ties and substantial bank balance further demonstrate a credible intent to return. Consequently, there is no legal or factual basis for off\u2011loading the traveler.",
+            "advocate_confidence": 0.92
+          }
+        },
+        {
+          "round": 3,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: BadRequestError: Error code: 400 - {'error': {'message': \"Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'json_validate_failed', 'failed_generation': 'max completion tokens reached before generating a valid document'}}"
+          }
+        },
+        {
+          "round": 3,
+          "speaker": "ADVOCATE",
+          "content": {
+            "defense_plea": "CLEAR_PASSENGER",
+            "mitigating_arguments": [
+              "Verified round\u2011trip ticket present",
+              "Confirmed accommodation voucher for stay in Kyrgyzstan",
+              "Financial proof with PKR 1\u20113\u202fmillion bank balance and international card",
+              "Purpose of visit is family/relatives \u2013 strong personal anchorage",
+              "No watchlist alerts; clear security screening",
+              "Protector stamp not required for VISIT visa per statutory rules",
+              "Document authenticity score 82.2 meets acceptable threshold",
+              "Domestic ties index 59.4 indicates moderate home\u2011country connections"
+            ],
+            "counter_rebuttal": "The passenger fully satisfies all statutory requirements for a VISIT visa to Kyrgyzstan. The prosecutor\u2019s off\u2011load recommendation is based on a system error, not on substantive risk factors. The traveler presented a valid passport, a confirmed return ticket, and a verified accommodation booking\u2014each mandated for VISIT visas. Financial capacity is demonstrably sufficient, with a bank balance exceeding PKR\u202f1\u202fmillion and an international debit card, satisfying the financial proof clause. No watchlist or IBMS alerts were triggered, eliminating security concerns. The Protector Stamp exemption applies exclusively to WORK visas; its absence here is legally permissible. Consequently, there is no legitimate basis to deny departure, and the passenger should be cleared to board.",
+            "advocate_confidence": 0.93
+          }
+        }
+      ],
+      "raw_response": "{\"decision\": \"CLEARED\", \"risk_score\": 18.7, \"confidence\": 0.96, \"rationale\": \"The passenger meets every statutory requirement for a VISIT visa: a valid passport, a confirmed return ticket, verified accommodation, and sufficient financial proof. No protector stamp is needed for a visit visa, and the watchlist screening is clear. Although Kyrgyzstan is a high\\u2011scrutiny transit hub, the traveler demonstrates credible intent to return through a moderate Local Ties Index (59.4), substantial bank balance (\\u22481.1\\u202fM PKR), and ongoing artisan self\\u2011employment. The prosecutor failed to present any substantive breach\\u2014only repeated JSON generation errors\\u2014so no statutory or evidentiary basis exists to off\\u2011load the traveler. Consequently, the passenger is cleared to board with a low residual risk score reflecting the monitored destination but strong anchorage and financial capacity.\"}"
+    },
+    {
+      "timestamp": "2026-10-28T15:38:03Z",
+      "system_id": "S3",
+      "profile_id": "PIM-SYNTH-00019",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "OFF-LOAD",
+      "risk_score": 88.7,
+      "confidence": 0.94,
+      "rationale": "Under Illustrative Departure Compliance Rule\u202f2, a VISIT visa holder must present a confirmed return flight ticket. The passenger\u2019s profile records a missing/incomplete round\u2011trip ticket, constituting a direct statutory violation with no applicable exemption. Although accommodation and financial proof are satisfactory, the absence of a return ticket removes the primary guarantee of intent to depart. The low Local Ties Index (38.8) and a fresh passport lacking travel history further elevate flight\u2011risk. Therefore the prosecutor\u2019s breach is incontrovertible and the traveler must be off\u2011loaded.",
+      "parse_status": "EXHAUSTED",
+      "retries": 10,
+      "calls_count": 7,
+      "rounds_completed": 3,
+      "tokens": {
+        "prompt_tokens": 2712,
+        "completion_tokens": 878,
+        "reasoning_tokens": 507,
+        "total_tokens": 3590
+      },
+      "cost_usd": 0.0010653,
+      "latency_ms": 14261.685609817505,
+      "statutory_violations": [
+        "Missing Return Ticket (VISIT)"
+      ],
+      "has_statutory_violation": true,
+      "is_hard_rule_offload": true,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": [
+        {
+          "round": 1,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "proposed_action": "OFF-LOAD",
+            "proposed_risk_score": 85.3,
+            "confidence": 0.93,
+            "primary_allegations": [
+              "Missing mandatory return ticket for VISIT visa",
+              "Low local ties index indicating elevated flight risk",
+              "Fresh passport without established travel history"
+            ],
+            "prosecution_argument": "Under Illustrative Departure Compliance Rule\u202f2, a VISIT visa holder must present a confirmed return flight ticket at the point of departure. The passenger\u2019s profile explicitly records a \u2018Missing / Incomplete\u2019 round\u2011trip ticket, constituting a direct statutory violation. While accommodation and financial proof are satisfactory, the absence of a return ticket removes the primary guarantee of intent to depart the destination country. Additionally, the passenger\u2019s Local Ties Index (38.8) is well below the threshold that would mitigate flight\u2011risk concerns, and the passport is newly issued, offering no prior travel record to demonstrate compliance history. These factors collectively raise a substantial risk of unauthorized stay or labor migration, justifying an immediate off\u2011load pending further investigation."
+          }
+        },
+        {
+          "round": 1,
+          "speaker": "ADVOCATE",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: APIConnectionError: Connection error."
+          }
+        },
+        {
+          "round": 2,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: APIConnectionError: Connection error."
+          }
+        },
+        {
+          "round": 2,
+          "speaker": "ADVOCATE",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: APIConnectionError: Connection error."
+          }
+        },
+        {
+          "round": 3,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: APIConnectionError: Connection error."
+          }
+        },
+        {
+          "round": 3,
+          "speaker": "ADVOCATE",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: BadRequestError: Error code: 400 - {'error': {'message': \"Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'json_validate_failed', 'failed_generation': ''}}"
+          }
+        }
+      ],
+      "raw_response": "{\"decision\": \"OFF-LOAD\", \"risk_score\": 88.7, \"confidence\": 0.94, \"rationale\": \"Under Illustrative Departure Compliance Rule\\u202f2, a VISIT visa holder must present a confirmed return flight ticket. The passenger\\u2019s profile records a missing/incomplete round\\u2011trip ticket, constituting a direct statutory violation with no applicable exemption. Although accommodation and financial proof are satisfactory, the absence of a return ticket removes the primary guarantee of intent to depart. The low Local Ties Index (38.8) and a fresh passport lacking travel history further elevate flight\\u2011risk. Therefore the prosecutor\\u2019s breach is incontrovertible and the traveler must be off\\u2011loaded.\"}"
+    },
+    {
+      "timestamp": "2026-10-28T15:45:39Z",
+      "system_id": "S3",
+      "profile_id": "PIM-SYNTH-00115",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "OFF-LOAD",
+      "risk_score": 93.0,
+      "confidence": 0.97,
+      "rationale": "The passenger holds a work visa for Oman but lacks the legally mandatory Protector Stamp required by Illustrative Departure Compliance Rule\u202f1 for all Pakistani citizens departing on work visas. No provisional stamp, exemption letter, or receipt of pending issuance was presented. The prosecutor\u2019s argument of a clear statutory breach is incontrovertible, and the advocate failed to provide any substantive rebuttal. Consequently, the departure is non\u2011compliant and must be off\u2011loaded. The high risk score reflects the missing mandatory document and the elevated flight\u2011risk concerns associated with a fresh passport lacking travel history.",
+      "parse_status": "EXHAUSTED",
+      "retries": 6,
+      "calls_count": 7,
+      "rounds_completed": 3,
+      "tokens": {
+        "prompt_tokens": 6653,
+        "completion_tokens": 1604,
+        "reasoning_tokens": 707,
+        "total_tokens": 8257
+      },
+      "cost_usd": 0.0022009499999999997,
+      "latency_ms": 38659.621477127075,
+      "statutory_violations": [
+        "Missing Protector Stamp (WORK)"
+      ],
+      "has_statutory_violation": true,
+      "is_hard_rule_offload": true,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": [
+        {
+          "round": 1,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "proposed_action": "OFF-LOAD",
+            "proposed_risk_score": 88.7,
+            "confidence": 0.96,
+            "primary_allegations": [
+              "Missing mandatory Protector Stamp on passport for WORK visa",
+              "Fresh passport without established travel history to high\u2011scrutiny destination"
+            ],
+            "prosecution_argument": "Under Illustrative Departure Compliance Rule\u202f1, a Protector Stamp issued by the Bureau of Emigration & Overseas Employment is a legally mandatory prerequisite for every Pakistani citizen departing on a work visa. The passenger\u2019s profile explicitly records a missing stamp, constituting a clear statutory violation that mandates immediate off\u2011loading regardless of other compliant documents (financial proof, accommodation, visa validity). While the return ticket is not required for work visas, the absence of the Protector Stamp removes the legal basis for departure. Additionally, the passport is newly issued with no prior travel record, which, combined with the missing stamp, elevates flight\u2011risk concerns, especially given the destination\u2019s classification as a monitored hub for potential unauthorized labor migration. Consequently, the passenger fails to meet the essential regulatory condition and must be off\u2011loaded pending resolution of the stamp deficiency."
+          }
+        },
+        {
+          "round": 1,
+          "speaker": "ADVOCATE",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: BadRequestError: Error code: 400 - {'error': {'message': \"Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'json_validate_failed', 'failed_generation': ''}}"
+          }
+        },
+        {
+          "round": 2,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "proposed_action": "OFF-LOAD",
+            "proposed_risk_score": 90.2,
+            "confidence": 0.97,
+            "primary_allegations": [
+              "Missing mandatory Protector Stamp on passport for WORK visa",
+              "Statutory non\u2011compliance with Illustrative Departure Compliance Rule\u202f1",
+              "Elevated flight\u2011risk due to fresh passport with no travel history"
+            ],
+            "prosecution_argument": "The Advocate\u2019s rebuttal fails to address the core statutory breach: under Illustrative Departure Compliance Rule\u202f1 a Protector Stamp issued by the Bureau of Emigration & Overseas Employment is a non\u2011negotiable prerequisite for any Pakistani citizen departing on a work visa. The passenger\u2019s profile explicitly records the stamp as missing, rendering the departure illegal regardless of the presence of a valid visa, financial proof, or accommodation. The fresh passport, while not itself a violation, compounds the risk assessment because it provides no travel history to demonstrate compliance with prior exit\u2011entry obligations, especially when paired with the absent stamp. No mitigating documentation (e.g., a provisional stamp, official exemption letter, or pending stamp issuance receipt) has been supplied. Consequently, the regulatory deficiency remains unresolved, and the passenger must be off\u2011loaded pending correction of the Protector Stamp requirement."
+          }
+        },
+        {
+          "round": 2,
+          "speaker": "ADVOCATE",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: BadRequestError: Error code: 400 - {'error': {'message': \"Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'json_validate_failed', 'failed_generation': ''}}"
+          }
+        },
+        {
+          "round": 3,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "proposed_action": "OFF-LOAD",
+            "proposed_risk_score": 92.5,
+            "confidence": 0.98,
+            "primary_allegations": [
+              "Missing mandatory Protector Stamp on passport for WORK visa",
+              "Statutory non\u2011compliance with Illustrative Departure Compliance Rule\u202f1",
+              "Elevated flight\u2011risk due to fresh passport with no travel history"
+            ],
+            "prosecution_argument": "The Advocate\u2019s latest submission contains no substantive rebuttal\u2014only a JSON\u2011validation error\u2014therefore it fails to address the core statutory breach. Under Illustrative Departure Compliance Rule\u202f1, a Protector Stamp issued by the Bureau of Emigration & Overseas Employment is a non\u2011negotiable prerequisite for any Pakistani citizen departing on a work visa. The passenger\u2019s profile explicitly records the stamp as missing, making the departure illegal irrespective of visa validity, financial proof, or accommodation. While a fresh passport is not itself a violation, the absence of any prior travel record compounds the flight\u2011risk assessment, especially when combined with the missing stamp. No provisional stamp, exemption letter, or receipt of pending issuance has been provided. Consequently, the regulatory deficiency remains unresolved and the passenger must be off\u2011loaded pending correction of the Protector Stamp requirement."
+          }
+        },
+        {
+          "round": 3,
+          "speaker": "ADVOCATE",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: BadRequestError: Error code: 400 - {'error': {'message': \"Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'json_validate_failed', 'failed_generation': 'max completion tokens reached before generating a valid document'}}"
+          }
+        }
+      ],
+      "raw_response": "{\"decision\": \"OFF-LOAD\", \"risk_score\": 93.0, \"confidence\": 0.97, \"rationale\": \"The passenger holds a work visa for Oman but lacks the legally mandatory Protector Stamp required by Illustrative Departure Compliance Rule\\u202f1 for all Pakistani citizens departing on work visas. No provisional stamp, exemption letter, or receipt of pending issuance was presented. The prosecutor\\u2019s argument of a clear statutory breach is incontrovertible, and the advocate failed to provide any substantive rebuttal. Consequently, the departure is non\\u2011compliant and must be off\\u2011loaded. The high risk score reflects the missing mandatory document and the elevated flight\\u2011risk concerns associated with a fresh passport lacking travel history.\"}"
+    },
+    {
+      "timestamp": "2026-10-28T15:53:57Z",
+      "system_id": "S3",
+      "profile_id": "PIM-SYNTH-04249",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "CLEARED",
+      "risk_score": 17.3,
+      "confidence": 0.96,
+      "rationale": "The prosecutor never presented a substantive statutory violation; all of its entries were generic JSON\u2011parsing errors unrelated to immigration compliance. Under the Illustrative Departure Compliance Rules for a WORK visa, the only mandatory items are a valid passport, a valid work visa, and a Protector Stamp. The passenger\u2019s profile confirms the presence of each, along with a verified return ticket, accommodation, financial proof, and a clear watchlist status. Although the income is described as volatile and the local\u2011ties index is moderate, these factors do not constitute a breach of any mandatory rule for work\u2011visa departures. Consequently, there is no legal basis to off\u2011load the traveler, and the passenger is cleared for departure with a low residual risk score reflecting minor non\u2011statutory concerns.",
+      "parse_status": "EXHAUSTED",
+      "retries": 6,
+      "calls_count": 7,
+      "rounds_completed": 3,
+      "tokens": {
+        "prompt_tokens": 5534,
+        "completion_tokens": 1799,
+        "reasoning_tokens": 848,
+        "total_tokens": 7333
+      },
+      "cost_usd": 0.00217935,
+      "latency_ms": 30699.982166290283,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": [
+        {
+          "round": 1,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: BadRequestError: Error code: 400 - {'error': {'message': \"Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'json_validate_failed', 'failed_generation': 'max completion tokens reached before generating a valid document'}}"
+          }
+        },
+        {
+          "round": 1,
+          "speaker": "ADVOCATE",
+          "content": {
+            "defense_plea": "CLEAR_PASSENGER",
+            "mitigating_arguments": [
+              "Valid work visa for Qatar",
+              "Protector Stamp present as required for Pakistani work\u2011visa departures",
+              "Verified return ticket (even though not mandatory for work visas)",
+              "Verified accommodation arrangement provided by employer",
+              "Financial proof with bank statement and international card covering living expenses",
+              "Watchlist screen clear \u2013 no security alerts",
+              "Employment contract with reputable construction firm confirming skilled craftsman role",
+              "Fresh passport with sufficient validity",
+              "No statutory violations \u2013 all work\u2011visa requirements satisfied"
+            ],
+            "counter_rebuttal": "The prosecution\u2019s recommendation to off\u2011load is unsupported by the regulatory framework. Under the Illustrative Departure Compliance Rules, a work\u2011visa traveller must present a valid passport, a work visa, and a Protector Stamp \u2013 all of which are verified for this passenger. Return ticket and accommodation, while not required for work visas, are also present, further demonstrating intent to comply with immigration expectations. Financial stability, though described as volatile, is substantiated by a bank balance of approximately 645,000\u202fPKR and an international debit card, satisfying the financial\u2011proof criterion. No watchlist or IBMS alerts exist, eliminating security concerns. Consequently, there is no legal basis for off\u2011loading; the passenger meets every mandatory condition and therefore should be cleared for departure.",
+            "advocate_confidence": 0.93
+          }
+        },
+        {
+          "round": 2,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: BadRequestError: Error code: 400 - {'error': {'message': \"Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'json_validate_failed', 'failed_generation': ''}}"
+          }
+        },
+        {
+          "round": 2,
+          "speaker": "ADVOCATE",
+          "content": {
+            "defense_plea": "CLEAR_PASSENGER",
+            "mitigating_arguments": [
+              "Protector Stamp present as required for Pakistani work visas",
+              "Valid work visa and passport with >6 months validity",
+              "Return ticket verified (though not mandatory for work visas)",
+              "Accommodation verified (employer-provided housing)",
+              "Financial proof verified (bank statement and international card)",
+              "Watchlist clearance",
+              "Employment contract for skilled craftsman position in Qatar"
+            ],
+            "counter_rebuttal": "The prosecutor's recommendation to off\u2011load is based solely on a JSON parsing failure, not on any substantive immigration violation. Under the illustrated departure compliance rules, the passenger satisfies every mandatory requirement for a WORK visa: a valid passport, a valid work visa, the legally required Protector Stamp, and verified financial means. Return ticket and accommodation, while not required for work visas, are present and further demonstrate intent to comply. No statutory exemptions have been breached, and there are no watchlist alerts. Consequently, there is no legitimate basis for off\u2011loading the traveler.",
+            "advocate_confidence": 0.93
+          }
+        },
+        {
+          "round": 3,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: BadRequestError: Error code: 400 - {'error': {'message': \"Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.\", 'type': 'invalid_request_error', 'code': 'json_validate_failed', 'failed_generation': ''}}"
+          }
+        },
+        {
+          "round": 3,
+          "speaker": "ADVOCATE",
+          "content": {
+            "defense_plea": "CLEAR_PASSENGER",
+            "mitigating_arguments": [
+              "Valid work visa for Qatar",
+              "Protector Stamp present as required for Pakistani work\u2011visa departures",
+              "Verified return ticket and accommodation (though not statutory for work visas)",
+              "Financial proof with PKR 300k\u20111M bank balance and international card",
+              "Watchlist clearance",
+              "Fresh passport with >6\u2011month validity",
+              "Employment contract as skilled craftsman in overseas construction"
+            ],
+            "counter_rebuttal": "The passenger fully complies with the Illustrative Departure Compliance Rules for a WORK visa. The Protector Stamp, which is the sole mandatory immigration document for Pakistani workers, is verified present. A valid work visa and passport with sufficient validity are on file. Although return tickets and hotel bookings are not statutory for work visas, the passenger has voluntarily provided both, further demonstrating intent to return. Financial capacity is substantiated by a moderate bank balance and an international debit card, satisfying any financial\u2011means requirement. No watchlist alerts exist. The prosecutor\u2019s off\u2011load recommendation is based on a technical JSON parsing error, not on substantive immigration risk. Consequently, there is no legitimate ground for off\u2011loading, and the traveler should be cleared for departure.",
+            "advocate_confidence": 0.93
+          }
+        }
+      ],
+      "raw_response": "{\"decision\": \"CLEARED\", \"risk_score\": 17.3, \"confidence\": 0.96, \"rationale\": \"The prosecutor never presented a substantive statutory violation; all of its entries were generic JSON\\u2011parsing errors unrelated to immigration compliance. Under the Illustrative Departure Compliance Rules for a WORK visa, the only mandatory items are a valid passport, a valid work visa, and a Protector Stamp. The passenger\\u2019s profile confirms the presence of each, along with a verified return ticket, accommodation, financial proof, and a clear watchlist status. Although the income is described as volatile and the local\\u2011ties index is moderate, these factors do not constitute a breach of any mandatory rule for work\\u2011visa departures. Consequently, there is no legal basis to off\\u2011load the traveler, and the passenger is cleared for departure with a low residual risk score reflecting minor non\\u2011statutory concerns.\"}"
+    },
+    {
+      "timestamp": "2026-10-28T15:57:58Z",
+      "system_id": "S3",
+      "profile_id": "PIM-SYNTH-04878",
+      "ground_truth_label": 1,
+      "is_non_traditional": 0,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199020, Requested 2491. Please try again in 10m52.752s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 14,
+      "calls_count": 7,
+      "rounds_completed": 3,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": [
+        {
+          "round": 1,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199193, Requested 1432. Please try again in 4m30s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 1,
+          "speaker": "ADVOCATE",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199165, Requested 1505. Please try again in 4m49.44s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 2,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199136, Requested 2002. Please try again in 8m11.616s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 2,
+          "speaker": "ADVOCATE",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199108, Requested 1590. Please try again in 5m1.536s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 3,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199080, Requested 2425. Please try again in 10m50.16s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 3,
+          "speaker": "ADVOCATE",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199050, Requested 1370. Please try again in 3m1.44s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        }
+      ],
+      "raw_response": "{\"decision\": \"OFF-LOAD\", \"risk_score\": 100.0, \"confidence\": 0.0, \"rationale\": \"JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199020, Requested 2491. Please try again in 10m52.752s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}\"}"
+    },
+    {
+      "timestamp": "2026-10-28T16:01:29Z",
+      "system_id": "S3",
+      "profile_id": "PIM-SYNTH-02231",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198531, Requested 2619. Please try again in 8m16.8s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 14,
+      "calls_count": 7,
+      "rounds_completed": 3,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [
+        "Missing Hotel Booking (VISIT)"
+      ],
+      "has_statutory_violation": true,
+      "is_hard_rule_offload": true,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": [
+        {
+          "round": 1,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198841, Requested 1346. Please try again in 1m20.783999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 1,
+          "speaker": "ADVOCATE",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198813, Requested 1503. Please try again in 2m16.512s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 2,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198784, Requested 2000. Please try again in 5m38.688s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 2,
+          "speaker": "ADVOCATE",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198619, Requested 1555. Please try again in 1m15.168s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 3,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198589, Requested 2325. Please try again in 6m34.848s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 3,
+          "speaker": "ADVOCATE",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198558, Requested 1640. Please try again in 1m25.536s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        }
+      ],
+      "raw_response": "{\"decision\": \"OFF-LOAD\", \"risk_score\": 100.0, \"confidence\": 0.0, \"rationale\": \"JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198531, Requested 2619. Please try again in 8m16.8s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}\"}"
+    },
+    {
+      "timestamp": "2026-10-28T16:04:34Z",
+      "system_id": "S3",
+      "profile_id": "PIM-SYNTH-04905",
+      "ground_truth_label": 1,
+      "is_non_traditional": 1,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198546, Requested 2761. Please try again in 9m24.624s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 14,
+      "calls_count": 7,
+      "rounds_completed": 3,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [
+        "Missing Protector Stamp (WORK)"
+      ],
+      "has_statutory_violation": true,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": [
+        {
+          "round": 1,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198808, Requested 1372. Please try again in 1m17.759999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 1,
+          "speaker": "ADVOCATE",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198777, Requested 1635. Please try again in 2m57.984s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 2,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198748, Requested 2059. Please try again in 5m48.624s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 2,
+          "speaker": "ADVOCATE",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198637, Requested 1551. Please try again in 1m21.216s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 3,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198606, Requested 2349. Please try again in 6m52.56s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 3,
+          "speaker": "ADVOCATE",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198575, Requested 1636. Please try again in 1m31.152s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        }
+      ],
+      "raw_response": "{\"decision\": \"OFF-LOAD\", \"risk_score\": 100.0, \"confidence\": 0.0, \"rationale\": \"JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198546, Requested 2761. Please try again in 9m24.624s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}\"}"
+    },
+    {
+      "timestamp": "2026-10-28T16:06:57Z",
+      "system_id": "S3",
+      "profile_id": "PIM-SYNTH-01225",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "OFF-LOAD",
+      "risk_score": 100.0,
+      "confidence": 0.0,
+      "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199488, Requested 2767. Please try again in 16m14.16s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+      "parse_status": "EXHAUSTED",
+      "retries": 14,
+      "calls_count": 7,
+      "rounds_completed": 3,
+      "tokens": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "total_tokens": 0
+      },
+      "cost_usd": 0.0,
+      "latency_ms": 0.0,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": true,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": [
+        {
+          "round": 1,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199667, Requested 1249. Please try again in 6m35.712s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 1,
+          "speaker": "ADVOCATE",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199637, Requested 1600. Please try again in 8m54.384s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 2,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199606, Requested 2063. Please try again in 12m1.008s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 2,
+          "speaker": "ADVOCATE",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199577, Requested 1642. Please try again in 8m46.607999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 3,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199549, Requested 2367. Please try again in 13m47.712s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        },
+        {
+          "round": 3,
+          "speaker": "ADVOCATE",
+          "content": {
+            "decision": "OFF-LOAD",
+            "risk_score": 100.0,
+            "confidence": 0.0,
+            "rationale": "JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199519, Requested 1407. Please try again in 6m40.032s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+          }
+        }
+      ],
+      "raw_response": "{\"decision\": \"OFF-LOAD\", \"risk_score\": 100.0, \"confidence\": 0.0, \"rationale\": \"JSON parse/execution failure after 2 retries: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kqwpvheqe5sb7ydv9dr5ak4s` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199488, Requested 2767. Please try again in 16m14.16s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}\"}"
+    }
+  ]
+}
