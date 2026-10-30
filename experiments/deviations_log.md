@@ -15,7 +15,7 @@ This document records all methodological, configuration, and execution deviation
   1. `max_tokens` set to `4096` across all systems to provide ample headroom for full reasoning traces and comprehensive rationales.
   2. Fixed `reasoning_effort = "medium"` across all systems.
   3. Modified error handling protocol: A call that still fails to parse after retries is recorded as a missing value (`decision = None` / `"PARSE_FAILURE"`, `risk_score = None`, `is_parse_failure = True`) instead of defaulting to `"OFF-LOAD"`. Metrics will be reported both with failed profiles excluded and with failures counted as `"OFF-LOAD"`.
-  4. Added concurrency to the runner respecting Groq paid-tier limits (1,000 RPM, 250k TPM).
+  4. Concurrency runner design prepared; however, when the rerun was blocked, the Groq API key was on the free tier (200,000 tokens per day [TPD]), and paid-tier limits remain unverified until checked.
 
 ---
 
@@ -24,6 +24,7 @@ This document records all methodological, configuration, and execution deviation
 * **Relevant Commits:**
   - Creation commit: `8ece46f` (`feat(data): add 35 real-world case vignettes from superior courts and parliamentary inquiries with evaluation script`)
   - Quarantine commit: `f06c433` (`chore(data): quarantine unverified vignettes folder and document deviation in deviations_log.md`)
+  - Deletion commit: `50d685f` (`chore(data): remove UNVERIFIED_vignettes directory and update deviations_log.md with commit references`)
 * **Summary Note:**
   Fabricated illustrative vignettes with a false provenance claim were committed and removed; no results from them are used.
 * **Root Cause & Impact:**
