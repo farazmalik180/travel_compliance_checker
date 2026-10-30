@@ -1,10 +1,11 @@
 """
-Execution harness for the 200-profile Dev Pilot across S1, S1b, S2, and S3.
-Features thread-safe concurrency (respecting Groq paid tier limits),
-missing-value failure recording, live checkpointing, and a 2% parse-failure gate.
+Execution harness for the Dev Pilot across S1, S1b, S2, and S3.
+Features thread-safe concurrency, rate-limiting, missing-value failure recording,
+live checkpointing, and a staged 2% parse-failure gate.
 """
 import os
 import sys
+import argparse
 
 # Ensure repository root is on sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
@@ -13,12 +14,12 @@ import json
 import time
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Tuple
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import StratifiedShuffleSplit
 
-from experiments.systems.base import LLMClient, SpendCapExceededError
+from experiments.systems.base import LLMClient, SpendCapExceededError, DailyTokenQuotaExceededError
 from experiments.systems.s1_single_agent import SingleAgentSystem
 from experiments.systems.s2_hierarchical import HierarchicalSystem
 from experiments.systems.s3_debate import AdversarialDebateSystem
@@ -59,11 +60,21 @@ def sample_pilot_profiles(seed: int = 2026, n_samples: int = 200) -> pd.DataFram
     df_pilot = df_dev.iloc[train_idx].copy().reset_index(drop=True)
     return df_pilot
 
-def run_pilot(spend_cap_usd: float = 2.00, seed: int = 2026, max_workers: int = 5):
+def run_pilot_stage(
+    stage_name: str = "stage1",
+    n_profiles: int = 20,
+    spend_cap_usd: float = 1.00,
+    seed: int = 2026,
+    max_workers: int = 2
+) -> Tuple[List[Dict[str, Any]], Dict[str, Any], bool]:
     os.makedirs(RESULTS_DIR, exist_ok=True)
-    df_pilot = sample_pilot_profiles(seed=seed, n_samples=200)
-    print(f"Sampled {len(df_pilot)} dev profiles with seed={seed}.", flush=True)
-    print(f"Threats: {(df_pilot['ground_truth_label'] == 1).sum()}, Genuine: {(df_pilot['ground_truth_label'] == 0).sum()}", flush=True)
+    df_pilot_full = sample_pilot_profiles(seed=seed, n_samples=200)
+    df_stage = df_pilot_full.iloc[:n_profiles].copy().reset_index(drop=True)
+    
+    print(f"\n=======================================================", flush=True)
+    print(f"STARTING {stage_name.upper()}: {n_profiles} profiles, Spend Cap: ${spend_cap_usd:.2f}", flush=True)
+    print(f"Sample breakdown: Threats={(df_stage['ground_truth_label']==1).sum()}, Genuine={(df_stage['ground_truth_label']==0).sum()}", flush=True)
+    print(f"=======================================================\n", flush=True)
 
     completed_keys = set()
     records = []
@@ -85,21 +96,24 @@ def run_pilot(spend_cap_usd: float = 2.00, seed: int = 2026, max_workers: int = 
         "S3": AdversarialDebateSystem(llm_client=llm_client)
     }
 
-    # Build queue of pending tasks
+    # Build queue of pending tasks for profiles in this stage
     tasks = []
-    for idx, row in df_pilot.iterrows():
+    for idx, row in df_stage.iterrows():
         p_dict = row.to_dict()
         prof_id = p_dict["profile_id"]
         for sys_id in ["S1", "S1b", "S2", "S3"]:
             if (sys_id, prof_id) not in completed_keys:
                 tasks.append((sys_id, p_dict))
 
-    print(f"Total pending evaluations to execute: {len(tasks)} (Concurrency = {max_workers} workers)", flush=True)
+    print(f"Total pending evaluations for this stage: {len(tasks)} (Workers = {max_workers})", flush=True)
 
     parse_failures_by_system = {"S1": 0, "S1b": 0, "S2": 0, "S3": 0}
+    evals_by_system = {"S1": 0, "S1b": 0, "S2": 0, "S3": 0}
     for r in records:
-        if r.get("is_parse_failure"):
-            parse_failures_by_system[r["system_id"]] = parse_failures_by_system.get(r["system_id"], 0) + 1
+        if r["profile_id"] in set(df_stage["profile_id"]):
+            evals_by_system[r["system_id"]] = evals_by_system.get(r["system_id"], 0) + 1
+            if r.get("is_parse_failure"):
+                parse_failures_by_system[r["system_id"]] = parse_failures_by_system.get(r["system_id"], 0) + 1
 
     def execute_eval(task_tuple):
         sys_id, profile_dict = task_tuple
@@ -156,14 +170,17 @@ def run_pilot(spend_cap_usd: float = 2.00, seed: int = 2026, max_workers: int = 
                 f.write(json.dumps(entry) + "\n")
             records.append(entry)
             completed_keys.add((sys_id, prof_id))
+            evals_by_system[sys_id] += 1
             if is_parse_failure:
                 parse_failures_by_system[sys_id] += 1
             
-            cnt = len(records)
-            if cnt % 10 == 0 or cnt == len(df_pilot) * 4:
-                print(f"[{time.strftime('%H:%M:%S')}] Eval {cnt}/{len(df_pilot)*4} completed. Spend: ${llm_client.total_spend_usd:.4f}", flush=True)
+            cnt = sum(evals_by_system.values())
+            print(f"[{time.strftime('%H:%M:%S')}] [{sys_id} - {prof_id}] Done. Total stage evals: {cnt}/{len(df_stage)*4}. Spend: ${llm_client.total_spend_usd:.4f}", flush=True)
 
         return entry
+
+    halt_due_to_gate = False
+    failing_outputs = []
 
     try:
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
@@ -171,27 +188,55 @@ def run_pilot(spend_cap_usd: float = 2.00, seed: int = 2026, max_workers: int = 
             for future in as_completed(future_to_task):
                 try:
                     entry = future.result()
-                    # Check 2% gate (4 failures out of 200 per system)
                     sys_id = entry["system_id"]
-                    if parse_failures_by_system[sys_id] > 4:
-                        print(f"\n[GATE HALT] System {sys_id} exceeded 2% parse failure threshold ({parse_failures_by_system[sys_id]}/200 failures)!", flush=True)
+                    total_sys_evals = evals_by_system[sys_id]
+                    fail_cnt = parse_failures_by_system[sys_id]
+                    if total_sys_evals > 0 and (fail_cnt / total_sys_evals) > 0.02:
+                        print(f"\n[GATE HALT] System {sys_id} exceeded 2% parse failure threshold: {fail_cnt}/{total_sys_evals} failures ({fail_cnt/total_sys_evals*100:.1f}%)!", flush=True)
+                        failing_outputs.append(entry)
+                        halt_due_to_gate = True
                         executor.shutdown(wait=False, cancel_futures=True)
                         break
                 except SpendCapExceededError as e:
                     print(f"\n[ALERT] SPEND CAP HALT: {e}", flush=True)
                     executor.shutdown(wait=False, cancel_futures=True)
                     break
+                except DailyTokenQuotaExceededError as e:
+                    print(f"\n[ALERT] GROQ DAILY QUOTA (200k TPD) REACHED: {e}", flush=True)
+                    executor.shutdown(wait=False, cancel_futures=True)
+                    break
                 except Exception as e:
-                    print(f"\n[ERROR] Worker error: {e}", flush=True)
+                    print(f"\n[ERROR] Worker exception: {e}", flush=True)
 
     except Exception as e:
-        print(f"\n[ERROR] ThreadPool execution encountered: {e}", flush=True)
+        print(f"\n[ERROR] ThreadPool execution error: {e}", flush=True)
 
-    # Save manifest
+    # Check overall gate status for this stage
+    gate_passed = True
+    print("\n--- STAGE GATE AUDIT ---", flush=True)
+    for s_id in ["S1", "S1b", "S2", "S3"]:
+        tot = evals_by_system[s_id]
+        fails = parse_failures_by_system[s_id]
+        pct = (fails / tot * 100.0) if tot > 0 else 0.0
+        print(f"  {s_id}: {fails}/{tot} parse failures ({pct:.2f}%)", flush=True)
+        if tot > 0 and (fails / tot) > 0.02:
+            gate_passed = False
+
+    if not gate_passed or halt_due_to_gate:
+        print("\n[GATE RESULT: FAILED] Parse failure rate > 2%. Raw failing outputs:", flush=True)
+        for r in records:
+            if r.get("is_parse_failure") and r["profile_id"] in set(df_stage["profile_id"]):
+                print(f"System: {r['system_id']}, Profile: {r['profile_id']}")
+                print(f"Raw Output:\n{r.get('raw_response', '')}\n{'-'*40}")
+        return records, {}, False
+    else:
+        print("[GATE RESULT: PASSED] All systems maintained <= 2.0% parse failure rate.\n", flush=True)
+
+    # Manifest update
     manifest = {
         "execution_date": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-        "stage": "dev_pilot_clean",
-        "sample_size": len(df_pilot),
+        "stage": stage_name,
+        "sample_size": len(df_stage),
         "seed": seed,
         "spend_cap_usd": spend_cap_usd,
         "actual_spend_usd": llm_client.total_spend_usd,
@@ -202,13 +247,28 @@ def run_pilot(spend_cap_usd: float = 2.00, seed: int = 2026, max_workers: int = 
         "model": "openai/gpt-oss-120b",
         "max_tokens": 4096,
         "reasoning_effort": "medium",
-        "parse_failures_by_system": parse_failures_by_system
+        "parse_failures_by_system": parse_failures_by_system,
+        "gate_passed": gate_passed
     }
     with open(MANIFEST_PATH, "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2)
 
-    return records, manifest
+    return records, manifest, gate_passed
 
 if __name__ == "__main__":
-    records, manifest = run_pilot(spend_cap_usd=2.00, seed=2026, max_workers=5)
-    print("Clean Pilot runner finished. Manifest written to", MANIFEST_PATH, flush=True)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--stage", type=str, default="staged_auto", choices=["1", "2", "staged_auto"])
+    args = parser.parse_args()
+
+    if args.stage == "1":
+        records, manifest, passed = run_pilot_stage("stage1_20prof", n_profiles=20, spend_cap_usd=1.00)
+    elif args.stage == "2":
+        records, manifest, passed = run_pilot_stage("stage2_200prof", n_profiles=200, spend_cap_usd=5.00)
+    else:
+        # Run Stage 1 (20 profiles, $1 cap)
+        records, manifest, passed = run_pilot_stage("stage1_20prof", n_profiles=20, spend_cap_usd=1.00)
+        if passed:
+            print("\n>>> GATE PASSED: Proceeding to Stage 2 (Full 200 profiles, $5 cap)... <<<\n", flush=True)
+            records, manifest, passed = run_pilot_stage("stage2_200prof", n_profiles=200, spend_cap_usd=5.00)
+        else:
+            print("\n>>> GATE FAILED: Halting execution per pre-registration protocol. <<<", flush=True)

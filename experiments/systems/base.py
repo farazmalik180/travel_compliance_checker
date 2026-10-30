@@ -1,14 +1,15 @@
 """
 Base LLM execution wrapper for Groq with retry logic, token usage tracking,
-thread-safe expenditure tracking, and missing-value error handling.
+thread-safe expenditure tracking, TPM rate-limiting, and missing-value error handling.
 """
 import os
 import json
 import time
+import re
 import threading
 from typing import Dict, Any, List, Optional, Tuple
 from dotenv import load_dotenv
-from groq import Groq
+from groq import Groq, RateLimitError
 
 load_dotenv()
 
@@ -20,22 +21,41 @@ class SpendCapExceededError(Exception):
     """Raised when total run expenditure exceeds the hard spend cap."""
     pass
 
+class DailyTokenQuotaExceededError(Exception):
+    """Raised when Groq daily token quota (TPD) is reached."""
+    pass
+
 class LLMClient:
-    def __init__(self, spend_cap_usd: float = 2.00, model: str = "openai/gpt-oss-120b"):
+    def __init__(self, spend_cap_usd: float = 2.00, model: str = "openai/gpt-oss-120b", max_tpm: int = 7000):
         self.model = model
         self.spend_cap_usd = spend_cap_usd
+        self.max_tpm = max_tpm
         self.total_spend_usd = 0.0
         self.total_prompt_tokens = 0
         self.total_completion_tokens = 0
         self.total_reasoning_tokens = 0
         self.total_calls = 0
         self.lock = threading.Lock()
+        self.token_history: List[Tuple[float, int]] = []
         self.client = Groq(timeout=45.0)
 
     def calculate_cost(self, prompt_tokens: int, completion_tokens: int) -> float:
         cost_in = (prompt_tokens / 1_000_000.0) * INPUT_PRICE_PER_MILLION
         cost_out = (completion_tokens / 1_000_000.0) * OUTPUT_PRICE_PER_MILLION
         return cost_in + cost_out
+
+    def _wait_for_token_bucket(self, estimated_tokens: int = 1500):
+        """Thread-safe sliding window rate limiter ensuring calls stay under max_tpm."""
+        while True:
+            with self.lock:
+                now = time.time()
+                self.token_history = [(ts, tok) for ts, tok in self.token_history if now - ts < 60.0]
+                current_tpm = sum(tok for ts, tok in self.token_history)
+                if current_tpm + estimated_tokens <= self.max_tpm or not self.token_history:
+                    return
+                oldest_ts = self.token_history[0][0]
+                sleep_needed = max(1.0, 60.0 - (now - oldest_ts) + 0.5)
+            time.sleep(min(sleep_needed, 5.0))
 
     def invoke_with_retry(
         self,
@@ -56,10 +76,12 @@ class LLMClient:
                 )
 
         attempt = 0
+        rate_limit_retries = 0
         last_error = ""
         raw_text = ""
 
         while attempt <= max_retries:
+            self._wait_for_token_bucket(estimated_tokens=1500)
             t0 = time.time()
             try:
                 response = self.client.chat.completions.create(
@@ -88,6 +110,7 @@ class LLMClient:
                     self.total_prompt_tokens += p_tok
                     self.total_completion_tokens += c_tok
                     self.total_reasoning_tokens += r_tok
+                    self.token_history.append((time.time(), p_tok + c_tok))
 
                 raw_text = response.choices[0].message.content or ""
                 parsed_json = json.loads(raw_text)
@@ -108,6 +131,23 @@ class LLMClient:
                     "latency_ms": latency_ms,
                     "error": None
                 }
+
+            except RateLimitError as rle:
+                err_msg = str(rle)
+                if "tokens per day (TPD)" in err_msg:
+                    raise DailyTokenQuotaExceededError(err_msg)
+                
+                rate_limit_retries += 1
+                if rate_limit_retries > 10:
+                    raise rle
+                
+                wait_sec = 6.0
+                m = re.search(r"try again in (\d+(\.\d+)?)s", err_msg)
+                if m:
+                    wait_sec = float(m.group(1)) + 1.0
+                print(f"[RateLimit TPM] Waiting {wait_sec:.1f}s before retry...", flush=True)
+                time.sleep(wait_sec)
+                continue
 
             except json.JSONDecodeError as e:
                 last_error = f"JSONDecodeError: {str(e)}"
