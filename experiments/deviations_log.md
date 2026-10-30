@@ -36,3 +36,15 @@ This document records all methodological, configuration, and execution deviation
   2. Any future real-world case vignette must be grounded strictly in retrieved, verifiable primary court judgments or official published records, with direct quotations and URLs provided.
   3. All non-reported profile fields must be marked strictly as `null` (not filled with plausible values).
   4. Real case vignettes are strictly qualitative benchmarks and will not be used for quantitative algorithmic scoring or model evaluation.
+
+---
+
+### Deviation 3: Sliding-Window Token-Bucket Rate Limiter & Staged Execution Runner
+* **Date:** 2026-10-31
+* **Relevant Commits:**
+  - Implementation commit: `196a4fa` (`feat(eval): add sliding-window token bucket rate limiter and staged pilot runner`)
+* **Description & Rationale:**
+  Groq API response headers on the active key returned `x-ratelimit-limit-tokens: 8000` (8,000 TPM limit). Unpaced concurrent workers rapidly burst past this threshold, causing HTTP 429 errors.
+  To prevent false parse failures due to transient rate limiting, `experiments/systems/base.py` was enhanced with a thread-safe sliding-window rate limiter (`_wait_for_token_bucket`) that enforces a conservative 7,000 TPM ceiling. Calls automatically pause until tokens slide out of the 60-second window. In addition, `RateLimitError` handling explicitly separates transient TPM backoffs from daily quota exhaustion (`DailyTokenQuotaExceededError`), and `pilot_runner.py` was refactored into a staged runner with a 2% parse-failure gate between the 20-profile stage and full 200-profile execution.
+* **Tagging Plan:**
+  The complete experimental code (systems, prompts, harness, and rate limiters) will be formally tagged `code-frozen-v1` immediately prior to the test run.
