@@ -48,3 +48,13 @@ This document records all methodological, configuration, and execution deviation
   To prevent false parse failures due to transient rate limiting, `experiments/systems/base.py` was enhanced with a thread-safe sliding-window rate limiter (`_wait_for_token_bucket`) that enforces a conservative 7,000 TPM ceiling. Calls automatically pause until tokens slide out of the 60-second window. In addition, `RateLimitError` handling explicitly separates transient TPM backoffs from daily quota exhaustion (`DailyTokenQuotaExceededError`), and `pilot_runner.py` was refactored into a staged runner with a 2% parse-failure gate between the 20-profile stage and full 200-profile execution.
 * **Tagging Plan:**
   The complete experimental code (systems, prompts, harness, and rate limiters) will be formally tagged `code-frozen-v1` immediately prior to the test run.
+
+---
+
+### Deviation 4: Daily Token Safety Guard (190k TPD) & Unattended Rollover
+* **Date:** 2026-11-01
+* **Relevant Changes:**
+  - `experiments/systems/base.py`: Enforced `DAILY_TPD_BUDGET = 190_000` (95% safety ceiling on Groq free-tier 200k TPD limit) via `DailyTokenBudgetReached` exception and `seconds_until_utc_midnight()`.
+  - `experiments/harness/pilot_runner.py`: Integrated unattended execution mode (`--unattended`) that pauses at the 190k budget, preserves live `.jsonl` checkpoints, sleeps until 00:00:05 UTC (05:00:05 PKT), and automatically resumes.
+* **Description & Rationale:**
+  Groq's free-tier daily quota resets strictly at midnight UTC. A continuous run past 200k TPD triggers HTTP 429 quota exhaustion. Halting at 190k tokens prevents failed calls, avoids edge validation corruptions, and guarantees clean checkpoint persistence.

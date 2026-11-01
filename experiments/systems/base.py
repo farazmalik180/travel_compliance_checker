@@ -17,6 +17,16 @@ load_dotenv()
 INPUT_PRICE_PER_MILLION = 0.15   # $0.15 per 1M input tokens
 OUTPUT_PRICE_PER_MILLION = 0.75  # $0.75 per 1M output tokens
 
+DAILY_TPD_LIMIT = 200_000
+DAILY_TPD_BUDGET = int(DAILY_TPD_LIMIT * 0.95)  # 190,000 tokens (95% safety cap)
+
+def seconds_until_utc_midnight() -> float:
+    """Returns seconds remaining until next 00:00:05 UTC (05:00:05 PKT)."""
+    import datetime
+    now_utc = datetime.datetime.now(datetime.timezone.utc)
+    tomorrow_utc = (now_utc + datetime.timedelta(days=1)).replace(hour=0, minute=0, second=5, microsecond=0)
+    return max(1.0, (tomorrow_utc - now_utc).total_seconds())
+
 class SpendCapExceededError(Exception):
     """Raised when total run expenditure exceeds the hard spend cap."""
     pass
@@ -25,11 +35,17 @@ class DailyTokenQuotaExceededError(Exception):
     """Raised when Groq daily token quota (TPD) is reached."""
     pass
 
+class DailyTokenBudgetReached(Exception):
+    """Raised when the 95% safety cap of Groq daily token quota (190k TPD) is reached."""
+    pass
+
 class LLMClient:
-    def __init__(self, spend_cap_usd: float = 2.00, model: str = "openai/gpt-oss-120b", max_tpm: int = 7000):
+    def __init__(self, spend_cap_usd: float = 2.00, model: str = "openai/gpt-oss-120b", max_tpm: int = 7000, daily_tpd_budget: int = DAILY_TPD_BUDGET):
         self.model = model
         self.spend_cap_usd = spend_cap_usd
         self.max_tpm = max_tpm
+        self.daily_tpd_budget = daily_tpd_budget
+        self.daily_tokens_consumed = 0
         self.total_spend_usd = 0.0
         self.total_prompt_tokens = 0
         self.total_completion_tokens = 0
@@ -74,6 +90,10 @@ class LLMClient:
                 raise SpendCapExceededError(
                     f"Hard spend cap of ${self.spend_cap_usd:.2f} reached. Total spend: ${self.total_spend_usd:.4f}"
                 )
+            if self.daily_tokens_consumed >= self.daily_tpd_budget:
+                raise DailyTokenBudgetReached(
+                    f"Daily token safety budget of {self.daily_tpd_budget:,} reached ({self.daily_tokens_consumed:,} tokens consumed)."
+                )
 
         attempt = 0
         rate_limit_retries = 0
@@ -110,6 +130,7 @@ class LLMClient:
                     self.total_prompt_tokens += p_tok
                     self.total_completion_tokens += c_tok
                     self.total_reasoning_tokens += r_tok
+                    self.daily_tokens_consumed += (p_tok + c_tok)
                     self.token_history.append((time.time(), p_tok + c_tok))
 
                 raw_text = response.choices[0].message.content or ""

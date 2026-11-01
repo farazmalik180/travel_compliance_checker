@@ -29,7 +29,7 @@ class SingleAgentSystem:
         else:
             raise ValueError(f"Unknown system_id for SingleAgent: {system_id}")
 
-    def evaluate_profile(self, profile: Dict[str, Any], include_demographics: bool = False) -> Dict[str, Any]:
+    def evaluate_profile(self, profile: Dict[str, Any], include_demographics: bool = False, reasoning_effort: str = "medium") -> Dict[str, Any]:
         agent_profile = build_agent_profile(profile, include_demographics=include_demographics)
         serialized_profile = serialize_profile_for_prompt(agent_profile)
 
@@ -41,7 +41,7 @@ class SingleAgentSystem:
         res = self.llm_client.invoke_with_retry(
             messages=messages,
             temperature=0.0,
-            reasoning_effort="medium",
+            reasoning_effort=reasoning_effort,
             max_retries=2,
             max_tokens=4096
         )

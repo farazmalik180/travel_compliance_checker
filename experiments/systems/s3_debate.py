@@ -1,6 +1,6 @@
 """
 S3: Peer-to-Peer Adversarial Debate Implementation.
-Configured with max_tokens=4096, reasoning_effort="medium", and missing-value failure handling.
+Configured with max_tokens=4096, reasoning_effort=reasoning_effort, and missing-value failure handling.
 """
 import os
 import json
@@ -25,7 +25,7 @@ class AdversarialDebateSystem:
         self.system_id = "S3"
         self.llm_client = llm_client or LLMClient()
 
-    def evaluate_profile(self, profile: Dict[str, Any], include_demographics: bool = False) -> Dict[str, Any]:
+    def evaluate_profile(self, profile: Dict[str, Any], include_demographics: bool = False, reasoning_effort: str = "medium") -> Dict[str, Any]:
         agent_profile = build_agent_profile(profile, include_demographics=include_demographics)
         serialized_profile = serialize_profile_for_prompt(agent_profile)
 
@@ -60,7 +60,7 @@ class AdversarialDebateSystem:
                 {"role": "system", "content": PROSECUTOR_TEMPLATE},
                 {"role": "user", "content": prosecutor_input}
             ]
-            res_pros = self.llm_client.invoke_with_retry(msg_pros, temperature=0.0, reasoning_effort="medium", max_tokens=4096)
+            res_pros = self.llm_client.invoke_with_retry(msg_pros, temperature=0.0, reasoning_effort=reasoning_effort, max_tokens=4096)
             total_prompt_tokens += res_pros["tokens"]["prompt_tokens"]
             total_completion_tokens += res_pros["tokens"]["completion_tokens"]
             total_reasoning_tokens += res_pros["tokens"]["reasoning_tokens"]
@@ -94,7 +94,7 @@ class AdversarialDebateSystem:
                 {"role": "system", "content": ADVOCATE_TEMPLATE},
                 {"role": "user", "content": advocate_input}
             ]
-            res_adv = self.llm_client.invoke_with_retry(msg_adv, temperature=0.0, reasoning_effort="medium", max_tokens=4096)
+            res_adv = self.llm_client.invoke_with_retry(msg_adv, temperature=0.0, reasoning_effort=reasoning_effort, max_tokens=4096)
             total_prompt_tokens += res_adv["tokens"]["prompt_tokens"]
             total_completion_tokens += res_adv["tokens"]["completion_tokens"]
             total_reasoning_tokens += res_adv["tokens"]["reasoning_tokens"]
@@ -129,7 +129,7 @@ class AdversarialDebateSystem:
             {"role": "system", "content": ADJUDICATOR_TEMPLATE},
             {"role": "user", "content": adjudicator_input}
         ]
-        res_adj = self.llm_client.invoke_with_retry(msg_adj, temperature=0.0, reasoning_effort="medium", max_tokens=4096)
+        res_adj = self.llm_client.invoke_with_retry(msg_adj, temperature=0.0, reasoning_effort=reasoning_effort, max_tokens=4096)
         total_prompt_tokens += res_adj["tokens"]["prompt_tokens"]
         total_completion_tokens += res_adj["tokens"]["completion_tokens"]
         total_reasoning_tokens += res_adj["tokens"]["reasoning_tokens"]
