@@ -1,0 +1,22 @@
+{
+  "execution_date": "2026-10-30T22:55:48Z",
+  "stage": "stage1_20prof",
+  "sample_size": 20,
+  "seed": 2026,
+  "spend_cap_usd": 1.0,
+  "actual_spend_usd": 0.07434015000000001,
+  "total_calls": 152,
+  "total_prompt_tokens": 184151,
+  "total_completion_tokens": 62290,
+  "total_reasoning_tokens": 32090,
+  "model": "openai/gpt-oss-120b",
+  "max_tokens": 4096,
+  "reasoning_effort": "medium",
+  "parse_failures_by_system": {
+    "S1": 0,
+    "S1b": 0,
+    "S2": 0,
+    "S3": 0
+  },
+  "gate_passed": true
+}
