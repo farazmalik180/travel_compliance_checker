@@ -1,0 +1,592 @@
+{
+  "S1": [
+    {
+      "timestamp": "2026-10-30T22:24:18Z",
+      "system_id": "S1",
+      "profile_id": "PIM-SYNTH-04057",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "CLEARED",
+      "risk_score": 15.3,
+      "confidence": 0.96,
+      "rationale": "The passenger holds a valid passport, a valid Australian work visa, and the required Protector Stamp. Return ticket is not required for a work visa, and the passenger provided verified accommodation and financial proof. No watchlist alerts were triggered. All statutory requirements are satisfied, resulting in a low compliance risk.",
+      "is_parse_failure": false,
+      "parse_status": "SUCCESS",
+      "retries": 0,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 992,
+        "completion_tokens": 200,
+        "reasoning_tokens": 109,
+        "total_tokens": 1192
+      },
+      "cost_usd": 0.0002988,
+      "latency_ms": 905.0185680389404,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": "{\"decision\":\"CLEARED\",\"risk_score\":15.3,\"confidence\":0.96,\"rationale\":\"The passenger holds a valid passport, a valid Australian work visa, and the required Protector Stamp. Return ticket is not required for a work visa, and the passenger provided verified accommodation and financial proof. No watchlist alerts were triggered. All statutory requirements are satisfied, resulting in a low compliance risk.\"}"
+    },
+    {
+      "timestamp": "2026-10-30T22:27:23Z",
+      "system_id": "S1",
+      "profile_id": "PIM-SYNTH-04170",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "CLEARED",
+      "risk_score": 22.5,
+      "confidence": 0.96,
+      "rationale": "The passenger holds a valid work visa for the United Kingdom, a passport with sufficient validity, and the required Protector Stamp is present. Return ticket and accommodation are not mandatory for work visas, and the passenger provided verified financial proof. Watchlist screening is clear. Despite volatile income and moderate bank funds, the overall profile meets all statutory requirements, resulting in a low compliance risk.",
+      "is_parse_failure": false,
+      "parse_status": "SUCCESS",
+      "retries": 0,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 1005,
+        "completion_tokens": 232,
+        "reasoning_tokens": 126,
+        "total_tokens": 1237
+      },
+      "cost_usd": 0.00032475,
+      "latency_ms": 575.7842063903809,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": "{\"decision\":\"CLEARED\",\"risk_score\":22.5,\"confidence\":0.96,\"rationale\":\"The passenger holds a valid work visa for the United Kingdom, a passport with sufficient validity, and the required Protector Stamp is present. Return ticket and accommodation are not mandatory for work visas, and the passenger provided verified financial proof. Watchlist screening is clear. Despite volatile income and moderate bank funds, the overall profile meets all statutory requirements, resulting in a low compliance risk.\"}"
+    },
+    {
+      "timestamp": "2026-10-30T22:23:15Z",
+      "system_id": "S1",
+      "profile_id": "PIM-SYNTH-04740",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "CLEARED",
+      "risk_score": 32.7,
+      "confidence": 0.95,
+      "rationale": "Passenger holds a valid visit visa for Kyrgyzstan with all mandatory documents: verified return ticket, accommodation voucher, and financial proof. Protector stamp is not required for visit visas. Watchlist screening is clear. Although Kyrgyzstan is a high\u2011scrutiny destination, the passenger\u2019s strong financial standing, moderate local ties (59.4), and good document authenticity (82.2) mitigate migration risk, resulting in a low\u2011to\u2011moderate risk score and a confident clearance.",
+      "is_parse_failure": false,
+      "parse_status": "SUCCESS",
+      "retries": 0,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 1005,
+        "completion_tokens": 307,
+        "reasoning_tokens": 178,
+        "total_tokens": 1312
+      },
+      "cost_usd": 0.000381,
+      "latency_ms": 1759.0234279632568,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": "{\"decision\":\"CLEARED\",\"risk_score\":32.7,\"confidence\":0.95,\"rationale\":\"Passenger holds a valid visit visa for Kyrgyzstan with all mandatory documents: verified return ticket, accommodation voucher, and financial proof. Protector stamp is not required for visit visas. Watchlist screening is clear. Although Kyrgyzstan is a high\u2011scrutiny destination, the passenger\u2019s strong financial standing, moderate local ties (59.4), and good document authenticity (82.2) mitigate migration risk, resulting in a low\u2011to\u2011moderate risk score and a confident clearance.\"}"
+    },
+    {
+      "timestamp": "2026-10-30T22:26:20Z",
+      "system_id": "S1",
+      "profile_id": "PIM-SYNTH-00019",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "OFF-LOAD",
+      "risk_score": 85.0,
+      "confidence": 0.96,
+      "rationale": "The passenger holds a VISIT visa for Saudi Arabia, which legally requires a confirmed return flight ticket. The profile indicates a missing/incomplete round\u2011trip ticket, violating the mandatory requirement. All other items (accommodation, financial proof, watchlist clearance) are satisfactory, but the absence of the required return ticket constitutes a statutory non\u2011compliance, mandating off\u2011loading. The risk score reflects the high compliance breach, and confidence is strong given clear rule violation.",
+      "is_parse_failure": false,
+      "parse_status": "SUCCESS",
+      "retries": 0,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 998,
+        "completion_tokens": 258,
+        "reasoning_tokens": 131,
+        "total_tokens": 1256
+      },
+      "cost_usd": 0.0003432,
+      "latency_ms": 734.2424392700195,
+      "statutory_violations": [
+        "Missing Return Ticket (VISIT)"
+      ],
+      "has_statutory_violation": true,
+      "is_hard_rule_offload": true,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": "{\"decision\":\"OFF-LOAD\",\"risk_score\":85.0,\"confidence\":0.96,\"rationale\":\"The passenger holds a VISIT visa for Saudi Arabia, which legally requires a confirmed return flight ticket. The profile indicates a missing/incomplete round\u2011trip ticket, violating the mandatory requirement. All other items (accommodation, financial proof, watchlist clearance) are satisfactory, but the absence of the required return ticket constitutes a statutory non\u2011compliance, mandating off\u2011loading. The risk score reflects the high compliance breach, and confidence is strong given clear rule violation.\"}"
+    }
+  ],
+  "S1b": [
+    {
+      "timestamp": "2026-10-30T22:24:30Z",
+      "system_id": "S1b",
+      "profile_id": "PIM-SYNTH-04057",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "CLEARED",
+      "risk_score": 15.3,
+      "confidence": 0.97,
+      "rationale": "All statutory requirements for a WORK visa are met: passport validity assumed, valid work visa, Protector Stamp present, no return ticket required, accommodation and financial proof verified, and no watchlist alerts. Profile shows moderate income, solid local ties (61.1), and high document authenticity (87.1), resulting in low compliance risk.",
+      "is_parse_failure": false,
+      "parse_status": "SUCCESS",
+      "retries": 0,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 1075,
+        "completion_tokens": 210,
+        "reasoning_tokens": 111,
+        "total_tokens": 1285
+      },
+      "cost_usd": 0.00031875,
+      "latency_ms": 873.6283779144287,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": "{\"decision\":\"CLEARED\",\"risk_score\":15.3,\"confidence\":0.97,\"rationale\":\"All statutory requirements for a WORK visa are met: passport validity assumed, valid work visa, Protector Stamp present, no return ticket required, accommodation and financial proof verified, and no watchlist alerts. Profile shows moderate income, solid local ties (61.1), and high document authenticity (87.1), resulting in low compliance risk.\"}"
+    },
+    {
+      "timestamp": "2026-10-30T22:28:24Z",
+      "system_id": "S1b",
+      "profile_id": "PIM-SYNTH-04170",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "CLEARED",
+      "risk_score": 15.3,
+      "confidence": 0.96,
+      "rationale": "The passenger holds a valid work visa for the UK, a passport meeting the six\u2011month validity rule, and a verified Protector Stamp, which satisfies the mandatory requirement for Pakistani workers. Return ticket and accommodation are not required for work visas, and the traveler provided verified financial proof. No watchlist alerts were triggered, and the document authenticity score is high (93.2). Although income is volatile, the presence of sufficient bank funds and a solid local ties index (64.6) mitigate financial risk, resulting in a low overall risk score.",
+      "is_parse_failure": false,
+      "parse_status": "SUCCESS",
+      "retries": 0,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 1088,
+        "completion_tokens": 267,
+        "reasoning_tokens": 127,
+        "total_tokens": 1355
+      },
+      "cost_usd": 0.00036344999999999997,
+      "latency_ms": 720.5376625061035,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": "{\"decision\":\"CLEARED\",\"risk_score\":15.3,\"confidence\":0.96,\"rationale\":\"The passenger holds a valid work visa for the UK, a passport meeting the six\u2011month validity rule, and a verified Protector Stamp, which satisfies the mandatory requirement for Pakistani workers. Return ticket and accommodation are not required for work visas, and the traveler provided verified financial proof. No watchlist alerts were triggered, and the document authenticity score is high (93.2). Although income is volatile, the presence of sufficient bank funds and a solid local ties index (64.6) mitigate financial risk, resulting in a low overall risk score.\"}"
+    },
+    {
+      "timestamp": "2026-10-30T22:23:15Z",
+      "system_id": "S1b",
+      "profile_id": "PIM-SYNTH-04740",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "CLEARED",
+      "risk_score": 32.5,
+      "confidence": 0.96,
+      "rationale": "The passenger holds a valid visit visa for Kyrgyzstan, presents a fresh passport, a verified round\u2011trip ticket, confirmed accommodation, and verified financial proof. Protector stamp is not required for a visit visa, and no watchlist alerts exist. Although the applicant is informally self\u2011employed, the high bank balance and moderate local ties (59.4) mitigate migration risk, resulting in a low\u2011to\u2011moderate risk score and a high confidence in compliance.",
+      "is_parse_failure": false,
+      "parse_status": "SUCCESS",
+      "retries": 0,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 1088,
+        "completion_tokens": 227,
+        "reasoning_tokens": 100,
+        "total_tokens": 1315
+      },
+      "cost_usd": 0.00033345,
+      "latency_ms": 1754.9045085906982,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": "{\"decision\":\"CLEARED\",\"risk_score\":32.5,\"confidence\":0.96,\"rationale\":\"The passenger holds a valid visit visa for Kyrgyzstan, presents a fresh passport, a verified round\u2011trip ticket, confirmed accommodation, and verified financial proof. Protector stamp is not required for a visit visa, and no watchlist alerts exist. Although the applicant is informally self\u2011employed, the high bank balance and moderate local ties (59.4) mitigate migration risk, resulting in a low\u2011to\u2011moderate risk score and a high confidence in compliance.\"}"
+    },
+    {
+      "timestamp": "2026-10-30T22:26:21Z",
+      "system_id": "S1b",
+      "profile_id": "PIM-SYNTH-00019",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "OFF-LOAD",
+      "risk_score": 85.0,
+      "confidence": 0.95,
+      "rationale": "The passenger holds a VISIT visa, which legally requires a confirmed return flight ticket. The profile indicates a missing/incomplete round\u2011trip ticket, violating the mandatory requirement for visit visas. All other documents (accommodation, financial proof) are satisfactory, but the absence of a return ticket is a statutory non\u2011compliance that cannot be mitigated by financial means or local ties. Consequently, the passenger must be off\u2011loaded.",
+      "is_parse_failure": false,
+      "parse_status": "SUCCESS",
+      "retries": 0,
+      "calls_count": 1,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 1081,
+        "completion_tokens": 280,
+        "reasoning_tokens": 161,
+        "total_tokens": 1361
+      },
+      "cost_usd": 0.00037214999999999997,
+      "latency_ms": 719.6648120880127,
+      "statutory_violations": [
+        "Missing Return Ticket (VISIT)"
+      ],
+      "has_statutory_violation": true,
+      "is_hard_rule_offload": true,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": null,
+      "raw_response": "{\"decision\":\"OFF-LOAD\",\"risk_score\":85.0,\"confidence\":0.95,\"rationale\":\"The passenger holds a VISIT visa, which legally requires a confirmed return flight ticket. The profile indicates a missing/incomplete round\u2011trip ticket, violating the mandatory requirement for visit visas. All other documents (accommodation, financial proof) are satisfactory, but the absence of a return ticket is a statutory non\u2011compliance that cannot be mitigated by financial means or local ties. Consequently, the passenger must be off\u2011loaded.\"}"
+    }
+  ],
+  "S2": [
+    {
+      "timestamp": "2026-10-30T22:25:20Z",
+      "system_id": "S2",
+      "profile_id": "PIM-SYNTH-04057",
+      "ground_truth_label": 0,
+      "is_non_traditional": 0,
+      "decision": "CLEARED",
+      "risk_score": 13.4,
+      "confidence": 0.97,
+      "rationale": "All statutory non\u2011negotiables for a WORK visa are satisfied: passport validity, valid work visa, Protector Stamp present, accommodation verified, financial proof verified, and no watchlist alert. The Document Integrity Audit reports full compliance with no deficiencies, and the Socio\u2011Economic Context Audit indicates strong anchorage (local ties index 61.1, corporate salaried employment, moderate savings, experienced passport holder). No economic flight\u2011risk flags are present. Consequently the passenger poses minimal departure risk, yielding a low risk score and high confidence in the clearance decision.",
+      "is_parse_failure": false,
+      "parse_status": "SUCCESS",
+      "retries": 0,
+      "calls_count": 3,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 3092,
+        "completion_tokens": 850,
+        "reasoning_tokens": 444,
+        "total_tokens": 3942
+      },
+      "cost_usd": 0.0011013,
+      "latency_ms": 2973.5848903656006,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": {
+        "document_integrity": {
+          "statutory_compliance_status": "COMPLIANT",
+          "document_deficiencies": [],
+          "verified_credentials": [
+            "Protector Stamp present",
+            "Work visa valid",
+            "Financial proof verified",
+            "Accommodation verified",
+            "Watchlist clear",
+            "Document authenticity score adequate"
+          ],
+          "document_risk_summary": "All mandatory work-visa requirements met; protector stamp present, financial and accommodation documents verified, no watchlist alerts, and authenticity score is high."
+        },
+        "socio_economic": {
+          "anchorage_level": "STRONG",
+          "mitigating_socioeconomic_factors": [
+            "Protector Stamp verified",
+            "Corporate salaried employment (HR Manager)",
+            "Moderate bank funds (~643,809 PKR)",
+            "Local ties index 61.1",
+            "Experienced passport holder",
+            "Verified accommodation"
+          ],
+          "economic_flight_risk_flags": [],
+          "socioeconomic_summary": "The passenger holds a work visa with a valid Protector Stamp, stable corporate employment, moderate savings, and a solid local ties score. Experience with international travel further supports credibility. No economic distress or flight risk indicators are present."
+        }
+      },
+      "debate_transcript": null,
+      "raw_response": "{\"document_integrity\": \"{\\n  \\\"statutory_compliance_status\\\": \\\"COMPLIANT\\\",\\n  \\\"document_deficiencies\\\": [],\\n  \\\"verified_credentials\\\": [\\n    \\\"Protector Stamp present\\\",\\n    \\\"Work visa valid\\\",\\n    \\\"Financial proof verified\\\",\\n    \\\"Accommodation verified\\\",\\n    \\\"Watchlist clear\\\",\\n    \\\"Document authenticity score adequate\\\"\\n  ],\\n  \\\"document_risk_summary\\\": \\\"All mandatory work-visa requirements met; protector stamp present, financial and accommodation documents verified, no watchlist alerts, and authenticity score is high.\\\"\\n}\", \"socio_economic\": \"{\\n  \\\"anchorage_level\\\": \\\"STRONG\\\",\\n  \\\"mitigating_socioeconomic_factors\\\": [\\n    \\\"Protector Stamp verified\\\",\\n    \\\"Corporate salaried employment (HR Manager)\\\",\\n    \\\"Moderate bank funds (~643,809 PKR)\\\",\\n    \\\"Local ties index 61.1\\\",\\n    \\\"Experienced passport holder\\\",\\n    \\\"Verified accommodation\\\"\\n  ],\\n  \\\"economic_flight_risk_flags\\\": [],\\n  \\\"socioeconomic_summary\\\": \\\"The passenger holds a work visa with a valid Protector Stamp, stable corporate employment, moderate savings, and a solid local ties score. Experience with international travel further supports credibility. No economic distress or flight risk indicators are present.\\\"\\n}\", \"consensus_scorer\": \"{\\\"decision\\\":\\\"CLEARED\\\",\\\"risk_score\\\":13.4,\\\"confidence\\\":0.97,\\\"rationale\\\":\\\"All statutory non\\u2011negotiables for a WORK visa are satisfied: passport validity, valid work visa, Protector Stamp present, accommodation verified, financial proof verified, and no watchlist alert. The Document Integrity Audit reports full compliance with no deficiencies, and the Socio\\u2011Economic Context Audit indicates strong anchorage (local ties index 61.1, corporate salaried employment, moderate savings, experienced passport holder). No economic flight\\u2011risk flags are present. Consequently the passenger poses minimal departure risk, yielding a low risk score and high confidence in the clearance decision.\\\"}\"}"
+    },
+    {
+      "timestamp": "2026-10-30T22:28:27Z",
+      "system_id": "S2",
+      "profile_id": "PIM-SYNTH-04170",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "CLEARED",
+      "risk_score": 38.7,
+      "confidence": 0.92,
+      "rationale": "All statutory requirements for a WORK visa are satisfied: passport validity, valid work visa, Protector Stamp present, financial proof verified, and no watchlist alerts. The Document Integrity Audit reports full compliance with no deficiencies. Socio\u2011economic analysis shows moderate anchorage (Local Ties Index 64.6, moderate bank balance ~334k\u202fPKR) and mitigating factors such as the Protector Stamp and verified finances. While the traveller\u2019s income is volatile and current gig\u2011marketing work does not directly align with the declared software\u2011engineering role, these constitute moderate economic flight\u2011risk flags rather than disqualifying violations. Consequently the overall risk is moderate, yielding a risk score of 38.7 and a high confidence (0.92) in the clearance decision.",
+      "is_parse_failure": false,
+      "parse_status": "SUCCESS",
+      "retries": 0,
+      "calls_count": 3,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 3178,
+        "completion_tokens": 1011,
+        "reasoning_tokens": 515,
+        "total_tokens": 4189
+      },
+      "cost_usd": 0.0012349499999999998,
+      "latency_ms": 2871.260404586792,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": {
+        "document_integrity": {
+          "statutory_compliance_status": "COMPLIANT",
+          "document_deficiencies": [],
+          "verified_credentials": [
+            "Protector Stamp present",
+            "Financial proof verified",
+            "Document authenticity score adequate",
+            "Watchlist clear",
+            "Valid work visa"
+          ],
+          "document_risk_summary": "All mandatory work visa requirements are satisfied; protector stamp present, financial proof verified, authenticity high, and no watchlist alerts."
+        },
+        "socio_economic": {
+          "anchorage_level": "MODERATE",
+          "mitigating_socioeconomic_factors": [
+            "Protector Stamp present",
+            "Verified financial proof and moderate bank balance (~334k PKR)",
+            "Experienced passport holder",
+            "Local ties index 64.6",
+            "Clear watchlist screening"
+          ],
+          "economic_flight_risk_flags": [
+            "Volatile income from gig/freelance work",
+            "Current employment as online marketer not directly aligned with declared software engineering role",
+            "Reliance on future contract for stable earnings"
+          ],
+          "socioeconomic_summary": "The traveler holds a valid work visa with the required protector stamp and has sufficient moderate bank funds and a solid local ties score, indicating credible domestic anchorage. However, income volatility and a mismatch between current gig\u2011based marketing work and the declared software engineering contract introduce moderate flight risk, keeping overall anchorage at a moderate level."
+        }
+      },
+      "debate_transcript": null,
+      "raw_response": "{\"document_integrity\": \"{\\n  \\\"statutory_compliance_status\\\": \\\"COMPLIANT\\\",\\n  \\\"document_deficiencies\\\": [],\\n  \\\"verified_credentials\\\": [\\n    \\\"Protector Stamp present\\\",\\n    \\\"Financial proof verified\\\",\\n    \\\"Document authenticity score adequate\\\",\\n    \\\"Watchlist clear\\\",\\n    \\\"Valid work visa\\\"\\n  ],\\n  \\\"document_risk_summary\\\": \\\"All mandatory work visa requirements are satisfied; protector stamp present, financial proof verified, authenticity high, and no watchlist alerts.\\\"\\n}\", \"socio_economic\": \"{\\n  \\\"anchorage_level\\\": \\\"MODERATE\\\",\\n  \\\"mitigating_socioeconomic_factors\\\": [\\n    \\\"Protector Stamp present\\\",\\n    \\\"Verified financial proof and moderate bank balance (~334k PKR)\\\",\\n    \\\"Experienced passport holder\\\",\\n    \\\"Local ties index 64.6\\\",\\n    \\\"Clear watchlist screening\\\"\\n  ],\\n  \\\"economic_flight_risk_flags\\\": [\\n    \\\"Volatile income from gig/freelance work\\\",\\n    \\\"Current employment as online marketer not directly aligned with declared software engineering role\\\",\\n    \\\"Reliance on future contract for stable earnings\\\"\\n  ],\\n  \\\"socioeconomic_summary\\\": \\\"The traveler holds a valid work visa with the required protector stamp and has sufficient moderate bank funds and a solid local ties score, indicating credible domestic anchorage. However, income volatility and a mismatch between current gig\\u2011based marketing work and the declared software engineering contract introduce moderate flight risk, keeping overall anchorage at a moderate level.\\\"\\n}\", \"consensus_scorer\": \"{\\\"decision\\\":\\\"CLEARED\\\",\\\"risk_score\\\":38.7,\\\"confidence\\\":0.92,\\\"rationale\\\":\\\"All statutory requirements for a WORK visa are satisfied: passport validity, valid work visa, Protector Stamp present, financial proof verified, and no watchlist alerts. The Document Integrity Audit reports full compliance with no deficiencies. Socio\\u2011economic analysis shows moderate anchorage (Local Ties Index 64.6, moderate bank balance ~334k\\u202fPKR) and mitigating factors such as the Protector Stamp and verified finances. While the traveller\\u2019s income is volatile and current gig\\u2011marketing work does not directly align with the declared software\\u2011engineering role, these constitute moderate economic flight\\u2011risk flags rather than disqualifying violations. Consequently the overall risk is moderate, yielding a risk score of 38.7 and a high confidence (0.92) in the clearance decision.\\\"}\"}"
+    },
+    {
+      "timestamp": "2026-10-30T22:24:18Z",
+      "system_id": "S2",
+      "profile_id": "PIM-SYNTH-04740",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "CLEARED",
+      "risk_score": 35.0,
+      "confidence": 0.92,
+      "rationale": "All statutory requirements for a VISIT visa are satisfied: valid passport, valid visa, confirmed round\u2011trip ticket, verified accommodation, financial proof, and no watchlist alert. The Protector Stamp is not required for VISIT visas. Economic flight\u2011risk flags (informal self\u2011employment, fresh passport, moderate local\u2011ties score, high\u2011scrutiny destination) are offset by strong mitigating factors: high bank savings (~1.1\u202fM\u202fPKR), verified return ticket and accommodation, family\u2011visit purpose, and a respectable document authenticity score (82.2). The net assessment indicates a moderate overall risk, well below the threshold for off\u2011loading, thus the passenger is cleared for departure.",
+      "is_parse_failure": false,
+      "parse_status": "SUCCESS",
+      "retries": 0,
+      "calls_count": 3,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 3247,
+        "completion_tokens": 1165,
+        "reasoning_tokens": 657,
+        "total_tokens": 4412
+      },
+      "cost_usd": 0.0013608,
+      "latency_ms": 3742.4235343933105,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": {
+        "document_integrity": {
+          "statutory_compliance_status": "COMPLIANT",
+          "document_deficiencies": [],
+          "verified_credentials": [
+            "Valid passport with required validity",
+            "Valid visit visa",
+            "Confirmed round-trip ticket",
+            "Confirmed accommodation booking",
+            "Financial proof verified",
+            "Document authenticity score adequate (82.2)",
+            "Watchlist clear"
+          ],
+          "document_risk_summary": "All statutory requirements for a VISIT visa are satisfied; no deficiencies detected; authenticity score is acceptable; no watchlist alerts."
+        },
+        "socio_economic": {
+          "anchorage_level": "MODERATE",
+          "mitigating_socioeconomic_factors": [
+            "High bank funds (\u22481.1M\u202fPKR)",
+            "Verified round\u2011trip ticket",
+            "Confirmed accommodation voucher",
+            "Purpose of visiting family/relatives",
+            "Local ties index 59.4 (moderate)",
+            "No watchlist alert",
+            "Document authenticity score 82.2"
+          ],
+          "economic_flight_risk_flags": [
+            "Informal self\u2011employment with only moderate income stability",
+            "Fresh passport \u2013 no prior travel history",
+            "Destination Kyrgyzstan is a high\u2011scrutiny hub",
+            "Local ties index not high (59.4)",
+            "Reliance on personal savings rather than formal employment"
+          ],
+          "socioeconomic_summary": "The traveler shows moderate economic anchorage: substantial bank savings, verified return ticket and accommodation, and family ties support a credible intent to return. However, informal employment, lack of travel history, and a moderate local\u2011ties score raise some flight\u2011risk concerns, especially given the high\u2011scrutiny destination."
+        }
+      },
+      "debate_transcript": null,
+      "raw_response": "{\"document_integrity\": \"{\\n  \\\"statutory_compliance_status\\\": \\\"COMPLIANT\\\",\\n  \\\"document_deficiencies\\\": [],\\n  \\\"verified_credentials\\\": [\\n    \\\"Valid passport with required validity\\\",\\n    \\\"Valid visit visa\\\",\\n    \\\"Confirmed round-trip ticket\\\",\\n    \\\"Confirmed accommodation booking\\\",\\n    \\\"Financial proof verified\\\",\\n    \\\"Document authenticity score adequate (82.2)\\\",\\n    \\\"Watchlist clear\\\"\\n  ],\\n  \\\"document_risk_summary\\\": \\\"All statutory requirements for a VISIT visa are satisfied; no deficiencies detected; authenticity score is acceptable; no watchlist alerts.\\\"\\n}\", \"socio_economic\": \"{\\\"anchorage_level\\\":\\\"MODERATE\\\",\\\"mitigating_socioeconomic_factors\\\":[\\\"High bank funds (\\u22481.1M\\u202fPKR)\\\",\\\"Verified round\\u2011trip ticket\\\",\\\"Confirmed accommodation voucher\\\",\\\"Purpose of visiting family/relatives\\\",\\\"Local ties index 59.4 (moderate)\\\",\\\"No watchlist alert\\\",\\\"Document authenticity score 82.2\\\"],\\\"economic_flight_risk_flags\\\":[\\\"Informal self\\u2011employment with only moderate income stability\\\",\\\"Fresh passport \\u2013 no prior travel history\\\",\\\"Destination Kyrgyzstan is a high\\u2011scrutiny hub\\\",\\\"Local ties index not high (59.4)\\\",\\\"Reliance on personal savings rather than formal employment\\\"],\\\"socioeconomic_summary\\\":\\\"The traveler shows moderate economic anchorage: substantial bank savings, verified return ticket and accommodation, and family ties support a credible intent to return. However, informal employment, lack of travel history, and a moderate local\\u2011ties score raise some flight\\u2011risk concerns, especially given the high\\u2011scrutiny destination.\\\"}\", \"consensus_scorer\": \"{\\\"decision\\\":\\\"CLEARED\\\",\\\"risk_score\\\":35.0,\\\"confidence\\\":0.92,\\\"rationale\\\":\\\"All statutory requirements for a VISIT visa are satisfied: valid passport, valid visa, confirmed round\\u2011trip ticket, verified accommodation, financial proof, and no watchlist alert. The Protector Stamp is not required for VISIT visas. Economic flight\\u2011risk flags (informal self\\u2011employment, fresh passport, moderate local\\u2011ties score, high\\u2011scrutiny destination) are offset by strong mitigating factors: high bank savings (~1.1\\u202fM\\u202fPKR), verified return ticket and accommodation, family\\u2011visit purpose, and a respectable document authenticity score (82.2). The net assessment indicates a moderate overall risk, well below the threshold for off\\u2011loading, thus the passenger is cleared for departure.\\\"}\"}"
+    },
+    {
+      "timestamp": "2026-10-30T22:27:23Z",
+      "system_id": "S2",
+      "profile_id": "PIM-SYNTH-00019",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "OFF-LOAD",
+      "risk_score": 85.3,
+      "confidence": 0.95,
+      "rationale": "The passenger holds a VISIT visa, which under the departure compliance rules mandates a confirmed round\u2011trip return ticket. The Document Integrity Audit explicitly flags a missing confirmed return ticket, classifying the documentation as DEFICIENT. This statutory requirement is non\u2011negotiable; without a verified return ticket the traveler must be offloaded regardless of other mitigating factors. Although the socio\u2011economic audit notes high bank funds, verified accommodation, and a moderate anchorage level, these do not override the mandatory return\u2011ticket rule. Consequently, the passenger is OFF\u2011LOAD with a high risk score reflecting the missing ticket, low local ties (38.8), fresh passport, and seasonal employment, all of which increase flight\u2011risk concerns.",
+      "is_parse_failure": false,
+      "parse_status": "SUCCESS",
+      "retries": 0,
+      "calls_count": 3,
+      "rounds_completed": NaN,
+      "tokens": {
+        "prompt_tokens": 3161,
+        "completion_tokens": 1120,
+        "reasoning_tokens": 633,
+        "total_tokens": 4281
+      },
+      "cost_usd": 0.00131415,
+      "latency_ms": 3141.533374786377,
+      "statutory_violations": [
+        "Missing Return Ticket (VISIT)"
+      ],
+      "has_statutory_violation": true,
+      "is_hard_rule_offload": true,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": {
+        "document_integrity": {
+          "statutory_compliance_status": "DEFICIENT",
+          "document_deficiencies": [
+            "Missing confirmed round\u2011trip return ticket"
+          ],
+          "verified_credentials": [
+            "Valid visit visa",
+            "Accommodation verified",
+            "Financial proof verified",
+            "Watchlist clear",
+            "Document authenticity score acceptable (71.1)"
+          ],
+          "document_risk_summary": "Passenger meets visa, accommodation, financial and watchlist requirements, but lacks a confirmed return ticket, rendering the visit visa documentation deficient."
+        },
+        "socio_economic": {
+          "anchorage_level": "MODERATE",
+          "mitigating_socioeconomic_factors": [
+            "High bank funds (1.3M PKR)",
+            "Verified accommodation booking",
+            "Financial proof validated",
+            "Current employment as seasonal construction assistant",
+            "Document authenticity score 71.1"
+          ],
+          "economic_flight_risk_flags": [
+            "Missing/incomplete return ticket (mandatory for visit visa)",
+            "Fresh passport with no prior travel history",
+            "Low local ties index (38.8)",
+            "Seasonal/contract work indicating potential income instability",
+            "Moderate income stability"
+          ],
+          "socioeconomic_summary": "The traveler shows moderate economic anchorage supported by substantial bank balances and verified accommodation, but the lack of a return ticket, low domestic ties, fresh passport, and seasonal employment raise notable flight risk concerns for a visit visa to Saudi Arabia."
+        }
+      },
+      "debate_transcript": null,
+      "raw_response": "{\"document_integrity\": \"{\\n  \\\"statutory_compliance_status\\\": \\\"DEFICIENT\\\",\\n  \\\"document_deficiencies\\\": [\\\"Missing confirmed round\\u2011trip return ticket\\\"],\\n  \\\"verified_credentials\\\": [\\\"Valid visit visa\\\", \\\"Accommodation verified\\\", \\\"Financial proof verified\\\", \\\"Watchlist clear\\\", \\\"Document authenticity score acceptable (71.1)\\\"],\\n  \\\"document_risk_summary\\\": \\\"Passenger meets visa, accommodation, financial and watchlist requirements, but lacks a confirmed return ticket, rendering the visit visa documentation deficient.\\\"\\n}\", \"socio_economic\": \"{\\n  \\\"anchorage_level\\\": \\\"MODERATE\\\",\\n  \\\"mitigating_socioeconomic_factors\\\": [\\n    \\\"High bank funds (1.3M PKR)\\\",\\n    \\\"Verified accommodation booking\\\",\\n    \\\"Financial proof validated\\\",\\n    \\\"Current employment as seasonal construction assistant\\\",\\n    \\\"Document authenticity score 71.1\\\"\\n  ],\\n  \\\"economic_flight_risk_flags\\\": [\\n    \\\"Missing/incomplete return ticket (mandatory for visit visa)\\\",\\n    \\\"Fresh passport with no prior travel history\\\",\\n    \\\"Low local ties index (38.8)\\\",\\n    \\\"Seasonal/contract work indicating potential income instability\\\",\\n    \\\"Moderate income stability\\\"\\n  ],\\n  \\\"socioeconomic_summary\\\": \\\"The traveler shows moderate economic anchorage supported by substantial bank balances and verified accommodation, but the lack of a return ticket, low domestic ties, fresh passport, and seasonal employment raise notable flight risk concerns for a visit visa to Saudi Arabia.\\\"\\n}\", \"consensus_scorer\": \"{\\\"decision\\\":\\\"OFF-LOAD\\\",\\\"risk_score\\\":85.3,\\\"confidence\\\":0.95,\\\"rationale\\\":\\\"The passenger holds a VISIT visa, which under the departure compliance rules mandates a confirmed round\\u2011trip return ticket. The Document Integrity Audit explicitly flags a missing confirmed return ticket, classifying the documentation as DEFICIENT. This statutory requirement is non\\u2011negotiable; without a verified return ticket the traveler must be offloaded regardless of other mitigating factors. Although the socio\\u2011economic audit notes high bank funds, verified accommodation, and a moderate anchorage level, these do not override the mandatory return\\u2011ticket rule. Consequently, the passenger is OFF\\u2011LOAD with a high risk score reflecting the missing ticket, low local ties (38.8), fresh passport, and seasonal employment, all of which increase flight\\u2011risk concerns.\\\"}\"}"
+    }
+  ],
+  "S3": [
+    {
+      "timestamp": "2026-10-30T22:24:17Z",
+      "system_id": "S3",
+      "profile_id": "PIM-SYNTH-04740",
+      "ground_truth_label": 0,
+      "is_non_traditional": 1,
+      "decision": "CLEARED",
+      "risk_score": 22.5,
+      "confidence": 0.94,
+      "rationale": "All statutory requirements for a VISIT visa are satisfied: valid passport, valid visa, verified return ticket, confirmed accommodation, and sufficient financial proof. No watchlist alert exists and a Protector Stamp is not required for visit visas. Although Kyrgyzstan is a high\u2011scrutiny hub, the passenger\u2019s strong financial resources, verified return ticket, family\u2011visit purpose, and a respectable Local Ties Index mitigate flight\u2011risk concerns. The prosecutor\u2019s ancillary concerns (fresh passport, moderate local ties, document authenticity score) do not constitute a statutory breach. Consequently, the passenger is cleared for departure with a low\u2011to\u2011moderate risk rating.",
+      "is_parse_failure": false,
+      "parse_status": "SUCCESS",
+      "retries": 0,
+      "calls_count": 3,
+      "rounds_completed": 1.0,
+      "tokens": {
+        "prompt_tokens": 4026,
+        "completion_tokens": 1470,
+        "reasoning_tokens": 658,
+        "total_tokens": 5496
+      },
+      "cost_usd": 0.0017064,
+      "latency_ms": 14707.762718200684,
+      "statutory_violations": [],
+      "has_statutory_violation": false,
+      "is_hard_rule_offload": false,
+      "is_discretionary_offload": false,
+      "is_hard_rule_threat_leakage": false,
+      "specialist_outputs": null,
+      "debate_transcript": [
+        {
+          "round": 1,
+          "speaker": "PROSECUTOR",
+          "content": {
+            "proposed_action": "CLEARED",
+            "proposed_risk_score": 17.3,
+            "confidence": 0.92,
+            "primary_allegations": [
+              "Travel to a high\u2011scrutiny transit hub (Kyrgyzstan) on a VISIT visa",
+              "Moderate Local Ties Index (59.4) indicating only average domestic anchorage",
+              "Fresh passport with limited travel history",
+              "Document authenticity score below optimal (82.2)"
+            ],
+            "prosecution_argument": "Under the illustrative departure compliance rules, a VISIT visa requires a valid passport, a valid visa, a confirmed return ticket, verified accommodation, and sufficient financial proof. The passenger has satisfied all of these statutory requirements: a passport with adequate validity, a valid visit visa, a verified round\u2011trip ticket, a confirmed accommodation voucher, and robust financial documentation (PKR 1.1\u20113.0 million). No watchlist alerts are present, and the Protector Stamp is not applicable to VISIT visas. The only residual concerns stem from the destination being listed among high\u2011scrutiny transit hubs, the passenger's moderate Local Ties Index, and a fresh passport indicating limited travel history. While these factors elevate the flight\u2011risk profile modestly, they do not constitute a statutory violation. Consequently, the passenger meets all regulatory obligations and may be cleared for departure, albeit with a low\u2011to\u2011moderate risk score reflecting the noted ancillary concerns."
+          }
+        },
+        {
+          "round": 1,
+          "speaker": "ADVOCATE",
+          "content": {
+            "defense_plea": "CLEAR_PASSENGER",
+            "mitigating_arguments": [
+              "Verified return ticket confirming intent to return",
+              "Confirmed accommodation voucher for family visit",
+              "High liquid bank balance (PKR 1.1\u20113.0\u202fM) demonstrating financial self\u2011sufficiency",
+              "Purpose of travel is family visitation \u2013 strong personal anchorage in destination",
+              "Informal self\u2011employment as artisan with moderate but steady income and local reputation",
+              "Local Ties Index of 59.4 reflects appreciable domestic connections despite fresh passport",
+              "No watchlist alerts and Protector Stamp not required for visit visa",
+              "High\u2011scrutiny destination flag does not override statutory compliance when all documents are valid"
+            ],
+            "counter_rebuttal": "The prosecution\u2019s concerns are ancillary and do not constitute a breach of the illustrative departure compliance rules. All mandatory criteria for a VISIT visa\u2014valid passport, valid visa, confirmed round\u2011trip ticket, verified accommodation, and sufficient financial proof\u2014are fully satisfied. The high\u2011scrutiny designation of Kyrgyzstan merely triggers heightened observation; it does not mandate offloading absent concrete evidence of intent to overstay or engage in unauthorized labor. The passenger\u2019s substantial bank holdings, documented family ties in the destination, and a respectable Local Ties Index collectively demonstrate a credible intention to return. Moreover, the fresh passport reflects a new travel document rather than a risk factor, and the authenticity score of 82.2, while not perfect, exceeds any threshold that would trigger denial. Consequently, there is no statutory basis for offloading, and the passenger should be cleared for departure.",
+            "advocate_confidence": 0.93
+          }
+        }
+      ],
+      "raw_response": "{\"decision\": \"CLEARED\", \"risk_score\": 22.5, \"confidence\": 0.94, \"rationale\": \"All statutory requirements for a VISIT visa are satisfied: valid passport, valid visa, verified return ticket, confirmed accommodation, and sufficient financial proof. No watchlist alert exists and a Protector Stamp is not required for visit visas. Although Kyrgyzstan is a high\\u2011scrutiny hub, the passenger\\u2019s strong financial resources, verified return ticket, family\\u2011visit purpose, and a respectable Local Ties Index mitigate flight\\u2011risk concerns. The prosecutor\\u2019s ancillary concerns (fresh passport, moderate local ties, document authenticity score) do not constitute a statutory breach. Consequently, the passenger is cleared for departure with a low\\u2011to\\u2011moderate risk rating.\"}"
+    }
+  ]
+}
