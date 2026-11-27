@@ -9,3 +9,5 @@ reportlab
 pydantic
 pydantic-settings
 python-dotenv
+pillow
+

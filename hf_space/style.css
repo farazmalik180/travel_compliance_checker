@@ -1,0 +1,47 @@
+/* PIM Custom Styling */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #212529;
+}
+
+.chat-bubble {
+  padding: 10px 14px;
+  border-radius: 12px;
+  max-width: 85%;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.assistant-bubble {
+  background-color: #ffffff;
+  color: #1e293b;
+  border: 1px solid #e2e8f0;
+  margin-right: auto;
+}
+
+.user-bubble {
+  background-color: #198754;
+  color: #ffffff;
+  margin-left: auto;
+}
+
+.prompt-chip {
+  border-radius: 20px;
+  font-size: 0.8rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.prompt-chip:hover {
+  background-color: #198754;
+  color: #ffffff;
+  border-color: #198754;
+}
+
+#chatMessages::-webkit-scrollbar {
+  width: 6px;
+}
+
+#chatMessages::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 3px;
+}

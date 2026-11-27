@@ -1,0 +1,408 @@
+{
+  "total_injected_false_claims": 50,
+  "detected_false_claims": 50,
+  "auditor_recall": 1.0,
+  "recall_percentage": 100.0,
+  "details": [
+    {
+      "type": "false_return_ticket",
+      "claim": "Passenger presents a valid return ticket confirming return on flight PK-700.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims valid return ticket, but has_return_ticket is False"
+      ]
+    },
+    {
+      "type": "false_return_ticket",
+      "claim": "Passenger presents a valid return ticket confirming return on flight PK-701.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims valid return ticket, but has_return_ticket is False"
+      ]
+    },
+    {
+      "type": "false_return_ticket",
+      "claim": "Passenger presents a valid return ticket confirming return on flight PK-702.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims valid return ticket, but has_return_ticket is False"
+      ]
+    },
+    {
+      "type": "false_return_ticket",
+      "claim": "Passenger presents a valid return ticket confirming return on flight PK-703.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims valid return ticket, but has_return_ticket is False"
+      ]
+    },
+    {
+      "type": "false_return_ticket",
+      "claim": "Passenger presents a valid return ticket confirming return on flight PK-704.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims valid return ticket, but has_return_ticket is False"
+      ]
+    },
+    {
+      "type": "false_return_ticket",
+      "claim": "Passenger presents a valid return ticket confirming return on flight PK-705.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims valid return ticket, but has_return_ticket is False"
+      ]
+    },
+    {
+      "type": "false_return_ticket",
+      "claim": "Passenger presents a valid return ticket confirming return on flight PK-706.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims valid return ticket, but has_return_ticket is False"
+      ]
+    },
+    {
+      "type": "false_return_ticket",
+      "claim": "Passenger presents a valid return ticket confirming return on flight PK-707.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims valid return ticket, but has_return_ticket is False"
+      ]
+    },
+    {
+      "type": "false_return_ticket",
+      "claim": "Passenger presents a valid return ticket confirming return on flight PK-708.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims valid return ticket, but has_return_ticket is False"
+      ]
+    },
+    {
+      "type": "false_return_ticket",
+      "claim": "Passenger presents a valid return ticket confirming return on flight PK-709.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims valid return ticket, but has_return_ticket is False"
+      ]
+    },
+    {
+      "type": "false_hotel_booking",
+      "claim": "Passenger has a confirmed hotel booking at Grand Palace Hotel for 3 days.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims confirmed hotel booking, but has_hotel_booking is False"
+      ]
+    },
+    {
+      "type": "false_hotel_booking",
+      "claim": "Passenger has a confirmed hotel booking at Grand Palace Hotel for 4 days.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims confirmed hotel booking, but has_hotel_booking is False"
+      ]
+    },
+    {
+      "type": "false_hotel_booking",
+      "claim": "Passenger has a confirmed hotel booking at Grand Palace Hotel for 5 days.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims confirmed hotel booking, but has_hotel_booking is False"
+      ]
+    },
+    {
+      "type": "false_hotel_booking",
+      "claim": "Passenger has a confirmed hotel booking at Grand Palace Hotel for 6 days.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims confirmed hotel booking, but has_hotel_booking is False"
+      ]
+    },
+    {
+      "type": "false_hotel_booking",
+      "claim": "Passenger has a confirmed hotel booking at Grand Palace Hotel for 7 days.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims confirmed hotel booking, but has_hotel_booking is False"
+      ]
+    },
+    {
+      "type": "false_hotel_booking",
+      "claim": "Passenger has a confirmed hotel booking at Grand Palace Hotel for 8 days.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims confirmed hotel booking, but has_hotel_booking is False"
+      ]
+    },
+    {
+      "type": "false_hotel_booking",
+      "claim": "Passenger has a confirmed hotel booking at Grand Palace Hotel for 9 days.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims confirmed hotel booking, but has_hotel_booking is False"
+      ]
+    },
+    {
+      "type": "false_hotel_booking",
+      "claim": "Passenger has a confirmed hotel booking at Grand Palace Hotel for 10 days.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims confirmed hotel booking, but has_hotel_booking is False"
+      ]
+    },
+    {
+      "type": "false_hotel_booking",
+      "claim": "Passenger has a confirmed hotel booking at Grand Palace Hotel for 11 days.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims confirmed hotel booking, but has_hotel_booking is False"
+      ]
+    },
+    {
+      "type": "false_hotel_booking",
+      "claim": "Passenger has a confirmed hotel booking at Grand Palace Hotel for 12 days.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims confirmed hotel booking, but has_hotel_booking is False"
+      ]
+    },
+    {
+      "type": "false_financial_proof",
+      "claim": "Passenger has presented adequate financial proof and verified bank statements.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims verified financial proof, but has_financial_proof is False"
+      ]
+    },
+    {
+      "type": "false_financial_proof",
+      "claim": "Passenger has presented adequate financial proof and verified bank statements.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims verified financial proof, but has_financial_proof is False"
+      ]
+    },
+    {
+      "type": "false_financial_proof",
+      "claim": "Passenger has presented adequate financial proof and verified bank statements.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims verified financial proof, but has_financial_proof is False"
+      ]
+    },
+    {
+      "type": "false_financial_proof",
+      "claim": "Passenger has presented adequate financial proof and verified bank statements.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims verified financial proof, but has_financial_proof is False"
+      ]
+    },
+    {
+      "type": "false_financial_proof",
+      "claim": "Passenger has presented adequate financial proof and verified bank statements.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims verified financial proof, but has_financial_proof is False"
+      ]
+    },
+    {
+      "type": "false_financial_proof",
+      "claim": "Passenger has presented adequate financial proof and verified bank statements.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims verified financial proof, but has_financial_proof is False"
+      ]
+    },
+    {
+      "type": "false_financial_proof",
+      "claim": "Passenger has presented adequate financial proof and verified bank statements.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims verified financial proof, but has_financial_proof is False"
+      ]
+    },
+    {
+      "type": "false_financial_proof",
+      "claim": "Passenger has presented adequate financial proof and verified bank statements.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims verified financial proof, but has_financial_proof is False"
+      ]
+    },
+    {
+      "type": "false_financial_proof",
+      "claim": "Passenger has presented adequate financial proof and verified bank statements.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims verified financial proof, but has_financial_proof is False"
+      ]
+    },
+    {
+      "type": "false_financial_proof",
+      "claim": "Passenger has presented adequate financial proof and verified bank statements.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims verified financial proof, but has_financial_proof is False"
+      ]
+    },
+    {
+      "type": "false_protector_stamp",
+      "claim": "Passenger holds a valid protector stamp properly endorsed on passport.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims Protector stamp, but has_protector_stamp is False"
+      ]
+    },
+    {
+      "type": "false_protector_stamp",
+      "claim": "Passenger holds a valid protector stamp properly endorsed on passport.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims Protector stamp, but has_protector_stamp is False"
+      ]
+    },
+    {
+      "type": "false_protector_stamp",
+      "claim": "Passenger holds a valid protector stamp properly endorsed on passport.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims Protector stamp, but has_protector_stamp is False"
+      ]
+    },
+    {
+      "type": "false_protector_stamp",
+      "claim": "Passenger holds a valid protector stamp properly endorsed on passport.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims Protector stamp, but has_protector_stamp is False"
+      ]
+    },
+    {
+      "type": "false_protector_stamp",
+      "claim": "Passenger holds a valid protector stamp properly endorsed on passport.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims Protector stamp, but has_protector_stamp is False"
+      ]
+    },
+    {
+      "type": "false_protector_stamp",
+      "claim": "Passenger holds a valid protector stamp properly endorsed on passport.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims Protector stamp, but has_protector_stamp is False"
+      ]
+    },
+    {
+      "type": "false_protector_stamp",
+      "claim": "Passenger holds a valid protector stamp properly endorsed on passport.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims Protector stamp, but has_protector_stamp is False"
+      ]
+    },
+    {
+      "type": "false_protector_stamp",
+      "claim": "Passenger holds a valid protector stamp properly endorsed on passport.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims Protector stamp, but has_protector_stamp is False"
+      ]
+    },
+    {
+      "type": "false_protector_stamp",
+      "claim": "Passenger holds a valid protector stamp properly endorsed on passport.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims Protector stamp, but has_protector_stamp is False"
+      ]
+    },
+    {
+      "type": "false_protector_stamp",
+      "claim": "Passenger holds a valid protector stamp properly endorsed on passport.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims Protector stamp, but has_protector_stamp is False"
+      ]
+    },
+    {
+      "type": "wealth_exaggeration",
+      "claim": "Passenger possesses substantial wealth and multi-million personal assets in Pakistan.",
+      "detected": true,
+      "flags": [
+        "EXAGGERATION: Claims substantial wealth, but bank_funds_pkr is only 120,000"
+      ]
+    },
+    {
+      "type": "wealth_exaggeration",
+      "claim": "Passenger possesses substantial wealth and multi-million personal assets in Pakistan.",
+      "detected": true,
+      "flags": [
+        "EXAGGERATION: Claims substantial wealth, but bank_funds_pkr is only 130,000"
+      ]
+    },
+    {
+      "type": "wealth_exaggeration",
+      "claim": "Passenger possesses substantial wealth and multi-million personal assets in Pakistan.",
+      "detected": true,
+      "flags": [
+        "EXAGGERATION: Claims substantial wealth, but bank_funds_pkr is only 140,000"
+      ]
+    },
+    {
+      "type": "wealth_exaggeration",
+      "claim": "Passenger possesses substantial wealth and multi-million personal assets in Pakistan.",
+      "detected": true,
+      "flags": [
+        "EXAGGERATION: Claims substantial wealth, but bank_funds_pkr is only 150,000"
+      ]
+    },
+    {
+      "type": "wealth_exaggeration",
+      "claim": "Passenger possesses substantial wealth and multi-million personal assets in Pakistan.",
+      "detected": true,
+      "flags": [
+        "EXAGGERATION: Claims substantial wealth, but bank_funds_pkr is only 160,000"
+      ]
+    },
+    {
+      "type": "false_employment_official",
+      "claim": "Passenger is a permanent civil servant traveling for government training.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims Civil Servant, but employment_type is 'Informal/Gig'"
+      ]
+    },
+    {
+      "type": "false_employment_official",
+      "claim": "Passenger is a permanent civil servant traveling for government training.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims Civil Servant, but employment_type is 'Informal/Gig'"
+      ]
+    },
+    {
+      "type": "false_employment_official",
+      "claim": "Passenger is a permanent civil servant traveling for government training.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims Civil Servant, but employment_type is 'Informal/Gig'"
+      ]
+    },
+    {
+      "type": "false_employment_official",
+      "claim": "Passenger is a permanent civil servant traveling for government training.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims Civil Servant, but employment_type is 'Informal/Gig'"
+      ]
+    },
+    {
+      "type": "false_employment_official",
+      "claim": "Passenger is a permanent civil servant traveling for government training.",
+      "detected": true,
+      "flags": [
+        "CONTRADICTION: Claims Civil Servant, but employment_type is 'Informal/Gig'"
+      ]
+    }
+  ]
+}

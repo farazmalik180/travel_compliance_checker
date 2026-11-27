@@ -1,0 +1,14 @@
+{
+  "execution_date": "2026-10-29T14:53:46Z",
+  "stage": "dev_pilot",
+  "sample_size": 200,
+  "seed": 2026,
+  "spend_cap_usd": 2.0,
+  "actual_spend_usd": 0.011090999999999998,
+  "total_calls": 4183,
+  "total_prompt_tokens": 27805,
+  "total_completion_tokens": 9227,
+  "total_reasoning_tokens": 5530,
+  "model": "openai/gpt-oss-120b",
+  "reasoning_effort": "medium"
+}
