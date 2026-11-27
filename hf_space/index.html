@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PIM - Pakistan Immigration Manager | AI Compliance Agent</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+
+  <!-- Header -->
+  <header class="navbar navbar-dark bg-success shadow-sm py-3 mb-4">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-3">
+        <span class="fs-1">🛂</span>
+        <div>
+          <h1 class="h4 mb-0 fw-bold text-white">Pakistan Immigration Manager (PIM)</h1>
+          <p class="mb-0 text-white-50 small">Autonomous Multi-Agent Travel Compliance & Departure Screening System</p>
+        </div>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <span class="badge bg-light text-success fw-semibold"><i class="bi bi-cloud-check me-1"></i> AWS Lambda Backend</span>
+        <span class="badge bg-dark text-light"><i class="bi bi-cpu me-1"></i> gpt-oss-120b</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mb-5">
+    <!-- Notice Banner -->
+    <div class="alert alert-info border-0 shadow-sm d-flex align-items-center mb-4">
+      <i class="bi bi-shield-check fs-4 me-3 text-primary"></i>
+      <div>
+        <strong>FIA IBMS Departure Rule Check:</strong> Evaluates documents and profiles against official FIA departure guidelines, Section 13/14 Emigration Ordinance rules, and the 15 monitored high-scrutiny destinations.
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Left Column: Passenger Intake Form -->
+      <div class="col-lg-6">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-header bg-white py-3 border-0">
+            <h2 class="h5 mb-0 fw-bold text-dark"><i class="bi bi-person-lines-fill text-success me-2"></i>Passenger Travel Profile</h2>
+          </div>
+          <div class="card-body">
+            <form id="complianceForm">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Nationality</label>
+                  <input type="text" id="nationality" class="form-control" value="Pakistani" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Destination Country</label>
+                  <select id="destination" class="form-select" required>
+                    <option value="Cambodia">Cambodia (Special Directives)</option>
+                    <option value="United Arab Emirates (Dubai)" selected>United Arab Emirates (Dubai)</option>
+                    <option value="Saudi Arabia">Saudi Arabia (Work / Visit)</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="Qatar">Qatar (Watchlist)</option>
+                    <option value="Türkiye">Türkiye (Watchlist)</option>
+                    <option value="Azerbaijan">Azerbaijan (Watchlist)</option>
+                    <option value="Malaysia">Malaysia</option>
+                    <option value="Thailand">Thailand</option>
+                    <option value="Other">Other Country</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Visa Category</label>
+                  <select id="visaCategory" class="form-select" required>
+                    <option value="VISIT" selected>Tourist / Visit Visa</option>
+                    <option value="WORK">Work / Employment Visa</option>
+                    <option value="STUDENT">Student Visa</option>
+                    <option value="BUSINESS">Business Visa</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Passport History</label>
+                  <select id="passportHistory" class="form-select">
+                    <option value="Experienced" selected>Experienced Traveler (Prior Visas)</option>
+                    <option value="Fresh">Fresh Passport (First-Time Traveler)</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Declared Profession</label>
+                  <input type="text" id="profession" class="form-control" value="Software Engineer" placeholder="e.g. Gig Worker, Freelancer, Govt Employee">
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Bank Balance / Financial Proof</label>
+                  <input type="text" id="bankFunds" class="form-control" value="PKR 850,000" placeholder="e.g. PKR 500,000 or USD 2,500">
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label small fw-semibold">Purpose of Travel</label>
+                  <input type="text" id="purpose" class="form-control" value="Tourism and sightseeing" required>
+                </div>
+              </div>
+
+              <hr class="my-4 text-muted">
+
+              <h3 class="h6 fw-bold mb-3 text-secondary"><i class="bi bi-card-checklist me-1"></i>Document & Physical Checks Checklist</h3>
+              
+              <div class="vstack gap-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="hasReturnTicket" checked>
+                  <label class="form-check-label small" for="hasReturnTicket">
+                    Confirmed Return Air Ticket present (on confirmed PNR)
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="hasHotelBooking" checked>
+                  <label class="form-check-label small" for="hasHotelBooking">
+                    Confirmed Hotel Booking or verified Accommodation Proof
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="hasFinancialProof" checked>
+                  <label class="form-check-label small" for="hasFinancialProof">
+                    Financial Proof / Bank Statement / International Credit Card
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="hasProtectorStamp">
+                  <label class="form-check-label small" for="hasProtectorStamp">
+                    Protector Stamp from Bureau of Emigration (Mandatory for Work Visas only)
+                  </label>
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <button type="submit" id="submitBtn" class="btn btn-success w-100 py-2 fw-semibold shadow-sm">
+                  <i class="bi bi-shield-check me-2"></i>Evaluate Departure Compliance
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Compliance Decision & Audit Results -->
+      <div class="col-lg-6">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-header bg-white py-3 border-0 d-flex justify-content-between align-items-center">
+            <h2 class="h5 mb-0 fw-bold text-dark"><i class="bi bi-clipboard2-pulse text-primary me-2"></i>Compliance Adjudication</h2>
+            <span id="evalBadge" class="badge bg-secondary">Awaiting Evaluation</span>
+          </div>
+          <div class="card-body">
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="text-center py-5 d-none">
+              <div class="spinner-border text-success" role="status" style="width: 3rem; height: 3rem;"></div>
+              <p class="mt-3 text-muted fw-semibold">Running Multi-Agent Adjudication & Advocate Critic...</p>
+            </div>
+
+            <!-- Empty Placeholder -->
+            <div id="resultsPlaceholder" class="text-center py-5 text-muted">
+              <i class="bi bi-passport display-1 text-black-50 mb-3 d-block"></i>
+              <p class="mb-0">Fill in traveler details on the left and click <strong>Evaluate Departure Compliance</strong>.</p>
+            </div>
+
+            <!-- Dynamic Results Container -->
+            <div id="resultsContainer" class="d-none">
+              <!-- Score and Status Banner -->
+              <div id="statusBanner" class="alert d-flex align-items-center justify-content-between p-3 mb-4 rounded-3">
+                <div class="d-flex align-items-center gap-3">
+                  <i id="statusIcon" class="bi display-5"></i>
+                  <div>
+                    <h3 id="statusTitle" class="h5 mb-1 fw-bold"></h3>
+                    <p id="statusSubtitle" class="mb-0 small"></p>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <span class="small d-block text-muted">Confidence Score</span>
+                  <span id="scoreText" class="h4 fw-bold mb-0"></span>
+                </div>
+              </div>
+
+              <!-- Verified Items List -->
+              <div class="mb-4">
+                <h4 class="h6 fw-bold text-success mb-2"><i class="bi bi-check-circle-fill me-1"></i>Verified Requirements</h4>
+                <ul id="verifiedList" class="list-group list-group-flush small"></ul>
+              </div>
+
+              <!-- Missing Requirements List -->
+              <div class="mb-4">
+                <h4 class="h6 fw-bold text-danger mb-2"><i class="bi bi-exclamation-triangle-fill me-1"></i>Deficiencies / Action Required</h4>
+                <ul id="missingList" class="list-group list-group-flush small"></ul>
+              </div>
+
+              <!-- Advocate Review Card -->
+              <div class="card bg-light border-0 p-3 mb-3">
+                <h4 class="h6 fw-bold text-primary mb-1"><i class="bi bi-person-heart me-1"></i>Traveler Advocate & Critic Review</h4>
+                <p id="advocateNotes" class="mb-0 small text-secondary"></p>
+              </div>
+
+              <!-- FIA Legal Citation -->
+              <div class="card bg-light border-0 p-3">
+                <h4 class="h6 fw-bold text-dark mb-1"><i class="bi bi-book me-1"></i>Official FIA Guideline & IBMS Citation</h4>
+                <p id="ruleReference" class="mb-0 small text-muted font-monospace"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Section: Interactive AI Assistant (Chat) -->
+    <div class="row mt-4">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-header bg-white py-3 border-0 d-flex justify-content-between align-items-center">
+            <h2 class="h5 mb-0 fw-bold text-dark"><i class="bi bi-chat-dots-fill text-success me-2"></i>FIA Immigration AI Assistant</h2>
+            <span class="badge bg-success-subtle text-success">Powered by Groq</span>
+          </div>
+          <div class="card-body">
+            <!-- Prompt Chips -->
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <button class="btn btn-sm btn-outline-secondary prompt-chip">Do I need a protector stamp for Dubai visit visa?</button>
+              <button class="btn btn-sm btn-outline-secondary prompt-chip">What is the show money requirement for Cambodia?</button>
+              <button class="btn btn-sm btn-outline-secondary prompt-chip">What documents are needed for Saudi Arabia work visa?</button>
+              <button class="btn btn-sm btn-outline-secondary prompt-chip">Does a government servant need an NOC to travel?</button>
+            </div>
+
+            <!-- Chat Window -->
+            <div id="chatMessages" class="p-3 bg-light rounded-3 mb-3" style="height: 250px; overflow-y: auto;">
+              <div class="chat-bubble assistant-bubble mb-2">
+                <strong>PIM Assistant:</strong> Assalam-o-Alaikum! I am your FIA Immigration Compliance Assistant. Ask me anything about departure requirements, protector stamps, show money, or airport immigration screening.
+              </div>
+            </div>
+
+            <!-- Chat Input -->
+            <form id="chatForm" class="d-flex gap-2">
+              <input type="text" id="chatInput" class="form-control" placeholder="Ask a question about Pakistan departure exit rules..." required>
+              <button type="submit" class="btn btn-success px-4"><i class="bi bi-send-fill me-1"></i>Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-3 bg-white text-center text-muted small border-top">
+    <div class="container">
+      Pakistan Immigration Manager (PIM) &copy; 2026 | MS AI Thesis Research | Deployed on Hugging Face Spaces & AWS Lambda
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
